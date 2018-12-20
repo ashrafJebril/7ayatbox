@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import Home from '../Components/Home/Home'
+import Nav from '../Components/Home/NavBar/Nav'
+import Categories from '../Components/Categories/Categories'
+
+import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +23,20 @@ class App extends Component {
     });
   }
   render() {
-    return <div className="App">{this.state.text}</div>;
+    return (
+      <div>
+        <Nav/>
+    
+        <BrowserRouter>
+        <Switch>
+        <Route path="/" component={Home} exact/>
+        <Route path='/Categories' component={Categories} exact />
+        </Switch>
+        
+        </BrowserRouter>
+
+</div>
+    );
   }
 }
 

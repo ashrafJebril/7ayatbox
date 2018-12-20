@@ -1,0 +1,36 @@
+
+
+.tiledBackground{
+background:url('https://cdn.freshdesignweb.com/wp-content/uploads/wordpress-wedding-themes/screenshot1.jpg') no-repeat ;
+background-size: 100%;
+height: 1000px;
+
+
+}
+.title{
+    margin:0 auto;
+    text-align: center;
+
+    width : 70%;
+    color: white;
+    font-size:48px;
+font-family: 'Thasadith', sans-serif;
+
+}
+
+.title span{
+    margin:0 auto;
+    
+  
+    
+    width : 70%;
+    color: white;
+    font-size:30px;
+font-family: 'Thasadith';
+}
+
+.background-img-component{
+    text-align: center;
+  
+}
+

@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import $ from "jquery";
 import Home from '../Components/Home/Home'
 import Nav from '../Components/Home/NavBar/Nav'
+import Footer from '../Components/Home/Footer/Footer'
 import Categories from '../Components/Categories/Categories'
 
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,7 @@ class App extends Component {
         </Switch>
         
         </BrowserRouter>
+<Footer/>
 
 </div>
     );

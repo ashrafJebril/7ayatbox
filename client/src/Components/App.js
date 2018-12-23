@@ -16,9 +16,11 @@ class App extends Component {
   }
   componentDidMount() {
     $.ajax({
-      url: "/hello",
-      type: "GET",
+      url: "/user/login",
+      type: "POST",
+      data: { email: "mahmoud@gmail.com", password: "123456", name: "mahmoud" },
       success: data => {
+        alert("Hi");
         this.setState({ text: data.express });
       },
       error: err => {
@@ -29,8 +31,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav/>
-    
+        <Nav />
+
         <BrowserRouter>
         <Switch>
         <Route path="/SignIn" component={SignIn} exact/>

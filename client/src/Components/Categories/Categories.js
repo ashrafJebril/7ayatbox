@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
+import DateTimePicker from 'react-datetime-picker';
  
 class Categories extends Component {
     constructor(){
@@ -20,10 +21,15 @@ class Categories extends Component {
 
       <div className="container-fluid">
           <input type="text" value={this.state.date} style={style}/>
-        <Calendar
+          <div>
+        <DateTimePicker 
           onChange={this.onChange}
           value={this.state.date}
+          dateFormat = "MONTH DATE DAY - YEAR"
+          width='400'
+          theme='window' 
         />
+      </div>
 
 
       </div>

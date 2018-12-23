@@ -4,6 +4,8 @@ import Home from '../Components/Home/Home'
 import Nav from '../Components/Home/NavBar/Nav'
 import Footer from '../Components/Home/Footer/Footer'
 import Categories from '../Components/Categories/Categories'
+import SignIn from '../Components/SignIn/SignIn'
+
 
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 
@@ -31,6 +33,7 @@ class App extends Component {
     
         <BrowserRouter>
         <Switch>
+        <Route path="/SignIn" component={SignIn} exact/>
         <Route path="/" component={Home} exact/>
         <Route path='/Categories' component={Categories} exact />
         </Switch>

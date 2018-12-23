@@ -3,7 +3,7 @@ const insertProvider = (providerName, providerPassword) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("connection err", err);
     console.log("Connected!");
-    var sql = `INSERT INTO Provider (providerName, password) VALUES ("${providerName}","${providerPassword}")`;
+    var sql = `INSERT INTO Provider (Name, password) VALUES ("${providerName}","${providerPassword}")`;
     con.query(sql, function(err, result) {
       if (err) console.log("query error", err);
       console.log("1 record inserted");

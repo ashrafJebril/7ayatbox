@@ -4,7 +4,8 @@ import "./Nav.css"
 const Nav =()=>{
     return(
    
-<header>
+<header class="container-fluid ">
+		<div class="row title-row">
       <nav className="col-12 header-nav">
       <ul>
         <li><a href="#">About us</a></li>
@@ -12,6 +13,7 @@ const Nav =()=>{
         <li><a href="#">Contact us</a></li>
       </ul>
     </nav>
+    </div>
     </header>
     )
 }

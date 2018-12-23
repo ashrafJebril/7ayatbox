@@ -13,6 +13,7 @@
     "react-datetime-calendar": "^0.2.1",
     "react-datetime-picker": "^2.1.1",
     "react-dom": "^16.6.3",
+    "react-picky-date-time": "^1.2.5",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },

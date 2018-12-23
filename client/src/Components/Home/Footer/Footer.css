@@ -1,0 +1,26 @@
+.footer-container{
+	padding:40px 10px 40px;
+	
+}
+.footer-container > div{
+	width:100%;
+	max-width:1280px;
+	margin:0px auto;
+}
+
+.footer-container > div > p{
+	font-size:13px;
+	line-height:20px;
+	color:#585858;
+	display: block;
+	width:100%;
+	max-width:640px;
+	margin:0px auto 40px;
+	text-align: center;
+	
+}
+.footer-container > P{
+	display: block;
+	text-align: center;
+	width:100%;
+}

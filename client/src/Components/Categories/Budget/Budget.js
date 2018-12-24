@@ -74,98 +74,115 @@ class Budget extends Component {
                   id="formGroupExampleInput"
                   placeholder="$ 0.000"
                 />
+                <br/>
+                <div>
+                  {/* Button trigger modal */}
+                  <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    Plan Details
+              </button>
+                  {/* Modal */}
+                  <div className="modal fade" id="exampleModalLong" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h1 className="modal-title planDetails" id="exampleModalLongTitle">Your Plan Details</h1>
+                          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div className="modal-body">
+                          <div className="planDetails">
+                            <div className="formm">
+                              <form onSubmit={this.handleSubmit}>
+                                <div className="form-group">
+                                  <label htmlFor="formGroupExampleInput2">Hall Budget</label>
+                                  <input
+                                    type="text"
+                                    value={"$ " + this.state.value * 0.4}
+                                    onChange={this.handleChange}
+                                    className="form-control"
+                                    id="formGroupExampleInput2"
+                                    placeholder="$ 0.000"
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="formGroupExampleInput">Zafeh Budget </label>
+                                  <input
+                                    type="text"
+                                    value={"$ " + this.state.value * 0.3}
+                                    onChange={this.handleChange}
+                                    className="form-control"
+                                    id="formGroupExampleInput"
+                                    placeholder="$ 0.000"
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="formGroupExampleInput2">Car Budget</label>
+                                  <input
+                                    type="text"
+                                    value={"$ " + this.state.value * 0.2}
+                                    onChange={this.handleChange}
+                                    className="form-control"
+                                    id="formGroupExampleInput2"
+                                    placeholder="$ 0.000"
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="formGroupExampleInput2">Flower Budget</label>
+                                  <input
+                                    type="text"
+                                    value={"$ " + this.state.value * 0.04}
+                                    onChange={this.handleChange}
+                                    className="form-control"
+                                    id="formGroupExampleInput2"
+                                    placeholder="$ 0.000"
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="formGroupExampleInput2">DJ Budget</label>
+                                  <input
+                                    type="text"
+                                    value={"$ " + this.state.value * 0.02}
+                                    onChange={this.handleChange}
+                                    className="form-control"
+                                    id="formGroupExampleInput2"
+                                    placeholder="$ 0.000"
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="formGroupExampleInput2">
+                                    Beauty Salon Budget
+                                  </label>
+                                  <input
+                                    type="text"
+                                    value={"$ " + this.state.value * 0.04}
+                                    onChange={this.handleChange}
+                                    className="form-control"
+                                    id="formGroupExampleInput2"
+                                    placeholder="$ 0.000"
+                                  />
+                                </div>
+                                <Link
+                                  to={{
+                                    pathname: "/budgetresult",
+                                    query: this.state.value
+                                  }}
+                                >
+                                <div className="modal-footer">
+                                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" className="btn btn-primary" >See Your Options</button>
+                                </div>
+                                </Link>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
-          </div>
-
-          <br />
-          <div className="planDetails">
-            <div className="formm">
-              <form onSubmit={this.handleSubmit}>
-                <h1>Your Plan Details </h1>
-                <div className="form-group">
-                  <label htmlFor="formGroupExampleInput2">Hall Budget</label>
-                  <input
-                    type="text"
-                    value={"$ " + this.state.value * 0.4}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    id="formGroupExampleInput2"
-                    placeholder="$ 0.000"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="formGroupExampleInput">Zafeh Budget </label>
-                  <input
-                    type="text"
-                    value={"$ " + this.state.value * 0.3}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    id="formGroupExampleInput"
-                    placeholder="$ 0.000"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="formGroupExampleInput2">Car Budget</label>
-                  <input
-                    type="text"
-                    value={"$ " + this.state.value * 0.2}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    id="formGroupExampleInput2"
-                    placeholder="$ 0.000"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="formGroupExampleInput2">Flower Budget</label>
-                  <input
-                    type="text"
-                    value={"$ " + this.state.value * 0.04}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    id="formGroupExampleInput2"
-                    placeholder="$ 0.000"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="formGroupExampleInput2">DJ Budget</label>
-                  <input
-                    type="text"
-                    value={"$ " + this.state.value * 0.02}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    id="formGroupExampleInput2"
-                    placeholder="$ 0.000"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="formGroupExampleInput2">
-                    Beauty Salon Budget
-                  </label>
-                  <input
-                    type="text"
-                    value={"$ " + this.state.value * 0.04}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    id="formGroupExampleInput2"
-                    placeholder="$ 0.000"
-                  />
-                </div>
-                <Link
-                  to={{
-                    pathname: "/budgetresult",
-                    query: this.state.value
-                  }}
-                >
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-lg btn-block"
-                  >
-                    See Your Option
-                  </button>
-                </Link>
-              </form>
-            </div>
           </div>
         </div>
       </div>

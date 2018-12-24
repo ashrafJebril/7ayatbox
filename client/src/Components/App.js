@@ -6,7 +6,7 @@ import Footer from "../Components/Home/Footer/Footer";
 import Categories from "../Components/Categories/Categories";
 import SignIn from "../Components/SignIn/SignIn";
 import Budget from "../Components/Categories/Budget/Budget";
-import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
+import ViewCategories from "../Components/Categories/ViewCategories/ViewCategories";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -40,7 +40,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/Categories" component={Categories} />
             <Route exact path="/budget" component={Budget} />
-            <Route exact path="/budgetresult" component={BudgetResult} />
+            <Route exact path="/ViewCategories" component={ViewCategories} />
           </Switch>
         </BrowserRouter>
         <Footer />

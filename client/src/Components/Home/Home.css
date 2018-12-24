@@ -103,3 +103,12 @@
 	z-index: 1;
 	margin-top:-270px;
 }
+.backgroundImg{
+	width:360px; 
+	height:130px; 
+	background-image:url(imgs/ew-logo.png); 
+	background-size:contain; 
+	background-repeat:no-repeat; 
+	background-position:center; 	
+	margin:0px auto;
+}

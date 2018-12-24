@@ -7,7 +7,7 @@ const passport = require("passport");
 const userRouter = require("./routers/user.js");
 const port = process.env.PORT || 5000;
 const db = require("../DataBase/index");
-require("./passport")(passport);
+//require("./passport")(passport);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Priority to serve any static files.
@@ -22,7 +22,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use("/user", userRouter);
+
 app.get("/hello", (req, res) => {
   //db.insertProvider("yazeed", "y1y2y3");
   // db.selectProviders(results => {

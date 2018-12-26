@@ -5,6 +5,7 @@ const path = require("path");
 const app = express();
 const passport = require("passport");
 const userRouter = require("./routers/user.js");
+const providerRouter = require("./routers/provider.js");
 const port = process.env.PORT || 5000;
 const db = require("../DataBase/index");
 //require("./passport")(passport);
@@ -24,7 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/user", userRouter);
-
+app.use("/provider", providerRouter);
 app.get("/hello", (req, res) => {
   //db.insertProvider("yazeed", "y1y2y3");
   // db.selectProviders(results => {

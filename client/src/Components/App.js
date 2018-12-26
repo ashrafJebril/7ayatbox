@@ -16,12 +16,16 @@ class App extends Component {
   }
   componentDidMount() {
     $.ajax({
-      url: "/user/login",
+      url: "/provider/login",
       type: "POST",
-      data: { email: "mahmoud@gmail.com", password: "123456", name: "mahmoud" },
+      data: {
+        email: "djmartin@gmail.com",
+        password: "123456",
+        name: "DJMartin"
+      },
       success: data => {
         //alert("Hi");
-        console.log("success");
+        console.log("success", data);
         this.setState({ text: data.express });
       },
       error: err => {

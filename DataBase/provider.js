@@ -2,15 +2,15 @@ const pool = require("./ConnectionPool");
 const bcrypt = require("bcrypt");
 const SALT_WORK_FACTOR = 10;
 
-const checkUser = (email, cb) => {
+const checkProvider = (email, cb) => {
   pool.getConnection(function(err, con) {
-    if (err) console.log("CheckUser connection err", err);
+    if (err) console.log("CheckProvider connection err", err);
     console.log("dddd", email);
-    con.query(`SELECT * FROM users Where email= ("${email}")`, function(
+    con.query(`SELECT * FROM providers Where email= ("${email}")`, function(
       err,
       results
     ) {
-      if (err) console.log("CheckUser query error", err);
+      if (err) console.log("CheckProvider query error", err);
       //results is the returned array of objects
       cb(results);
       con.release();
@@ -18,13 +18,13 @@ const checkUser = (email, cb) => {
   });
 };
 
-const addUser = (name, email, password, cb) => {
+const addProvider = (name, email, password, cb) => {
   hashPassword(password, function(err, hashedPassword) {
     if (err) console.log("HashPassword Error", err);
     pool.getConnection(function(err, con) {
       if (err) console.log("connection err", err);
       console.log("Connected!");
-      var sql = `INSERT INTO users (name, password,email) VALUES ("${name}","${hashedPassword}","${email}")`;
+      var sql = `INSERT INTO providers (name, password,email) VALUES ("${name}","${hashedPassword}","${email}")`;
       con.query(sql, function(err, result) {
         if (err) console.log("query error", err);
         console.log("1 record inserted");
@@ -44,18 +44,18 @@ const hashPassword = function(password, cb) {
 //checking login password with database
 const checkPassword = (email, password, cb) => {
   pool.getConnection(function(err, con) {
-    if (err) console.log("CheckUser connection err", err);
-    con.query(`SELECT * FROM users Where email = "${email}"`, function(
+    if (err) console.log("CheckPassword connection err", err);
+    con.query(`SELECT * FROM providers Where email = "${email}"`, function(
       err,
       results
     ) {
-      if (err) console.log("CheckUser query error", err);
+      if (err) console.log("CheckPassword query error", err);
       //results is the returned array of objects
       if (results.length > 0) {
         console.log("sds", results);
         bcrypt.compare(password, results[0].password, function(err, isMatch) {
           if (err) return cb(null, err);
-          cb(isMatch, err);
+          cb({ id: results[0].id, name: results[0].name }, err);
         });
       } else {
         cb(false, null);
@@ -64,6 +64,6 @@ const checkPassword = (email, password, cb) => {
     });
   });
 };
-module.exports.checkUser = checkUser;
+module.exports.checkProvider = checkProvider;
 module.exports.checkPassword = checkPassword;
-module.exports.addUser = addUser;
+module.exports.addProvider = addProvider;

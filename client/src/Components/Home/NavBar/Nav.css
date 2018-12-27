@@ -50,4 +50,8 @@ nav ul li.parent ul.child li:hover {
 }
 nav ul li.parent ul.child li a {
     display: block;
+    z-index: 3;
+}
+.child{
+    z-index: 3;
 }

@@ -26,14 +26,9 @@ class BudgetResultItem extends Component {
               </div>
             </div>
           </div>
-          <Link
-            to={{
-              pathname: "/reservation",
-              query: ""
-            }}
-          >
-            <button className="detailsBTN btn btn-primary">More Details</button>
-          </Link>
+      
+           <a href ="/reservation"> <button className="detailsBTN btn btn-primary">More Details</button></a>
+         
         </div>
       </div>
     );

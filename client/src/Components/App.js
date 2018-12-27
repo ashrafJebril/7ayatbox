@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import Home from "../Components/Home/Home";
+import Home from "../Components/Home/Home"
 import Nav from "../Components/Home/NavBar/Nav";
 import Footer from "../Components/Home/Footer/Footer";
 import Categories from "../Components/Categories/Categories";
@@ -40,12 +40,14 @@ class App extends Component {
         <Nav />
         <BrowserRouter>
           <Switch>
+         
             <Route exact path="/SignIn" component={SignIn} />
             <Route exact path="/" component={Home} />
             <Route exact path="/Categories" component={Categories} />
             <Route exact path="/budget" component={Budget} />
             <Route exact path="/budgetresult" component={BudgetResult} />
             <Route exact path="/ViewCategories" component={ViewCategories} />
+
           </Switch>
         </BrowserRouter>
         <Footer />

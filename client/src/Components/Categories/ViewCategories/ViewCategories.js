@@ -1,21 +1,43 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import ViewCategoriesCard from "./ViewCategoriesCard";
 import "./ViewCategories.css";
+import $ from "jquery";
 class ViewCategories extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: "" };
+    this.state = { result: [] };
   }
-
+  componentDidMount() {
+    $.ajax({
+      url: "/providercategories/DJ",
+      type: "POST",
+      success: data => {
+        this.setState({ result: data });
+      },
+      error: err => {
+        console.log("ERROR");
+      }
+    });
+  }
   render() {
     // eslint-disable-next-line no-lone-blocks
     {
       return (
-        <div class="container">
-          <div class="row">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map(() => {
-              return (
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+        <div className="container">
+          <div className="row">
+            {this.state.result.map((result, index) => {
+              return <ViewCategoriesCard key={index} result={result} />;
+            })}
+          </div>
+        </div>
+      );
+    }
+  }
+}
+
+export default ViewCategories;
+/*
+ <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
                   <br />
                   <div class="card">
                     <img
@@ -45,13 +67,4 @@ class ViewCategories extends Component {
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      );
-    }
-  }
-}
-
-export default ViewCategories;
+*/

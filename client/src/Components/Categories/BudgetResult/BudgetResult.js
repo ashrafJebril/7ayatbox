@@ -1,21 +1,39 @@
 import React, { Component } from "react";
 import "./BudgetResult.css";
-import BudgetResultItem from "./BudgetResultItem";
+import ViewCategoriesCard from "../ViewCategories/ViewCategoriesCard";
+import $ from "jquery";
 class BudgetResult extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { result: "" };
+    this.state = { result: [] };
   }
   componentDidMount() {
-    //do the query for categories
-    console.log("yooooo", this.props.location.query);
+    //this.props.location.query
+    $.ajax({
+      url: "/providercategories/DJ",
+      type: "POST",
+      success: data => {
+        console.log("dddd", data);
+        this.setState({ result: data });
+      },
+      error: err => {
+        console.log("ERROR");
+      }
+    });
   }
   render() {
+    // eslint-disable-next-line no-lone-blocks
     {
-      return [1, 2, 3, 4].map(() => {
-        return <BudgetResultItem />;
-      });
+      return (
+        <div className="container">
+          <div className="row">
+            {this.state.result.map((result, index) => {
+              return <ViewCategoriesCard key={index} result={result} />;
+            })}
+          </div>
+        </div>
+      );
     }
   }
 }

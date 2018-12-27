@@ -7,6 +7,7 @@ import Categories from "../Components/Categories/Categories";
 import SignIn from "../Components/SignIn/SignIn";
 import Budget from "../Components/Categories/Budget/Budget";
 import ViewCategories from "../Components/Categories/ViewCategories/ViewCategories";
+import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -19,9 +20,9 @@ class App extends Component {
       url: "/provider/login",
       type: "POST",
       data: {
-        email: "djmartin@gmail.com",
+        email: "sebawy@gmail.com",
         password: "123456",
-        name: "DJMartin"
+        name: "Sebawy Group"
       },
       success: data => {
         //alert("Hi");
@@ -37,13 +38,13 @@ class App extends Component {
     return (
       <div>
         <Nav />
-
         <BrowserRouter>
           <Switch>
             <Route exact path="/SignIn" component={SignIn} />
             <Route exact path="/" component={Home} />
             <Route exact path="/Categories" component={Categories} />
             <Route exact path="/budget" component={Budget} />
+            <Route exact path="/budgetresult" component={BudgetResult} />
             <Route exact path="/ViewCategories" component={ViewCategories} />
           </Switch>
         </BrowserRouter>

@@ -11,8 +11,16 @@ class BudgetResult extends Component {
   componentDidMount() {
     //this.props.location.query
     $.ajax({
-      url: "/providercategories/DJ",
+      url: "/services/Recommendation",
       type: "POST",
+      data: {
+        hallPrice: 600,
+        zafehPrice: 600,
+        djPrice: 600,
+        beautyCentersPrice: 600,
+        flowersPrice: 600,
+        carsPrice: 600
+      },
       success: data => {
         console.log("dddd", data);
         this.setState({ result: data });

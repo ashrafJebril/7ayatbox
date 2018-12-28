@@ -19,7 +19,7 @@ class ViewCategories extends Component {
   }
   getAllServices = () => {
     $.ajax({
-      url: `/providercategories/${this.props.location.query}`,
+      url: `/services/${this.props.location.query}`,
       type: "POST",
       success: data => {
         this.setState({ result: data });

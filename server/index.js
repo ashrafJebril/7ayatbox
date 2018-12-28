@@ -6,7 +6,7 @@ const app = express();
 const passport = require("passport");
 const userRouter = require("./routers/user.js");
 const providerRouter = require("./routers/provider.js");
-const providerCategoriesRouter = require("./routers/Services.js");
+const servicesRouter = require("./routers/Services.js");
 const port = process.env.PORT || 5000;
 const db = require("../DataBase/index");
 var cors = require("cors");
@@ -29,7 +29,7 @@ app.use(passport.session());
 
 app.use("/user", userRouter);
 app.use("/provider", providerRouter);
-app.use("/providercategories", providerCategoriesRouter);
+app.use("/services", servicesRouter);
 app.get("/hello", (req, res) => {
   //db.insertProvider("yazeed", "y1y2y3");
   // db.selectProviders(results => {

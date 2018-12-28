@@ -1,6 +1,6 @@
 const pool = require("./ConnectionPool");
 
-const providerCategories = (name, email, password, cb) => {
+const addService = (name, email, password, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("connection err", err);
     console.log("Connected!");
@@ -13,7 +13,7 @@ const providerCategories = (name, email, password, cb) => {
     });
   });
 };
-const getAllProviderCategories = (categoryName, cb) => {
+const getAllServices = (categoryName, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("connection err", err);
     console.log("Connected!");
@@ -25,5 +25,5 @@ const getAllProviderCategories = (categoryName, cb) => {
     });
   });
 };
-module.exports.providerCategories = providerCategories;
-module.exports.getAllProviderCategories = getAllProviderCategories;
+module.exports.addService = addService;
+module.exports.getAllServices = getAllServices;

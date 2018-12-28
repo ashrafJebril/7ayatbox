@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./ViewCategories.css";
+import "./ServicesList.css";
 const ViewCategoriesCard = ({ result }) => {
   console.log(result);
   return (

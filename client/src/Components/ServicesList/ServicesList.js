@@ -1,15 +1,25 @@
 import React, { Component } from "react";
-import ViewCategoriesCard from "./ViewCategoriesCard";
-import "./ViewCategories.css";
+import ServicesListCard from "./ServicesListCard";
+import "./ServicesList.css";
 import $ from "jquery";
 class ViewCategories extends Component {
   constructor(props) {
     super(props);
     this.state = { result: [] };
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.query !== this.props.location.query) {
+      console.log("hisdhaisdhais", this.props.location.query);
+      this.getAllServices();
+    }
+  }
   componentDidMount() {
+    console.log("dsdsdsdsds", this.props.location.query);
+    this.getAllServices();
+  }
+  getAllServices = () => {
     $.ajax({
-      url: "/providercategories/DJ",
+      url: `/providercategories/${this.props.location.query}`,
       type: "POST",
       success: data => {
         this.setState({ result: data });
@@ -18,7 +28,7 @@ class ViewCategories extends Component {
         console.log("ERROR");
       }
     });
-  }
+  };
   render() {
     // eslint-disable-next-line no-lone-blocks
     {
@@ -26,7 +36,7 @@ class ViewCategories extends Component {
         <div className="container">
           <div className="row">
             {this.state.result.map((result, index) => {
-              return <ViewCategoriesCard key={index} result={result} />;
+              return <ServicesListCard key={index} result={result} />;
             })}
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./BudgetResult.css";
-import ViewCategoriesCard from "../ViewCategories/ViewCategoriesCard";
+import ServicesListCard from "../../ServicesList/ServicesListCard";
 import $ from "jquery";
 class BudgetResult extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class BudgetResult extends Component {
         <div className="container">
           <div className="row">
             {this.state.result.map((result, index) => {
-              return <ViewCategoriesCard key={index} result={result} />;
+              return <ServicesListCard key={index} result={result} />;
             })}
           </div>
         </div>

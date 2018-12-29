@@ -3,7 +3,7 @@ import $ from "jquery";
 import Home from "../Components/Home/Home";
 import Nav from "../Components/Home/NavBar/Nav";
 import Footer from "../Components/Home/Footer/Footer";
-import Categories from "../Components/Categories/Categories";
+import Reservation from "../Components/Categories/Reservation/Reservation.js";
 import SignIn from "../Components/SignIn/SignIn";
 import Budget from "../Components/Categories/Budget/Budget";
 import ServicesList from "../Components/ServicesList/ServicesList";
@@ -43,7 +43,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/SignIn" component={SignIn} />
             <Route exact path="/" component={Home} />
-            <Route exact path="/Categories" component={Categories} />
+            <Route exact path="/Reservation" component={Reservation} />
             <Route exact path="/budget" component={Budget} />
             <Route exact path="/budgetresult" component={BudgetResult} />
             <Route exact path="/ServicesList" component={ServicesList} />

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/jquery": "^3.3.28",
+    "bcrypt-nodejs": "0.0.3",
     "browser-history": "^1.0.1",
     "fullcalendar-reactwrapper": "^1.0.7",
     "jquery": "^3.3.1",

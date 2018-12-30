@@ -1,7 +1,7 @@
 const pool = require("./ConnectionPool");
 const bcrypt = require("bcrypt");
 const SALT_WORK_FACTOR = 10;
-
+//checking if the user already exist in the db
 const checkUser = (email, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("CheckUser connection err", err);
@@ -17,7 +17,7 @@ const checkUser = (email, cb) => {
     });
   });
 };
-
+//creating new users in db
 const addUser = (name, email, password, cb) => {
   hashPassword(password, function(err, hashedPassword) {
     if (err) console.log("HashPassword Error", err);

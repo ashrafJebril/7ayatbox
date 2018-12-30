@@ -6,6 +6,7 @@ const passport = require("passport");
 router.use(function(res, req, next) {
   next();
 });
+//handling user signup route
 router.route("/signup").post(function(req, res) {
   var body = req.body;
   var email = body.email;
@@ -38,7 +39,7 @@ router.route("/signup").post(function(req, res) {
 //     res.send("hey");
 //   }
 // );
-
+//handling user login route
 router.route("/login").post(function(req, res) {
   user.checkPassword(req.body.email, req.body.password, function(
     isMatched,

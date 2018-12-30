@@ -8,7 +8,6 @@ const userRouter = require("./routers/user.js");
 const providerRouter = require("./routers/provider.js");
 const servicesRouter = require("./routers/Services.js");
 const port = process.env.PORT || 5000;
-const db = require("../DataBase/index");
 var cors = require("cors");
 //require("./passport")(passport);
 app.use(cors());

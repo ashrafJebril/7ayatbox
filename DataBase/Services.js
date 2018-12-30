@@ -13,6 +13,7 @@ const addService = (name, email, password, cb) => {
     });
   });
 };
+//getting all the services for a selected category
 const getAllServices = (categoryName, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("connection err", err);
@@ -25,6 +26,7 @@ const getAllServices = (categoryName, cb) => {
     });
   });
 };
+//getting plan recommendation based on the passed in budget
 const getRecommendedServices = (
   hallPrice,
   zafehPrice,

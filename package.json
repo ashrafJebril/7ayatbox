@@ -5,7 +5,8 @@
     "client": "cd client && yarn start",
     "server": "cd server && nodemon index.js",
     "client-install": "cd client && npm install",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "test": "mocha || true"
   },
   "dependencies": {
     "bcrypt": "^3.0.3",
@@ -22,6 +23,12 @@
     "yarn": "^1.12.3"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "concurrently": "^4.1.0",
+    "mocha": "^5.2.0",
+    "request": "^2.88.0",
+    "should": "^13.2.3",
+    "supertest": "^3.3.0"
   }
 }

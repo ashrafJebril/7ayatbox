@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Nav.css";
 import $ from "jquery";
 import { Redirect, Link } from "react-router-dom";
+import Cart from "../../Cart/Cart"
 
 class Nav extends Component {
   constructor() {
@@ -10,7 +11,9 @@ class Nav extends Component {
       email: "",
       password: "",
       isLoggedIn: false,
-      name: ""
+      name: "",
+      id:""
+      
     };
   }
   handleSubmit = event => {
@@ -18,7 +21,7 @@ class Nav extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    console.log("my obj in nav", obj);
+  
     $.ajax({
       type: "POST",
       url: "/provider/login",
@@ -28,11 +31,12 @@ class Nav extends Component {
       },
       success: res => {
         console.log(res);
-        console.log("res sucsee", res);
+     
         if (res) {
           this.setState({
             isLoggedIn: true,
-            name: res.name
+            name: res.name,
+            id:res.id
           });
         }
       }
@@ -42,12 +46,15 @@ class Nav extends Component {
   };
 
   render() {
+ 
     if (this.state.isLoggedIn) {
-      //   return <Redirect to={{
-      //     pathname: '/Budget',
-      //   }} />
-      // }}
-    }
+        return <Redirect to={{
+          pathname: 'Provider',
+          query:this.state.id
+         
+        }} />
+      }
+    
     return (
       <div>
         <nav>
@@ -92,7 +99,7 @@ class Nav extends Component {
                   <Link
                     to={{
                       pathname: "/ServicesList",
-                      query: "Beauty Center"
+                      query: "BeautyCenter"
                     }}
                   >
                     Beauty Centers
@@ -102,7 +109,7 @@ class Nav extends Component {
                   <Link
                     to={{
                       pathname: "/ServicesList",
-                      query: "Flowers"
+                      query: "Flower"
                     }}
                   >
                     Flowers
@@ -112,7 +119,7 @@ class Nav extends Component {
                   <Link
                     to={{
                       pathname: "/ServicesList",
-                      query: "Cars"
+                      query: "Car"
                     }}
                   >
                     Cars
@@ -137,6 +144,14 @@ class Nav extends Component {
                 Login
               </a>
             </li>
+            <li>  <Link
+                    to={{
+                      pathname: "/Cart",
+                      query: ""
+                    }}
+                  >
+                
+                  </Link>cart</li>
           </ul>
         </nav>
 

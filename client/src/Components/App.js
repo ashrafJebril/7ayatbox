@@ -3,12 +3,18 @@ import $ from "jquery";
 import Home from "../Components/Home/Home";
 import Nav from "../Components/Home/NavBar/Nav";
 import Footer from "../Components/Home/Footer/Footer";
+<<<<<<< HEAD
 import Reservation from "../Components/Categories/Reservation/Reservation.js";
 import SignIn from "../Components/SignIn/SignIn";
+=======
+import Categories from "../Components/Categories/Categories";
+>>>>>>> adding redux
 import Budget from "../Components/Categories/Budget/Budget";
 import ServicesList from "../Components/ServicesList/ServicesList";
 import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
+import Provider from "../Components/Provider/Provider"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Cart from "../Components/Cart/Cart"
 
 class App extends Component {
   constructor(props) {
@@ -41,12 +47,14 @@ class App extends Component {
           <Nav />
 
           <Switch>
-            <Route exact path="/SignIn" component={SignIn} />
+            <Route exact path="/Provider" component={Provider} />
+
             <Route exact path="/" component={Home} />
             <Route exact path="/Reservation" component={Reservation} />
             <Route exact path="/budget" component={Budget} />
             <Route exact path="/budgetresult" component={BudgetResult} />
             <Route exact path="/ServicesList" component={ServicesList} />
+            <Route exact path="/Cart" component={Cart}></Route>
           </Switch>
 
           <Footer />

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Nav.css";
 import $ from "jquery";
+import {connect} from "react-redux"
 import { Redirect, Link } from "react-router-dom";
 import Cart from "../../Cart/Cart"
 
@@ -144,14 +145,9 @@ class Nav extends Component {
                 Login
               </a>
             </li>
-            <li>  <Link
-                    to={{
-                      pathname: "/Cart",
-                      query: ""
-                    }}
-                  >
-                
-                  </Link>cart</li>
+            <li>
+            <Link to={{pathname:"/Cart"}}>My Cart {this.props.counter}</Link>
+            </li>
           </ul>
         </nav>
 
@@ -221,5 +217,10 @@ class Nav extends Component {
     );
   }
 }
+const  mapStateToProps=state=>{
+  return{
+    ...state
+  }
+}
 
-export default Nav;
+export default connect(mapStateToProps)(Nav);

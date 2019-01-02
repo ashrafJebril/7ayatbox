@@ -25,6 +25,11 @@ subtract=()=> {
   });
   
 }
+handleSubmit = () =>{
+  console.log(this.props.result)
+  this.props.incrementCounter()
+  this.props.saveResult(this.props.result)
+}
   render(){
     console.log("qty",this.props)
     return (
@@ -40,7 +45,7 @@ subtract=()=> {
             <h4 className="card-title">{this.props.result.title}</h4>
             <p className="card-text">{this.props.result.description}</p>
             <p className="card-text">{this.props.result.price}JD</p>
-            <button onClick={this.incrementCounter}>Add to cart</button>
+            <button onClick={this.handleSubmit}>Add to cart</button>
             <Link
               to={{
                 pathname: "/",
@@ -67,7 +72,9 @@ const  mapStateToProps=state=>{
 }
 const mapDispatchToProps=dispatch=>{
   return{
-    incrementCounter:()=>dispatch({type:"INCREMENT"})
+    incrementCounter:()=>dispatch({type:"INCREMENT"}),
+    saveResult:(result)=>dispatch({type:"SAVE",value:result})
   }
 }
+
 export default connect(mapStateToProps , mapDispatchToProps)(ViewCategoriesCard);

@@ -35,7 +35,7 @@ class Cart extends Component{
 
  render(){
      
-    console.log("my cart props" ,  this.total())
+    console.log("my cart props" ,  this.props)
    
          
      
@@ -48,7 +48,7 @@ class Cart extends Component{
           
             <div>
        {this.state.result.map((result, index) => {
-              return <li>{result.price}</li> ;
+              return <li>price {result.price} description {result.description}</li> ;
             })}
           <div style={{"marginTop": "30px", "backgroundColor":"#F6F6F6","padding": "10px"}}>
             <h3 className="row" style={{ fontWeight: 400 }}>

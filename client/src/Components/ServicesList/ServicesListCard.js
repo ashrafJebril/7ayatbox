@@ -13,18 +13,7 @@ class ViewCategoriesCard extends React.Component  {
   }
 
 
-add =()=> {
-  this.setState({
-    qty: this.state.qty + 1,
-    result:this.props.result
-  });
-}
-subtract=()=> {
-  this.setState({
-    qty: this.state.qty - 1
-  });
-  
-}
+
 handleSubmit = () =>{
   console.log(this.props.result)
   this.props.incrementCounter()

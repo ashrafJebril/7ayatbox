@@ -5,7 +5,7 @@ import Nav from "../Components/Home/NavBar/Nav";
 import Footer from "../Components/Home/Footer/Footer";
 
 import Reservation from "../Components/Categories/Reservation/Reservation.js";
-import Categories from "../Components/Categories/Categories";
+
 import Budget from "../Components/Categories/Budget/Budget";
 import ServicesList from "../Components/ServicesList/ServicesList";
 import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";

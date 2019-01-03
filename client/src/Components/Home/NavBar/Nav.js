@@ -3,7 +3,7 @@ import "./Nav.css";
 import $ from "jquery";
 import {connect} from "react-redux"
 import { Redirect, Link } from "react-router-dom";
-import Cart from "../../Cart/Cart"
+
 
 class Nav extends Component {
   constructor() {

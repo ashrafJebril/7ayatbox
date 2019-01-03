@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Calender from "../Calender/Calender";
+
 import ReservationBot from "./ReservationBot";
 import "./Reservation.css";
 class Reservation extends Component {
@@ -162,7 +162,7 @@ class Reservation extends Component {
           </div>
           {/* ///////////// End Of Reservation Form ///////////// */}
         </div>
-        <Calender />
+      
       </div>
     );
   }

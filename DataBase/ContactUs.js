@@ -15,4 +15,19 @@ const addMessage = (name, phone, message) => {
       });
 }
 
+//get the message from db
+const getMessage = (name, phone, message) => {
+    pool.getConnection(function(err, con) {
+      if (err) console.log("connection err", err);
+      console.log("Connected!");
+      var sql = `SELECT * FROM contact_us`;
+      con.query(sql, function(err, result) {
+        if (err) console.log("query error", err);d
+        cb(result);
+        con.release(); //release the connection to the pool
+      });
+    });
+  };
+
 module.exports.addMessage = addMessage;
+module.exports.getMessage = getMessage;

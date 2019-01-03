@@ -45,23 +45,27 @@ const hashPassword = function(password, cb) {
 const checkPassword = (email, password, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("CheckPassword connection err", err);
-    con.query(`SELECT * FROM providers Where email = "${email}"`, function(
-      err,
-      results
-    ) {
-      if (err) console.log("CheckPassword query error", err);
-      //results is the returned array of objects
-      if (results.length > 0) {
-        console.log("sds", results);
-        bcrypt.compare(password, results[0].password, function(err, isMatch) {
-          if (err) return cb(null, err);
-          cb({ id: results[0].id, name: results[0].name }, err);
-        });
-      } else {
-        cb(false, null);
+    con.query(
+      `SELECT id,name,password FROM providers Where email = "${email}"`,
+      function(err, results) {
+        if (err) console.log("CheckPassword query error", err);
+        //results is the returned array of objects
+        if (results.length > 0) {
+          console.log("sds", results);
+          bcrypt.compare(password, results[0].password, function(err, isMatch) {
+            if (err) return cb(null, err);
+            if (isMatch) {
+              cb({ id: results[0].id, name: results[0].name }, err);
+            } else {
+              cb(isMatch, err);
+            }
+          });
+        } else {
+          cb(false, null);
+        }
+        con.release();
       }
-      con.release();
-    });
+    );
   });
 };
 module.exports.checkProvider = checkProvider;

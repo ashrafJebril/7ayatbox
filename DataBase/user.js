@@ -1,5 +1,5 @@
 const pool = require("./ConnectionPool");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const SALT_WORK_FACTOR = 10;
 //checking if the user already exist in the db
 const checkUser = (email, cb) => {

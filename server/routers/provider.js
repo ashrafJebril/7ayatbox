@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const provider = require("../../DataBase/provider");
+const service=require("../../DataBase/Services")
 
 router.use(function(res, req, next) {
   next();
@@ -25,6 +26,33 @@ router.route("/signup").post(function(req, res) {
     }
   });
 });
+router.route('/addService').post(function(req,res){
+  var body=req.body;
+  var title=body.title;
+  var description=body.description;
+  var price=body.price;
+  var imageUrl=body.imageUrl;
+  var providerId=body.providerId;
+  var categoryId=body.categoryId;
+  var rate=body.rate;
+  var capicity=body.capicity;
+  var location=body.location
+
+  console.log("body",body)
+
+  service.addService(capicity,description,imageUrl,location,price,rate,title,providerId,categoryId , function(err,result){
+    if(err)
+    console.log("err adding service")
+    res.send(true)
+
+    
+  })
+
+  
+
+  
+  
+})
 
 // router.post(
 //   "/login",

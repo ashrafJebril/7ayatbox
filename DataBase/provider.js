@@ -1,5 +1,5 @@
 const pool = require("./ConnectionPool");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const SALT_WORK_FACTOR = 10;
 
 const checkProvider = (email, cb) => {
@@ -51,8 +51,9 @@ const checkPassword = (email, password, cb) => {
         if (err) console.log("CheckPassword query error", err);
         //results is the returned array of objects
         if (results.length > 0) {
-          console.log("sds", results);
+         
           bcrypt.compare(password, results[0].password, function(err, isMatch) {
+            console.log("hhhh", results,isMatch,err);
             if (err) return cb(null, err);
             if (isMatch) {
               cb({ id: results[0].id, name: results[0].name }, err);

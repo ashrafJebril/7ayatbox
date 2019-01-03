@@ -34,6 +34,7 @@ class Nav extends Component {
         console.log(res);
      
         if (res) {
+          console.log("in set state")
           this.setState({
             isLoggedIn: true,
             name: res.name,
@@ -49,8 +50,9 @@ class Nav extends Component {
   render() {
  
     if (this.state.isLoggedIn) {
+      console.log("hi", this.state.isLoggedIn)
         return <Redirect to={{
-          pathname: 'Provider',
+          pathname: '/Provider',
           query:this.state.id
          
         }} />

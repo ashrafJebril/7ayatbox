@@ -3,12 +3,9 @@ import $ from "jquery";
 import Home from "../Components/Home/Home";
 import Nav from "../Components/Home/NavBar/Nav";
 import Footer from "../Components/Home/Footer/Footer";
-<<<<<<< HEAD
+
 import Reservation from "../Components/Categories/Reservation/Reservation.js";
-import SignIn from "../Components/SignIn/SignIn";
-=======
 import Categories from "../Components/Categories/Categories";
->>>>>>> adding redux
 import Budget from "../Components/Categories/Budget/Budget";
 import ServicesList from "../Components/ServicesList/ServicesList";
 import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
@@ -55,6 +52,7 @@ class App extends Component {
             <Route exact path="/budgetresult" component={BudgetResult} />
             <Route exact path="/ServicesList" component={ServicesList} />
             <Route exact path="/Cart" component={Cart}></Route>
+            <Route exact path="/Reservation" component={Reservation}></Route>
           </Switch>
 
           <Footer />

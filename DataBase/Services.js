@@ -1,22 +1,6 @@
 const pool = require("./ConnectionPool");
 
-<<<<<<< HEAD
-const addService = (name, email, password, cb) => {
-  pool.getConnection(function(err, con) {
-    if (err) console.log("connection err", err);
-    console.log("Connected!");
-    var sql = `INSERT INTO User (name, password,email) VALUES ("${name}","${hashedPassword}","${email}")`;
-    con.query(sql, function(err, result) {
-      if (err) console.log("query error", err);
-      console.log("1 record inserted");
-      cb(err, result);
-      con.release(); //releasing the connection back to the pool
-    });
-  });
-};
 //getting all the services for a selected category
-=======
->>>>>>> adding redux
 const getAllServices = (categoryName, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("connection err", err);
@@ -29,11 +13,7 @@ const getAllServices = (categoryName, cb) => {
     });
   });
 };
-<<<<<<< HEAD
 //getting plan recommendation based on the passed in budget
-=======
-
->>>>>>> adding redux
 const getRecommendedServices = (
   hallPrice,
   zafehPrice,

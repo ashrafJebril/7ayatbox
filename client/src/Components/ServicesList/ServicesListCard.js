@@ -48,11 +48,11 @@ handleSubmit = () =>{
             <button onClick={this.handleSubmit}>Add to cart</button>
             <Link
               to={{
-                pathname: "/",
+                pathname: "/Reservation",
                 query: ""
               }}
             >
-              <button className="detailsBTN btn btn-primary">More Details</button>
+              <button className="detailsBTN btn btn-primary">Reserve Now</button>
             </Link>
        
            

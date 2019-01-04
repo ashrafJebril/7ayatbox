@@ -16,12 +16,12 @@ router.route("/signup").post(function(req, res) {
     if (result.length > 0) {
       res.status(500).send("Username already exists");
     } else {
-      user.addUser(name, email, password, function(err, user) {
+      user.addUser(name, email, password, function(err, userId) {
         if (err) {
           console.log("errr", err);
           res.status(500).send("db error");
         } else {
-          res.redirect("/login");
+          res.send({ id: userId, name: name });
         }
       });
     }
@@ -47,7 +47,7 @@ router.route("/login").post(function(req, res) {
     err
   ) {
     if (isMatched) {
-      res.send(isMatched);
+      res.send({ id: user.id, name: user.name });
     } else {
       res.status(500).send("login error");
     }

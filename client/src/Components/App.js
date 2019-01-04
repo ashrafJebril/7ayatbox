@@ -11,6 +11,8 @@ import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
 import Provider from "../Components/Provider/Provider";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Cart from "../Components/Cart/Cart";
+import Login from "./Auth/Login";
+import SignUp from "./Auth/SignUp";
 
 class App extends Component {
   constructor(props) {
@@ -18,23 +20,23 @@ class App extends Component {
     this.state = { text: "" };
   }
   componentDidMount() {
-    $.ajax({
-      url: "/provider/login",
-      type: "POST",
-      data: {
-        email: "sebawy@gmail.com",
-        password: "123456",
-        name: "Sebawy Group"
-      },
-      success: data => {
-        //alert("Hi");
-        console.log("success", data);
-        this.setState({ text: data.express });
-      },
-      error: err => {
-        console.log("ERROR");
-      }
-    });
+    // $.ajax({
+    //   url: "/provider/login",
+    //   type: "POST",
+    //   data: {
+    //     email: "sebawy@gmail.com",
+    //     password: "123456",
+    //     name: "Sebawy Group"
+    //   },
+    //   success: data => {
+    //     //alert("Hi");
+    //     console.log("success", data);
+    //     this.setState({ text: data.express });
+    //   },
+    //   error: err => {
+    //     console.log("ERROR");
+    //   }
+    // });
   }
   render() {
     return (
@@ -52,6 +54,8 @@ class App extends Component {
             <Route exact path="/ServicesList" component={ServicesList} />
             <Route exact path="/Cart" component={Cart} />
             <Route exact path="/Reservation" component={Reservation} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
           </Switch>
 
           <Footer />

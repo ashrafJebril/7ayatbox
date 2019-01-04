@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./Nav.css";
 import $ from "jquery";
-import {connect} from "react-redux"
+import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import Cart from "../../Cart/Cart"
+import Cart from "../../Cart/Cart";
+import UserLogin from "../../Auth/Login";
 
 class Nav extends Component {
   constructor() {
@@ -13,8 +14,7 @@ class Nav extends Component {
       password: "",
       isLoggedIn: false,
       name: "",
-      id:""
-      
+      id: ""
     };
   }
   handleSubmit = event => {
@@ -22,7 +22,7 @@ class Nav extends Component {
       email: this.state.email,
       password: this.state.password
     };
-  
+
     $.ajax({
       type: "POST",
       url: "/provider/login",
@@ -32,13 +32,13 @@ class Nav extends Component {
       },
       success: res => {
         console.log(res);
-     
+
         if (res) {
-          console.log("in set state")
+          console.log("in set state");
           this.setState({
             isLoggedIn: true,
             name: res.name,
-            id:res.id
+            id: res.id
           });
         }
       }
@@ -48,16 +48,18 @@ class Nav extends Component {
   };
 
   render() {
- 
     if (this.state.isLoggedIn) {
-      console.log("hi", this.state.isLoggedIn)
-        return <Redirect to={{
-          pathname: '/Provider',
-          query:this.state.id
-         
-        }} />
-      }
-    
+      console.log("hi", this.state.isLoggedIn);
+      return (
+        <Redirect
+          to={{
+            pathname: "/Provider",
+            query: this.state.id
+          }}
+        />
+      );
+    }
+
     return (
       <div>
         <nav>
@@ -138,22 +140,22 @@ class Nav extends Component {
               <a href="#">Contact</a>
             </li>
             <li>
-              <a href="#" data-toggle="modal" data-target="#signIn">
+              <Link to={{ pathname: "/login", query: "provider" }}>
                 Become a Provider
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" data-toggle="modal" data-target="#signIn">
-                Login
-              </a>
+              <Link to={{ pathname: "/login", query: "user" }}>Login</Link>
             </li>
             <li>
-            <Link to={{pathname:"/Cart"}}>My Cart {this.props.counter}</Link>
+              <Link to={{ pathname: "/Cart" }}>
+                My Cart {this.props.counter}
+              </Link>
             </li>
           </ul>
         </nav>
 
-        <div
+        {/* <div
           className="modal fade"
           id="signIn"
           tabIndex="-1"
@@ -214,15 +216,15 @@ class Nav extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
 }
-const  mapStateToProps=state=>{
-  return{
+const mapStateToProps = state => {
+  return {
     ...state
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Nav);

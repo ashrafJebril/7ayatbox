@@ -41,7 +41,6 @@ app.get("/hello", (req, res) => {
   res.send({ express: hi });
 });
 app.get("/profile", function(req, res) {
-  console.log("sdsdsdsdsdsdsaaa");
   res.send(req.session);
 });
 // All remaining requests return the React app, so it can handle routing.

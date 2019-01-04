@@ -11,7 +11,8 @@ import ServicesList from "../Components/ServicesList/ServicesList";
 import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
 import Provider from "../Components/Provider/Provider"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Cart from "../Components/Cart/Cart"
+import Cart from "../Components/Cart/Cart";
+import ContactUs from "../Components/ContactUs/ContactUs";
 
 class App extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class App extends Component {
             <Route exact path="/ServicesList" component={ServicesList} />
             <Route exact path="/Cart" component={Cart}></Route>
             <Route exact path="/Reservation" component={Reservation}></Route>
+            <Route exact path="/ContactUs" component={ContactUs} />
           </Switch>
 
           <Footer />

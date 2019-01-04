@@ -5,13 +5,12 @@ import Nav from "../Components/Home/NavBar/Nav";
 import Footer from "../Components/Home/Footer/Footer";
 
 import Reservation from "../Components/Categories/Reservation/Reservation.js";
-import Categories from "../Components/Categories/Categories";
 import Budget from "../Components/Categories/Budget/Budget";
 import ServicesList from "../Components/ServicesList/ServicesList";
 import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
-import Provider from "../Components/Provider/Provider"
+import Provider from "../Components/Provider/Provider";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Cart from "../Components/Cart/Cart"
+import Cart from "../Components/Cart/Cart";
 
 class App extends Component {
   constructor(props) {
@@ -51,8 +50,8 @@ class App extends Component {
             <Route exact path="/budget" component={Budget} />
             <Route exact path="/budgetresult" component={BudgetResult} />
             <Route exact path="/ServicesList" component={ServicesList} />
-            <Route exact path="/Cart" component={Cart}></Route>
-            <Route exact path="/Reservation" component={Reservation}></Route>
+            <Route exact path="/Cart" component={Cart} />
+            <Route exact path="/Reservation" component={Reservation} />
           </Switch>
 
           <Footer />

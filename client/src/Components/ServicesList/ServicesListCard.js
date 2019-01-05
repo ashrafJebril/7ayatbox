@@ -37,13 +37,18 @@ class ViewCategoriesCard extends React.Component {
                 pathname: "/reservation",
                 query: this.props.result
               }}
-            />
+            >
+
+            </Link>
+
           </div>
         </div>
       </div>
     );
   }
-}
+};
+
+
 const mapStateToProps = state => {
   return {
     ctr: state
@@ -56,7 +61,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ViewCategoriesCard);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewCategoriesCard);

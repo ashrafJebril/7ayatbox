@@ -34,7 +34,10 @@ class ViewCategories extends Component {
     {
       return (
         <div className="container">
+         <h1>{this.props.location.query}</h1>
+         <hr className="hr-header"/>
           <div className="row">
+         
             {this.state.result.map((result, index) => {
               return <ServicesListCard key={index} result={result} />;
             })}

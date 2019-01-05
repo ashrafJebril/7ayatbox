@@ -24,24 +24,23 @@ handleSubmit = () =>{
     return (
   
       // eslint-disable-next-line no-lone-blocks
-      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+      <div className="col-xl-3 col-lg-4 col-sm-6">
  
-        <br />
         <div className="card">
           <img src={this.props.result.imageUrl} className="card-img-top" alt="" />
   
           <div className="card-block text-left">
             <h4 className="card-title">{this.props.result.title}</h4>
             <p className="card-text">{this.props.result.description}</p>
-            <p className="card-text">{this.props.result.price}JD</p>
-            <button onClick={this.handleSubmit}>Add to cart</button>
+            <p className="card-text">{this.props.result.price}</p>
+            <button onClick={this.handleSubmit} className="cart-cta">Add to cart</button>
             <Link
               to={{
                 pathname: "/Reservation",
                 query: ""
               }}
             >
-              <button className="detailsBTN btn btn-primary">Reserve Now</button>
+           
             </Link>
        
            

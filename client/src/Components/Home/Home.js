@@ -3,6 +3,7 @@ import "./Home.css";
 import "./About/About";
 import About from "./About/About";
 import { Link } from "react-router-dom";
+import $ from "jquery"
 
 class Home extends Component {
   constructor(props) {
@@ -10,12 +11,14 @@ class Home extends Component {
     this.state = { budget: "" };
   }
 
-
+//Budget modal submit
   submit = (e) => {
     this.setState({ budget: e.target.value });
   }
+ 
   render() {
-    console.log("home state", this.state.budget)
+
+   
     return (
       <div>
         <header className="container-fluid index-header">
@@ -79,7 +82,7 @@ class Home extends Component {
 
 
 
-{/* new modal */}
+{/* Plan Budget modal */}
 
 <div className
 ="modal fade" id="planmodal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

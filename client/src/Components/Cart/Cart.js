@@ -8,12 +8,16 @@ class Cart extends Component{
  constructor(props){
      super(props)
   this.state={
-     result:this.props.result2,
+     result:this.props.result2
     
   }
 
      
  }
+ handleSubmit=()=>{
+   
+ }
+
  
  total=()=>{
    var total=0
@@ -35,7 +39,7 @@ class Cart extends Component{
 
  render(){
      
-    console.log("my cart props" ,  this.props)
+  
    
          
      
@@ -46,7 +50,7 @@ class Cart extends Component{
  
         return (
           
-            <div>
+            <div className="container">
        {this.state.result.map((result, index) => {
               return <li>price {result.price} description {result.description}</li> ;
             })}

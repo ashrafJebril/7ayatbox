@@ -55,7 +55,7 @@ class App extends Component {
             <Route exact path="/Reservation" component={Reservation}></Route>
           </Switch>
 
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </BrowserRouter>
     );

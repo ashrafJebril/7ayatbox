@@ -46,9 +46,42 @@ class Nav extends Component {
 
     event.preventDefault();
   };
+  componentDidMount(){
+    $(document).ready(function(){
+		
+      var sHeight = window.innerHeight;
+      var y = $(window).scrollTop();
+      
+      //Scroll Effects
+    $(window).bind("scroll",function() {
+      
+      y = $(window).scrollTop();
+  
+      $(".index-header").filter(function(){
+        return $(this).offset().top < (y + $(window).height()) && $(this).offset().top + $(this).height() > y;
+        }).css('background-position', 'center ' + parseInt(-y / 3) + 'px');
+       if(y>100)
+       {
+         $(".headerNav-container").css({
+           "padding":"5px 0px"
+         });
 
+          $(".headerNav-container").addClass("nav-changed");
+       }
+       else{
+        $(".headerNav-container").removeClass("nav-changed");
+        $(".headerNav-container").css({
+          "padding":"20px 0px 20px"
+        });
+       }
+      });
+    
+      
+    });
+      
+  }
   render() {
- 
+ //check for the user if he logged in
     if (this.state.isLoggedIn) {
       console.log("hi", this.state.isLoggedIn)
         return <Redirect to={{
@@ -60,98 +93,87 @@ class Nav extends Component {
     
     return (
       <div>
-        <nav>
+        <div class="container-fluid headerNav-container">
           <ul>
+            <li><div className="navlogo"></div></li>
             <li>
               <a href="/">Home</a>
             </li>
-            <li className="parent">
+            <li>
               <a href="#">Services</a>
-              <ul className="child">
-                <li>
-                  <Link
+              <div class="sub-menu-holder">
+                <ul>
+                  <li>    <Link
                     to={{
                       pathname: "/ServicesList",
                       query: "Hall"
                     }}
                   >
                     Wedding Halls
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                  </Link></li>
+                  <li> <Link
                     to={{
                       pathname: "/ServicesList",
                       query: "Zafeh"
                     }}
                   >
                     Zefah
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                  </Link></li>
+                  <li> <Link
                     to={{
                       pathname: "/ServicesList",
                       query: "DJ"
                     }}
                   >
                     DJ
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                  </Link></li>
+                  <li> <Link
                     to={{
                       pathname: "/ServicesList",
                       query: "BeautyCenter"
                     }}
                   >
                     Beauty Centers
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                  </Link></li>
+                  <li> <Link
                     to={{
                       pathname: "/ServicesList",
                       query: "Flower"
                     }}
                   >
                     Flowers
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                  </Link></li>
+                  <li>   <Link
                     to={{
                       pathname: "/ServicesList",
                       query: "Car"
                     }}
                   >
                     Cars
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">About</a>
+                  </Link></li>
+                
+                </ul>
+              </div>
             </li>
             <li>
-              <a href="#">Contact</a>
-            </li>
-            <li>
-              <a href="#" data-toggle="modal" data-target="#signIn">
+            <a href="#" data-toggle="modal" data-target="#signIn">
                 Become a Provider
               </a>
             </li>
             <li>
-              <a href="#" data-toggle="modal" data-target="#signIn">
-                Login
+            <a href="#" data-toggle="modal" data-target="#signIn">
+              Sign In
               </a>
             </li>
             <li>
-            <Link to={{pathname:"/Cart"}}>My Cart {this.props.counter}</Link>
+              
+            <Link to={{pathname:"/Cart"}}>My Cart <mark>{this.props.counter}</mark></Link>
             </li>
+            
           </ul>
-        </nav>
+        </div>
+
+
 
         <div
           className="modal fade"

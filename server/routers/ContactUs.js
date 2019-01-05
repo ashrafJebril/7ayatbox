@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const contactus = require("../../DataBase/ContactUs");
 
+
 router.use(function(res, req, next) {
     next();
   });
-  //getting categories based on the category provided
+  //gettin user input and save in the database
   router.route("/submit").post(function(req, res) {
     console.log("Hello World");
       contactus.addMessage(

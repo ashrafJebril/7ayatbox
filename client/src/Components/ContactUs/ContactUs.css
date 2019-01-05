@@ -2,7 +2,6 @@
 
 .contactus_about_div{
     background-size: cover;
-
     padding: 25px;
 }
 .contactus_about_title {
@@ -32,21 +31,15 @@
 /* *****Contact Us Dev***** */
 
 .contactus_container {
-    border-style: groove;
-    border-radius: 50px;
-    font: 400 100px/1.5 'Pacifico', Helvetica, sans-serif;
-    text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
-    font-size: 20px;
-    color: black;
-    background-color: rgb(226, 233, 241)  ;
-    opacity: 0.8;
-    text-align: center;
+    padding-left: 500px;
+    padding-right: 200px;
+}
+.contactus-input {
+    margin: 5px;
+    align-content: center;
 }
 
 
-.contactus_submit_btn {
-    width:200px;
-}
 
 
 

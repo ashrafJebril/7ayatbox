@@ -19,25 +19,25 @@ class App extends Component {
     super(props);
     this.state = { text: "" };
   }
-  componentDidMount() {
-    $.ajax({
-      url: "/contactus/submit",
-      type: "POST",
-      data: {
-        name: "yazeed",
-        phone: "123456",
-        message: "Sebawy Group"
-      },
-      success: data => {
-        //alert("Hi");
-        console.log("success", data);
+  // componentDidMount() {
+  //   $.ajax({
+  //     url: "/contactus/submit",
+  //     type: "POST",
+  //     data: {
+  //       name: "yazeed",
+  //       phone: "123456",
+  //       message: "Sebawy Group"
+  //     },
+  //     success: data => {
+  //       // alert("Hi");
+  //       console.log("success", data);
 
-      },
-      error: err => {
-        console.log("ERROR");
-      }
-    });
-  }
+  //     },
+  //     error: err => {
+  //       console.log("ERROR");
+  //     }
+  //   });
+  // }
   render() {
     return (
       <BrowserRouter>

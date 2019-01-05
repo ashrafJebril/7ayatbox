@@ -1,38 +1,58 @@
-import React, { Component } from "react";
-import "./BudgetResult.css";
+import React from "react";
 import { Link } from "react-router-dom";
-class BudgetResultItem extends Component {
-  constructor(props) {
-    super(props);
-    this.image =
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgI7-6cl4LWsaXTgnOqhJf-e-2_QSwaMs4om_GV_IyAh5OuoZ4SQ";
+
+
+import "../../ServicesList/ServicesList.css";
+import BudgetResult from "./BudgetResult";
+
+
+class BudgetResultItem extends React.Component {
+
+  state = {
+    qty: 0,
+    result: ""
   }
 
+
+
+  handleSubmit = () => {
+    console.log("my result ", this.props.result)
+    this.props.incrementCounter()
+    this.props.saveResult(this.props.result)
+  }
   render() {
+    console.log("qty", this.props)
     return (
-      <div>
-        <h1 className="recmmendation">Recommended Hall</h1>
-        <div className="card ">
-          <img className="card-img-top" src={this.image} alt="Card image cap" />
-          <div className="card-body ">
-            <div className="row">
-              <div className="col-sm-10">
-                <h5 className="card-title">Numan Hall</h5>
-                <p className="card-text">the best wedding hall in jordan</p>
-              </div>
-              <div className="col-sm-2">
-                <h5>Price</h5>
-                <h5>capacity</h5>
-              </div>
-            </div>
-          </div>
-      
-           <a href ="/reservation"> <button className="detailsBTN btn btn-primary">More Details</button></a>
+
+      // eslint-disable-next-line no-lone-blocks
+  
+      <div className="col-xl-3 col-lg-4 col-sm-6">
          
+        <div className="card">
+          <img src={this.props.result.imageUrl} className="card-img-top" alt="" />
+
+          <div className="card-block text-left">
+            <h4 className="card-title">{this.props.result.title}</h4>
+            <p className="card-text">{this.props.result.description}</p>
+            <p className="card-text">{this.props.result.price}</p>
+            <button onClick={this.handleSubmit} className="cart-cta">Add to cart</button>
+            <Link
+              to={{
+                pathname: "/Reservation",
+                query: ""
+              }}
+            >
+
+            </Link>
+
+          </div>
+        
         </div>
       </div>
+
     );
   }
-}
+};
+
 
 export default BudgetResultItem;

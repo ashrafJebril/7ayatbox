@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import $ from "jquery";
 import Home from "../Components/Home/Home";
 import Nav from "../Components/Home/NavBar/Nav";
+
+
 import Reservation from "../Components/Categories/Reservation/Reservation.js";
 import Budget from "../Components/Categories/Budget/Budget";
 import ServicesList from "../Components/ServicesList/ServicesList";

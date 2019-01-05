@@ -21,9 +21,11 @@ class Login extends Component {
         this.props.logedin(data);
         $("#navProvider").hide();
         $("#navLogin").hide();
+        $("#cart-nav").show()
         $(".headerNav-container").append(
-          "<li className='logoutLi'><a >LogOut</a></li>"
+          "<ul><li><a>LogOut</a></li></ul>"
         );
+     
         this.props.history.goBack();
       },
       error: err => {

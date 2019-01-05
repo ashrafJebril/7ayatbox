@@ -159,7 +159,7 @@ class Home extends Component {
                       <button type="button" className="btn btn-secondary" data-target="planmodal" data-dismiss="modal">Close</button>
 
 
-                      <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#planmodal" data-dismiss="modal">See your Plane</button>
+                      <button type="button" className="btn btnStart" data-toggle="modal" data-target="#planmodal" data-dismiss="modal">See your Plane</button>
                     </div>
                   </div>
                 </div>
@@ -167,7 +167,7 @@ class Home extends Component {
 
 
 
-              {/* Plan Budget modal */}
+             
 
               <div className
                 ="modal fade" id="planmodal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -242,7 +242,7 @@ class Home extends Component {
                           pathname: "/budgetresult",
                           query: { halls: this.state.halls, djs: this.state.djs, beautys: this.state.beautys, flowers: this.state.flowers, cars: this.state.cars, zafehs: this.state.zafehs }
                         }}>
-                        <button type="button" className="btn btn-primary">what we recommend </button>
+                        <button type="button" className="btn btnStart">what we recommend </button>
                       </Link>
                     </div>
                   </div>

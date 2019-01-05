@@ -4,18 +4,20 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 const passport = require("passport");
-const userRouter = require("./routers/user.js");
-const providerRouter = require("./routers/provider.js");
-const servicesRouter = require("./routers/Services.js");
+const userRouter = require("./routes/user.js");
+const providerRouter = require("./routes/provider.js");
+const servicesRouter = require("./routes/Services.js");
+const cookieSession = require("cookie-session");
 const port = process.env.PORT || 5000;
 var cors = require("cors");
-//require("./passport")(passport);
+// Passport Config
+require("./config/passport")(passport);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Priority to serve any static files.
 app.use(express.static(path.resolve(__dirname, "../client/build")));
-
+// Express session
 app.use(
   session({
     secret: "thesecret",
@@ -23,23 +25,14 @@ app.use(
     resave: true
   })
 );
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/user", userRouter);
 app.use("/provider", providerRouter);
 app.use("/services", servicesRouter);
-app.get("/hello", (req, res) => {
-  //db.insertProvider("yazeed", "y1y2y3");
-  // db.selectProviders(results => {
-  //   console.log("eeeeeee", results);
-  //   var hi = `Hello From Express and mysql ${results[0].name}`;
-  //   res.send({ express: hi });
-  // });
 
-  var hi = `Hello From Express and mysql`;
-  res.send({ express: hi });
-});
 app.get("/profile", function(req, res) {
   res.send(req.session);
 });

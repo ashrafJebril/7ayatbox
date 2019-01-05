@@ -58,7 +58,7 @@ const checkPassword = (email, password, cb) => {
           cb(isMatch, results[0], err);
         });
       } else {
-        cb(false, null);
+        cb(false, null, null);
       }
       con.release();
     });

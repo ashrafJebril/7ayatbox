@@ -1,3 +1,7 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+/*Google font integration*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 /* *****About Us Dev***** */
 
 .contactus_about_div{
@@ -29,19 +33,24 @@
 /* *****End Of About Us Dev***** */
 
 /* *****Contact Us Dev***** */
+.contact-jumbotron {
+    background: rgb(154, 17, 71);
+    color: rgb(255, 254, 254);
+    border-radius: 0px;
+    }
+    .contact-jumbotron-sm { padding-top: 24px;
+    padding-bottom: 24px; }
+    .jumbotron small {
+    color: rgb(255, 255, 255);
+    }
+    .contact-h1 small {
+    font-size: 24px;
+    color: rgb(32, 32, 32);
+    font-weight: bold;
+    }
+    #btnContactUs {
+        background-color: rgb(154, 17, 71);
+    }
 
-.contactus_container {
-    padding-left: 500px;
-    padding-right: 200px;
-}
-.contactus-input {
-    margin: 5px;
-    align-content: center;
-}
-
-
-
-
-
-
-
+/* *****End Of Contact Us Dev***** */
+    

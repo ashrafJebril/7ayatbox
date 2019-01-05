@@ -45,7 +45,10 @@ img.avatar {
 }
 
 .container {
-  padding: 16px;
+  padding: 140px 10px 20px;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0px auto;
 }
 
 span.psw {
@@ -62,4 +65,21 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+}
+.logoutLi {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.logoutLi a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px;
+}
+.logoutLi a:hover {
+  color: #fff;
+  text-decoration: none;
 }

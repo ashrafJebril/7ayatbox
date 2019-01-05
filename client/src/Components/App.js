@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import $ from "jquery";
 import Home from "../Components/Home/Home";
 import Nav from "../Components/Home/NavBar/Nav";
-import Footer from "../Components/Home/Footer/Footer";
+
 
 import Reservation from "../Components/Categories/Reservation/Reservation.js";
 

@@ -1,7 +1,7 @@
 
 const intialState={
     counter:0,
-    result2:''
+    result2:[]
 }
 
 const reducer =(state = intialState,action)=>{
@@ -13,9 +13,11 @@ const reducer =(state = intialState,action)=>{
           counter:state.counter+1
       }
   }else if(action.type==="SAVE"){
+      var array=state.result2
+      array.push(action.value)
       return {
             ...state,
-            result2:action.value
+            result2:array
       }
 
   }

@@ -11,9 +11,7 @@ class Categories extends Component {
   onChange = date => this.setState({ date })
  
   render() {
-    let style={
-        width:"300px"
-    }
+    
 
     return (
        

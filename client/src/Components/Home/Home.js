@@ -3,6 +3,7 @@ import "./Home.css";
 import "./About/About";
 import About from "./About/About";
 import { Link } from "react-router-dom";
+import $ from "jquery"
 
 class Home extends Component {
   constructor(props) {
@@ -10,12 +11,14 @@ class Home extends Component {
     this.state = { budget: "" };
   }
 
-
+//Budget modal submit
   submit = (e) => {
     this.setState({ budget: e.target.value });
   }
+ 
   render() {
-    console.log("home state", this.state.budget)
+
+   
     return (
       <div>
         <header className="container-fluid index-header">
@@ -47,16 +50,16 @@ class Home extends Component {
 
 
 
-              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h3 class="modal-title" id="exampleModalLongTitle">Insert Your Budget </h3>
+              <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h3 className="modal-title" id="exampleModalLongTitle">Insert Your Budget </h3>
             
                     
             
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
 
                       <input
                         type="Number"
@@ -67,11 +70,11 @@ class Home extends Component {
                         placeholder="$ 0.000"
                       />
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-target="planmodal" data-dismiss="modal">Close</button>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary" data-target="planmodal" data-dismiss="modal">Close</button>
                       
                    
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#planmodal" data-dismiss="modal">See your Plane</button>
+                      <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#planmodal" data-dismiss="modal">See your Plane</button>
                     </div>
                   </div>
                 </div>
@@ -79,16 +82,17 @@ class Home extends Component {
 
 
 
-{/* new modal */}
+{/* Plan Budget modal */}
 
-<div class="modal fade" id="planmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h3 class="modal-title" id="exampleModalLongTitle">Your Plan</h3>
+<div className
+="modal fade" id="planmodal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h3 className="modal-title" id="exampleModalLongTitle">Your Plan</h3>
                    
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                     <label htmlFor="formGroupExampleInput">Hall Or Hotel Budget </label>
                       <input
                         type="text"
@@ -105,7 +109,7 @@ class Home extends Component {
                         value={"$ "+Math.ceil( + this.state.budget * 0.02)}
                         className="form-control"
                         id="formGroupExampleInput"
-                        placeholder="$ 0.000"
+                     
                       />
                        <label htmlFor="formGroupExampleInput">Zafeh Budget </label>
                       <input
@@ -114,7 +118,7 @@ class Home extends Component {
                         value={"$ "+Math.ceil( + this.state.budget * 0.02)}
                         className="form-control"
                         id="formGroupExampleInput"
-                        placeholder="$ 0.000"
+                    
                       />
                        <label htmlFor="formGroupExampleInput">Buity Center budget </label>
                       <input
@@ -132,7 +136,7 @@ class Home extends Component {
                        value={"$ "+Math.ceil( + this.state.budget * 0.05)}
                         className="form-control"
                         id="formGroupExampleInput"
-                        placeholder="$ 0.000"
+                      
                       />
                           <label htmlFor="formGroupExampleInput">Flowers </label>
                          <input
@@ -141,7 +145,7 @@ class Home extends Component {
                        value={"$ "+Math.ceil( + this.state.budget * 0.03)}
                         className="form-control"
                         id="formGroupExampleInput"
-                        placeholder="$ 0.000"
+                       
                       />
                              <label htmlFor="formGroupExampleInput">Camera </label>
                          <input
@@ -150,18 +154,18 @@ class Home extends Component {
                        value={"$ "+Math.ceil( + this.state.budget * 0.02)}
                         className="form-control"
                         id="formGroupExampleInput"
-                        placeholder="$ 0.000"
+                      
                       />
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" data-target="#exampleModalCenter" data-dismiss="modal" data-toggle="modal" >Back to your budget</button>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" className="btn btn-primary" data-target="#exampleModalCenter" data-dismiss="modal" data-toggle="modal" >Back to your budget</button>
                    <Link 
                       to={{
                         pathname: "/budgetresult",
                         query: this.state.budget
                       }}>
-                        <button type="button" class="btn btn-primary">what we recommend </button>
+                        <button type="button" className="btn btn-primary">what we recommend </button>
                         </Link>
                     </div>
                   </div>

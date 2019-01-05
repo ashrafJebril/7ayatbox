@@ -54,7 +54,7 @@ class ContactUs extends Component {
 
         {/* About Us Form  */}
         <section>
-	<div class="container-fluid">
+	<div class="container">
         	<div class="row about-bg">
                 <div class="col-md-6">   
                 </div>

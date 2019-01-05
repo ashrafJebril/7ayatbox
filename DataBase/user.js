@@ -5,7 +5,7 @@ const SALT_WORK_FACTOR = 10;
 const checkUser = (email, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("CheckUser connection err", err);
-    console.log("dddd", email);
+
     con.query(`SELECT * FROM users Where email= ("${email}")`, function(
       err,
       results
@@ -28,7 +28,8 @@ const addUser = (name, email, password, cb) => {
       con.query(sql, function(err, result) {
         if (err) console.log("query error", err);
         console.log("1 record inserted");
-        cb(err, result);
+        //result object returned from the insert query contain the inserted id (PK)
+        cb(err, result.insertId);
         con.release(); //releasing the connection back to the pool
       });
     });
@@ -52,13 +53,12 @@ const checkPassword = (email, password, cb) => {
       if (err) console.log("CheckUser query error", err);
       //results is the returned array of objects
       if (results.length > 0) {
-        console.log("sds", results);
         bcrypt.compare(password, results[0].password, function(err, isMatch) {
           if (err) return cb(null, err);
-          cb(isMatch, err);
+          cb(isMatch, results[0], err);
         });
       } else {
-        cb(false, null);
+        cb(false, null, null);
       }
       con.release();
     });

@@ -28,7 +28,7 @@ const addProvider = (name, email, password, cb) => {
       con.query(sql, function(err, result) {
         if (err) console.log("query error", err);
         console.log("1 record inserted");
-        cb(err, result);
+        cb(err, result.insertId);
         con.release(); //releasing the connection back to the pool
       });
     });
@@ -51,9 +51,8 @@ const checkPassword = (email, password, cb) => {
         if (err) console.log("CheckPassword query error", err);
         //results is the returned array of objects
         if (results.length > 0) {
-         
           bcrypt.compare(password, results[0].password, function(err, isMatch) {
-            console.log("hhhh", results,isMatch,err);
+            console.log("hhhh", results, isMatch, err);
             if (err) return cb(null, err);
             if (isMatch) {
               cb({ id: results[0].id, name: results[0].name }, err);

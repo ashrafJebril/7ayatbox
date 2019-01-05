@@ -1,122 +1,126 @@
-
-
-.index-header{
-	padding:100px 0px 0px;
-	height:auto;
-	min-height:460px;
-	background-image: url(imgs/wedding.jpg);
-	background-size: cover;
-	background-position: center 0px;
-	background-repeat: no-repeat;
-	position: relative;
-	z-index: 0;	
+.index-header {
+  padding: 100px 0px 0px;
+  height: auto;
+  min-height: 460px;
+  background-image: url(imgs/wedding.jpg);
+  background-size: cover;
+  background-position: center 0px;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
 }
 
-.title-row{
-	margin:0px auto 40px;
-	padding:20px 0px 0px;
-	min-height:50px;
-	max-width: 1280px;
-	position:relative;
-	z-index: 2;
+.title-row {
+  margin: 0px auto 40px;
+  padding: 20px 0px 0px;
+  min-height: 50px;
+  max-width: 1280px;
+  position: relative;
+  z-index: 2;
 }
-.title-row > h1{
-	display: block;
-	width:100%;
-	text-align: center;
-	font-weight:400;
-	color:#40323b;
-	margin: 0px 0px 25px;
-	/*text-shadow:rgba(255,255,255,01) 1px 1px 5px;*/
+.title-row > h1 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  color: #40323b;
+  margin: 0px 0px 25px;
+  /*text-shadow:rgba(255,255,255,01) 1px 1px 5px;*/
 }
-.title-row > h4{
-	display: block;
-	width:100%;
-	text-align: center;
-	font-weight:300;
-	font-size:28px;
-	color:#000;
-	/*text-shadow:rgba(255,255,255,01) 1px 1px 5px;*/
+.title-row > h4 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 28px;
+  color: #000;
+  /*text-shadow:rgba(255,255,255,01) 1px 1px 5px;*/
 }
-.title-row mark{
-	background-color:rgba(255, 255, 255, 0.45);
-	border-radius:5px
+.title-row mark {
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 5px;
 }
-.title-row .button-holder{
-	padding:20px 0px 0px;
-	display: inline-flex;
-    justify-content: center;
+.title-row .button-holder {
+  padding: 20px 0px 0px;
+  display: inline-flex;
+  justify-content: center;
 }
-.title-row .button-holder > a, .title-row .button-holder > a:link{
-	display: inline-block;
-	width:auto;
-	padding:10px 35px ;
-	border-radius:100px;
-	background-color:#991146;
-	color:#fff;
-	text-decoration:none;
-	font-size:26px;
-	font-weight:100;
-	transition:all ease 0.3s;
+.title-row .button-holder > a,
+.title-row .button-holder > a:link {
+  display: inline-block;
+  width: auto;
+  padding: 10px 35px;
+  border-radius: 100px;
+  background-color: #991146;
+  color: #fff;
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: 100;
+  transition: all ease 0.3s;
 }
-.title-row .button-holder > a:hover{
-	background-color:#e63077;
-	transition:all ease 0.3s;
-	
+.title-row .button-holder > a:hover {
+  background-color: #e63077;
+  transition: all ease 0.3s;
 }
-.header-screen-row{
-	margin:0px auto 0px;
-	padding:60px 0px 120px;
-	min-height:550px;
-	max-width: 1280px;
-	border-radius:15px 15px 0px 0px;
-	box-sizing: border-box;
-	border-top:solid 50px rgba(255,255,255,0.7);
-	border-right:solid 10px rgba(255,255,255,0.7);
-	border-left:solid 10px rgba(255,255,255,0.7);
-	box-shadow: rgba(0,0,0,0.1) 0px -1px 10px;
+.header-screen-row {
+  margin: 0px auto 0px;
+  padding: 60px 0px 120px;
+  min-height: 550px;
+  max-width: 1280px;
+  border-radius: 15px 15px 0px 0px;
+  box-sizing: border-box;
+  border-top: solid 50px rgba(255, 255, 255, 0.7);
+  border-right: solid 10px rgba(255, 255, 255, 0.7);
+  border-left: solid 10px rgba(255, 255, 255, 0.7);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 10px;
 }
-.screen-header-controllers{
-	display:inline-block;
-	min-width:60px;
-	height:30px;
-	position: absolute;
-    margin-top: -100px;
-	padding-top:5px;
+.screen-header-controllers {
+  display: inline-block;
+  min-width: 60px;
+  height: 30px;
+  position: absolute;
+  margin-top: -100px;
+  padding-top: 5px;
 }
-.screen-header-controllers > div{
-	display: inline-block;
-	width:16px;
-	height:16px;
-	float:left;
-	background-color:rgba(68,68,68,0.3);
-	margin:0px 4px 0px 0px;
-	/*box-shadow:rgba(0,0,0,0.3) 0px 1px 2px;*/
-	border-radius:100px;
+.screen-header-controllers > div {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  float: left;
+  background-color: rgba(68, 68, 68, 0.3);
+  margin: 0px 4px 0px 0px;
+  /*box-shadow:rgba(0,0,0,0.3) 0px 1px 2px;*/
+  border-radius: 100px;
 }
-.index-header::after{
-	content: '';
-	width:100%;
-	height:280px;
-	background-image:url(imgs/header-feather.png);
-	background-repeat:repeat-x;
-	background-size:1px 280px;
-	position: absolute;
-	z-index: 1;
-	margin-top:-270px;
+.index-header::after {
+  content: "";
+  width: 100%;
+  height: 280px;
+  background-image: url(imgs/header-feather.png);
+  background-repeat: repeat-x;
+  background-size: 1px 280px;
+  position: absolute;
+  z-index: 1;
+  margin-top: -270px;
 }
-.backgroundImg{
-	width:360px; 
-	height:130px; 
-	background-image:url(imgs/ew-logo.png); 
-	background-size:contain; 
-	background-repeat:no-repeat; 
-	background-position:center; 	
-	margin:0px auto;
+.backgroundImg {
+  width: 360px;
+  height: 130px;
+  background-image: url(imgs/ew-logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0px auto;
 }
-#exampleModalCenter{
-	background-color:#502033ad;
+#exampleModalCenter {
+  background-color: #502033ad;
 }
-.nav-changed{
-	background-color:white !important; 
+.nav-changed {
+  background-color: white !important;
+}
+.container {
+  padding: 140px 10px 20px;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0px auto;
 }

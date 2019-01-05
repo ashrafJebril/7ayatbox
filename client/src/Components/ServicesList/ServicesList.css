@@ -2,7 +2,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: auto;
   text-align: center;
-  font-family: arial; 
+  font-family: arial;
   padding: 10px;
   display: inline-flex;
   width: 100%;
@@ -11,47 +11,45 @@
 
 .card > div {
   display: inline-flex;
-    flex-direction: column;
-    height: calc(100% - 200px);
-    /* justify-content: flex-end; */
+  flex-direction: column;
+  height: calc(100% - 200px);
+  /* justify-content: flex-end; */
 }
 
-
-.card > div  h4{
- font-weight: 700;
- color: #991145;
- padding-top:15px;
- font-size:21px;
- min-height:40px;
+.card > div h4 {
+  font-weight: 700;
+  color: #991145;
+  padding-top: 15px;
+  font-size: 21px;
+  min-height: 40px;
 }
-.card > div p:nth-child(2){
-  height:55px;
+.card > div p:nth-child(2) {
+  height: 55px;
   overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
-.card > div p:nth-child(3){
-  text-align:right;
- font-size: 32px;
- color:#991145;
-
+.card > div p:nth-child(3) {
+  text-align: right;
+  font-size: 32px;
+  color: #991145;
 }
-.card > div p:nth-child(3)::after{
-  content:'JOD';
-  font-size:17px;
-  margin:0px 0px 0px 5px;
-  color:#1c1c1c
+.card > div p:nth-child(3)::after {
+  content: "JOD";
+  font-size: 17px;
+  margin: 0px 0px 0px 5px;
+  color: #1c1c1c;
 }
-.cart-cta{
-  background-color:  #991145;
+.cart-cta {
+  background-color: #991145;
   /* background-color:#118c99; */
-  transition:background-color ease 0.3s;
+  transition: background-color ease 0.3s;
 }
-.cart-cta:hover{
-  background-color:#118c99;
-  transition:background-color ease 0.3s;
+.cart-cta:hover {
+  background-color: #118c99;
+  transition: background-color ease 0.3s;
 }
 
 .title {

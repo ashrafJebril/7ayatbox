@@ -8,7 +8,7 @@ const getAllServices = (categoryName, cb) => {
     var sql = `SELECT capacity,description,imageUrl,location,price,rate,title,providerID,categoryID, T3.name AS providerName FROM providerCategories AS T1 JOIN categories AS T2 ON T1.categoryID = T2.id JOIN providers AS T3 ON T1.providerID = T3.id WHERE T2.name = "${categoryName}"`;
     con.query(sql, function(err, result) {
       if (err) console.log("query error", err);
-      cb(result,err);
+      cb(result, err);
       con.release(); //releasing the connection back to the pool
     });
   });
@@ -35,8 +35,30 @@ const getRecommendedServices = (
   });
 };
 
-const addService=(capacity,description,imageUrl,location,price,rate,title,providerID,categoryID,cb)=>{
-  console.log("my data in sql",capacity,description,imageUrl,location,price,rate,title,providerID,categoryID)
+const addService = (
+  capacity,
+  description,
+  imageUrl,
+  location,
+  price,
+  rate,
+  title,
+  providerID,
+  categoryID,
+  cb
+) => {
+  console.log(
+    "my data in sql",
+    capacity,
+    description,
+    imageUrl,
+    location,
+    price,
+    rate,
+    title,
+    providerID,
+    categoryID
+  );
   pool.getConnection(function(err, con) {
     if (err) console.log("connection err", err);
     console.log("Connected!");
@@ -49,12 +71,8 @@ const addService=(capacity,description,imageUrl,location,price,rate,title,provid
       con.release(); //releasing the connection back to the pool
     });
   });
-}
+};
 
-
-
- 
-  
 module.exports.addService = addService;
 module.exports.getAllServices = getAllServices;
 module.exports.getRecommendedServices = getRecommendedServices;

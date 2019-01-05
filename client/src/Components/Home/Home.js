@@ -19,72 +19,72 @@ class Home extends Component {
       cars: ""
     };
   }
- 
+
   //Budget modal submit
   submit = (e) => {
     this.setState({
       budget: e.target.value,
-      halls: Math.ceil( e.target.value * 0.76),
-      zafehs: Math.ceil( e.target.value * 0.03),
+      halls: Math.ceil(e.target.value * 0.76),
+      zafehs: Math.ceil(e.target.value * 0.03),
       djs: Math.ceil(e.target.value * 0.03),
-      beautys: Math.ceil( e.target.value * 0.1),
+      beautys: Math.ceil(e.target.value * 0.1),
       flowers: Math.ceil(e.target.value * 0.05),
-      cars: Math.ceil( e.target.value * 0.03)
+      cars: Math.ceil(e.target.value * 0.03)
 
     });
     console.log(this.state)
   }
-  changeHandlerHall=(e)=>{
-    
+  changeHandlerHall = (e) => {
+
     this.setState({
-    
-      halls:  Number(e.target.value) 
-  
+
+      halls: Number(e.target.value)
+
     });
-    console.log("hall",this.state)
+    console.log("hall", this.state)
   }
-  changeHandlerDj=(e)=>{
+  changeHandlerDj = (e) => {
     this.setState({
-    
-      djs:  e.target.value 
-  
+
+      djs: e.target.value
+
     });
-    console.log("dj",this.state)
+    console.log("dj", this.state)
   }
 
-  changeHandlerZafeh=(e)=>{
+  changeHandlerZafeh = (e) => {
     this.setState({
-    
-      zafehs:  e.target.value 
-  
+
+      zafehs: e.target.value
+
     });
-    console.log("zafeh",this.state)
+    console.log("zafeh", this.state)
   }
 
-  changeHandlerFlower=(e)=>{
+  changeHandlerFlower = (e) => {
     this.setState({
-    
-      flowers:  e.target.value 
-  
+
+      flowers: e.target.value
+
     });
-    console.log("flower",this.state)
+    console.log("flower", this.state)
   }
 
-  changeHandlerCar=(e)=>{
+  changeHandlerCar = (e) => {
     this.setState({
-    
-      cars:  e.target.value 
-  
+
+      cars: e.target.value
+
     });
-    console.log("car",this.state)
+    console.log("car", this.state)
   }
-  changeHandlerBeauty=(e)=>{
+  changeHandlerBeauty = (e) => {
     this.setState({
-    
-      beautys:  e.target.value 
-  
+
+      beautys: e.target.value
+
     });
-    console.log("b",this.state)
+    console.log("b", this.state)
   }
 
 
@@ -117,14 +117,27 @@ class Home extends Component {
               </h4>
 
               <div className="col-12 button-holder">
-                <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Start Now</a>
-
+                <a
+                  href="#"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter"
+                >
+                  Start Now
+                </a>
               </div>
 
-
-
-              <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" role="document">
+              <div
+                className="modal fade"
+                id="exampleModalCenter"
+                tabIndex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div
+                  className="modal-dialog modal-dialog-centered"
+                  role="document"
+                >
                   <div className="modal-content">
                     <div className="modal-header">
                       <h3 className="modal-title" id="exampleModalLongTitle">Insert Your Budget </h3>
@@ -133,10 +146,9 @@ class Home extends Component {
 
                     </div>
                     <div className="modal-body">
-
                       <input
                         type="Number"
-                       
+
                         onChange={this.submit}
                         className="form-control"
                         id="formGroupExampleInput"
@@ -188,7 +200,7 @@ class Home extends Component {
                       <input
                         type="Number"
                         onChange={this.changeHandlerZafeh}
-                     defaultValue=  {this.state.zafehs}
+                        defaultValue={this.state.zafehs}
                         className="form-control"
                         id="formGroupExampleInput"
 
@@ -213,14 +225,14 @@ class Home extends Component {
                       />
                       <label htmlFor="formGroupExampleInput">Flowers Budget</label>
                       <input
-                         type="Number"
-                         onChange={this.changeHandlerFlower}
-                         defaultValue={this.state.flowers}
-                         className="form-control"
-                         id="formGroupExampleInput"
+                        type="Number"
+                        onChange={this.changeHandlerFlower}
+                        defaultValue={this.state.flowers}
+                        className="form-control"
+                        id="formGroupExampleInput"
 
                       />
-                 
+
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -228,7 +240,7 @@ class Home extends Component {
                       <Link
                         to={{
                           pathname: "/budgetresult",
-                          query: {halls:this.state.halls,djs:this.state.djs,beautys:this.state.beautys,flowers:this.state.flowers,cars:this.state.cars,zafehs:this.state.zafehs}
+                          query: { halls: this.state.halls, djs: this.state.djs, beautys: this.state.beautys, flowers: this.state.flowers, cars: this.state.cars, zafehs: this.state.zafehs }
                         }}>
                         <button type="button" className="btn btn-primary">what we recommend </button>
                       </Link>
@@ -236,7 +248,6 @@ class Home extends Component {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </header>

@@ -1,19 +1,16 @@
-import React from 'react'
-import "./Footer.css"
+// import React from 'react'
+// import "./Footer.css"
 
-const Footer =()=>{
-    return(
+// const Footer =()=>{
+//     return(
    
-<footer className="container-fluid footer-container">
-		<div className="row">
+// <footer className="container-fluid footer-container" >
 
-        </div>
 		
-		
-		<p>© Hayat box, 2019</p>
+// 		<p>© Hayat box, 2019</p>
 	
-	</footer>
+// 	</footer>
 	
-    )
-}
-export default Footer
+//     )
+// }
+// export default Footer

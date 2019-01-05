@@ -26,7 +26,7 @@ class ReservationBot extends Component {
     this.steps = [
       {
         id: "1",
-        message: "What is your name?",
+        message: "Greetings what's your name?",
         trigger: "2"
       },
       {

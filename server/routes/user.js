@@ -16,29 +16,34 @@ router.route("/signup").post(function(req, res) {
     if (result.length > 0) {
       res.status(500).send("Username already exists");
     } else {
-      user.addUser(name, email, password, function(err, user) {
+      user.addUser(name, email, password, function(err, userId) {
         if (err) {
           console.log("errr", err);
           res.status(500).send("db error");
         } else {
-          res.redirect("/login");
+          res.send({ id: userId, name: name });
         }
       });
     }
   });
 });
 
-// router.post(
-//   "/login",
+// router.post("/login", passport.authenticate("local"), function(req, res) {
+//   // If this function gets called, authentication was successful.
+//   // `req.user` contains the authenticated user.
+//   console.log("hiiiiiii", req.body);
+//   res.redirect("/");
+// });
+// router.post("/login", function(req, res, next) {
+//   console.log("yoooooooooo", req.body);
 //   passport.authenticate("local", {
 //     failureRedirect: "/login",
-//     successRedirect: "/profile"
-//   }),
-//   function(req, res) {
-//     console.log("yoooooooo");
-//     res.send("hey");
-//   }
-// );
+//     successRedirect: "/reservation"
+//   })(req, res, next);
+// });
+router.route("/logout").get(function(req, res) {
+  req.logOut();
+});
 //handling user login route
 router.route("/login").post(function(req, res) {
   user.checkPassword(req.body.email, req.body.password, function(
@@ -47,7 +52,7 @@ router.route("/login").post(function(req, res) {
     err
   ) {
     if (isMatched) {
-      res.send(isMatched);
+      res.send({ id: user.id, name: user.name });
     } else {
       res.status(500).send("login error");
     }

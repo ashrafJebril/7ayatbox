@@ -99,7 +99,14 @@ class Nav extends Component {
               <div className="navlogo" />
             </li>
             <li>
-              <a href="/">Home</a>
+            <Link
+                      to={{
+                        pathname: "/",
+                      
+                      }}
+                    >
+                 Home
+                    </Link>
             </li>
             <li>
               <a href="#">Services</a>
@@ -182,12 +189,13 @@ class Nav extends Component {
             <li id="navLogin">
               <Link to={{ pathname: "/login", query: "user" }}>Login</Link>
             </li>
-            <li>{this.props.user.name}</li>
-            <li>
-              <Link to={{ pathname: "/Cart" }}>
+      
+            <li id="cart-nav">
+              <Link to={{ pathname: "/Cart" }} >
                 My Cart <mark>{this.props.counter}</mark>
               </Link>
             </li>
+            <li className="logedName"><a>{this.props.user.name}</a></li>
           </ul>
         </div>
 

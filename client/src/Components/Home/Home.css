@@ -124,3 +124,10 @@
   width: 100%;
   margin: 0px auto;
 }
+.btnStart{
+  background-color: #991146
+}
+
+#planmodal {
+  background-color: #502033ad;
+}

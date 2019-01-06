@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../ServicesList/ServicesList.css";
 import ServicesListCard from "../../ServicesList/ServicesListCard";
 import $ from "jquery";
-import BudgetResultItem from "./BudgetResultItem";
+
 class BudgetResult extends Component {
   constructor(props) {
     super(props);
@@ -87,7 +87,7 @@ class BudgetResult extends Component {
           <div className="row">
             {this.state.halls.map((result, index) => {
             
-                return <BudgetResultItem key={index} result={result} />;
+                return <ServicesListCard key={index} result={result} />;
             })}
             </div>
       <h1>Recommended DJ</h1>
@@ -95,7 +95,7 @@ class BudgetResult extends Component {
          <div className="row">
             {this.state.djs.map((result, index) => {
             
-                return <BudgetResultItem key={index} result={result} />;
+                return <ServicesListCard key={index} result={result} />;
             })}
             </div>
             <h1>Recommended Zafeh</h1>
@@ -103,7 +103,7 @@ class BudgetResult extends Component {
          <div className="row">
             {this.state.zafehs.map((result, index) => {
             
-                return <BudgetResultItem key={index} result={result} />;
+                return <ServicesListCard key={index} result={result} />;
             })}
             </div>
             <h1>Recommended Beauty Centers</h1>
@@ -111,7 +111,7 @@ class BudgetResult extends Component {
          <div className="row">
             {this.state.beautys.map((result, index) => {
             
-                return <BudgetResultItem key={index} result={result} />;
+                return <ServicesListCard key={index} result={result} />;
             })}
             </div>
             <h1>Recommended Flowers</h1>
@@ -119,7 +119,7 @@ class BudgetResult extends Component {
          <div className="row">
             {this.state.flowers.map((result, index) => {
             
-                return <BudgetResultItem key={index} result={result} />;
+                return <ServicesListCard key={index} result={result} />;
             })}
             </div>
             <h1>Recommended Cars</h1>
@@ -127,7 +127,7 @@ class BudgetResult extends Component {
          <div className="row">
             {this.state.cars.map((result, index) => {
             
-                return <BudgetResultItem key={index} result={result} />;
+                return <ServicesListCard key={index} result={result} />;
             })}
             </div>
         </div>

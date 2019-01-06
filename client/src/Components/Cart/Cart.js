@@ -1,21 +1,44 @@
 import React,{Component} from "react"
 
 import "./Cart.css"
-
+import $ from "jquery"
 import {connect} from "react-redux"
 
 class Cart extends Component{
  constructor(props){
      super(props)
   this.state={
-     result:this.props.result2
+     result:this.props.result2,
+     userID:this.props.user.id,
+     
+
+     
     
   }
 
+
      
  }
+
  handleSubmit=()=>{
-   
+console.log("the result" ,this.props.result2[0].serviceID,this.state.userID,this.props.result2[0].providerID)
+     $.ajax({
+      url: "/reservation/addReservation",
+      type: "POST",
+      data: {
+        serviceID: this.props.result2[0].serviceID,
+        userID: this.state.userID,
+        providerID :this.props.result2[0].providerID
+      },
+      success: data => {
+        //alert("Hi");
+        console.log("success", data);
+        this.setState({ text: data.express });
+      },
+      error: err => {
+        console.log("ERROR");
+      }
+    });
  }
 
  
@@ -38,7 +61,7 @@ class Cart extends Component{
  
 
  render(){
-     
+     console.log("my state",this.state)
   
    
          
@@ -49,7 +72,7 @@ class Cart extends Component{
         };
  
         return (
-          
+          <div>
             <div className="container">
        {this.state.result.map((result, index) => {
               return <li>price {result.price} description {result.description}</li> ;
@@ -67,9 +90,15 @@ class Cart extends Component{
               <span className="col-6">tota inc tax:</span>
               <span className="col-6 text-right">${this.total()* 0.15+this.total()}</span>
             </h3>
-    
+  
+          </div >
+          <div className="row">
+          <div className="col-6"></div>
+          <div className="col-6"><div className="Save-cart" ></div>
+            <button onClick={this.handleSubmit}>Save</button></div>
+            </div></div>
           </div>
-          </div>
+      
         );
       }
     }

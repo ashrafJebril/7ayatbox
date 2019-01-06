@@ -25,8 +25,15 @@ class Login extends Component {
         $(".headerNav-container").append(
           "<ul><li><a>LogOut</a></li></ul>"
         );
+        if(this.props.location.query==="user"){
+          this.props.history.goBack();
+        }
      
-        this.props.history.goBack();
+        this.props.history.push({
+          pathname: '/provider',
+       
+          query:data.id
+        });
       },
       error: err => {
         console.log("UserLogin ERROR", err);
@@ -43,7 +50,7 @@ class Login extends Component {
         </div>
 
         <div className="container">
-          <label for="email">
+          <label htmlFor="email">
             <b>Email</b>
           </label>
           <input
@@ -55,7 +62,7 @@ class Login extends Component {
             required
           />
 
-          <label for="password">
+          <label htmlFor="password">
             <b>Password</b>
           </label>
           <input

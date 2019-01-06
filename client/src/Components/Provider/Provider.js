@@ -14,7 +14,7 @@ class Provider extends Component{
        rate:"",
        title:"",
        capicity:"",
-       type:"Capacity"
+       type:""
 
 
      }
@@ -96,10 +96,10 @@ priceHandleChange = (event) =>
  capicityHandleChange = (event) =>
  this.setState({capicity: event.target.value});
  render(){
-
+console.log("providerId",this.state.providerId)
      return(
          
-         <div>
+         <div class="container">
 <div className="row">
 <div className="col-lg-3">
 Title

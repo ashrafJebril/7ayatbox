@@ -64,3 +64,42 @@ describe("Server Test", function() {
     });
   });
 });
+
+describe("add in services", function() {
+  it("it should add services and return boolean (true) ", function(done) {
+    request("localhost:3000")
+      .post("/provider/addService")
+      .send({
+        email: "mahmoud@gmail.com",
+        password: "123456",
+        name: "mahmoud"
+      })
+      .end(function(err, res) {
+        result = res.body;
+        expect(result).to.be.true;
+        done();
+      });
+  });
+  
+});
+
+describe('App Component', () => {
+  it('renders the Counter wrapper', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Counter)).to.have.length(1);
+  });
+
+  it('passes all props to Counter wrapper', () => {
+    const wrapper = shallow(<App />);
+    let counterWrapper = wrapper.find(Counter);
+
+    expect(counterWrapper.props().counter).to.equal(0);
+
+    wrapper.setState({ counter: -1 });
+
+    counterWrapper = wrapper.find(Counter);
+    expect(counterWrapper.props().counter).to.equal(-1);
+  });
+});
+
+

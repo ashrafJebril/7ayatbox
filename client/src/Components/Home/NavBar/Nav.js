@@ -99,7 +99,14 @@ class Nav extends Component {
               <div className="navlogo" />
             </li>
             <li>
-              <a href="/">Home</a>
+            <Link
+                      to={{
+                        pathname: "/",
+                      
+                      }}
+                    >
+                 Home
+                    </Link>
             </li>
             <li>
               <a href="#">Services</a>

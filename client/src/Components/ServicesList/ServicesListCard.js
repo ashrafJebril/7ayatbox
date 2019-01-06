@@ -10,7 +10,7 @@ class ViewCategoriesCard extends React.Component {
   };
 
   handleSubmit = () => {
-    console.log(this.props.result);
+    console.log("my service cart result",this.props.result);
     this.props.incrementCounter();
     this.props.saveResult(this.props.result);
   };

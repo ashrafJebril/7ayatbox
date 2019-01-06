@@ -8,6 +8,7 @@ const userRouter = require("./routes/user.js");
 const providerRouter = require("./routes/provider.js");
 const servicesRouter = require("./routes/Services.js");
 const reservationRouter=require("./routes/Reservation.js")
+const contactusRouter = require("./routes/ContactUs.js");
 const cookieSession = require("cookie-session");
 const port = process.env.PORT || 5000;
 var cors = require("cors");
@@ -34,6 +35,8 @@ app.use("/user", userRouter);
 app.use("/provider", providerRouter);
 app.use("/services", servicesRouter);
 app.use("/Reservation", reservationRouter);
+app.use("/contactus", contactusRouter);
+
 
 app.get("/profile", function(req, res) {
   res.send(req.session);

@@ -11,6 +11,7 @@ import BudgetResult from "../Components/Categories/BudgetResult/BudgetResult";
 import Provider from "../Components/Provider/Provider";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Cart from "../Components/Cart/Cart";
+import ContactUs from "../Components/ContactUs/ContactUs";
 import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
 
@@ -56,6 +57,7 @@ class App extends Component {
             <Route exact path="/Reservation" component={Reservation} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/ContactUs" component={ContactUs} />
           </Switch>
 
           {/* <Footer /> */}

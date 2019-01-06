@@ -64,3 +64,21 @@ describe("Server Test", function() {
     });
   });
 });
+
+describe("Contact us message", function() {
+  it("it should save the message in database and return a boolean (true) ", function(done) {
+    request("localhost:3000")
+      .post("/contactus/submit")
+      .send({
+        name: "yazeed",
+        phone: "123456",
+        message: "hello world"
+      })
+      .end(function(err, res) {
+        result = res.body;
+        expect(result).to.be.true;
+        done();
+      });
+  });
+});
+

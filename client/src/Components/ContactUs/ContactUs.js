@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./ContactUs.css";
 import $ from "jquery";
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
 
 class ContactUs extends Component {
   constructor(props) {
@@ -40,8 +42,10 @@ class ContactUs extends Component {
         console.log("ERROR", err);
       }
     });
+
   };
 
+  
   render() {
     return (
 
@@ -50,6 +54,10 @@ class ContactUs extends Component {
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+        <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMVlgPTWDekuMzAX0e5uNxlSl2GZSvEUs&callback=initMap">
+</script>
 
         {/* Contact Us Form */}
         <div class="contact-jumbotron contact-jumbotron-sm">
@@ -100,9 +108,21 @@ class ContactUs extends Component {
     </div>
 </div>
         {/* End Of Contact Us Form */}
+        <Map google={this.props.google} zoom={14}>
+ 
+ <Marker onClick={this.onMarkerClick}
+         name={'Current location'} />
+
+ <InfoWindow onClose={this.onInfoWindowClose}>
+
+ </InfoWindow>
+</Map>
+
       </div>
     );
   }
 }
-
-export default ContactUs;
+//  export default ContactUs;
+export default GoogleApiWrapper({
+    apiKey: ("AIzaSyCMVlgPTWDekuMzAX0e5uNxlSl2GZSvEUs")
+  })(ContactUs);

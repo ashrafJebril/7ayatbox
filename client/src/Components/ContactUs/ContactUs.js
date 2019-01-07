@@ -10,7 +10,10 @@ class ContactUs extends Component {
     this.state = {
       name: '',
       phone: '',
-      message: ''
+      message: '',
+      showingInfoWindow: false,  //Hides or the shows the infoWindow
+      activeMarker: {},          //Shows the active marker upon click
+      selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
     }
   }
 
@@ -108,21 +111,34 @@ class ContactUs extends Component {
     </div>
 </div>
         {/* End Of Contact Us Form */}
-        <Map google={this.props.google} zoom={14}>
- 
- <Marker onClick={this.onMarkerClick}
-         name={'Current location'} />
-
- <InfoWindow onClose={this.onInfoWindowClose}>
-
- </InfoWindow>
-</Map>
-
+        {/* Google Map */}
+        <div id="gMap">
+        <Map
+        google={this.props.google}
+        zoom={14}
+        initialCenter={{ lat: -1.2884, lng: 36.8233 }}
+      >
+        <Marker
+          onClick={this.onMarkerClick}
+          name={'Kenyatta International Convention Centre'}
+        />
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.onClose}
+        >
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
+          </div>
+        </InfoWindow>
+      </Map>
+      </div>
+      {/* End Of Google Map */}
       </div>
     );
   }
 }
-//  export default ContactUs;
+
 export default GoogleApiWrapper({
     apiKey: ("AIzaSyCMVlgPTWDekuMzAX0e5uNxlSl2GZSvEUs")
   })(ContactUs);

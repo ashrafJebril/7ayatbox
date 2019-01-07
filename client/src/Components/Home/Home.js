@@ -112,9 +112,33 @@ class Home extends Component {
               <h1>
                 <mark>Create Your Beautiful Wedding </mark>
               </h1>
-              <h4>
-                <mark>Be Your Wedding Planner</mark>
-              </h4>
+              <section id="home">
+	
+	
+
+	
+<div id="textSlider" class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-4 iamCol">
+						
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 slideCol">
+						<div class="scroller">
+							<div class="inner">
+								<p>PriscilaCunha</p>
+								<p>Web Developer</p>
+								<p>Web Designer</p>
+								<p>Aprendiz Jedi</p>
+							</div>
+						</div>
+					</div>
+	
+				</div>
+	
+	
+	
+	
+	
+</section>
 
               <div className="col-12 button-holder">
                 <a

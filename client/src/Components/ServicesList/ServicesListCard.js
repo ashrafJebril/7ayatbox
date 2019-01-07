@@ -32,13 +32,16 @@ class ViewCategoriesCard extends React.Component {
             <button onClick={this.handleSubmit} className="cart-cta">
               Add to cart
             </button>
+          
             <Link
               to={{
                 pathname: "/reservation",
                 query: this.props.result
               }}
             >
-
+  <button className="cart-details">
+              Show Details
+            </button>
             </Link>
 
           </div>

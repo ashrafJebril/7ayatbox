@@ -74,8 +74,26 @@ console.log("the result" ,this.props.result2[0].serviceID,this.state.userID,this
         return (
           <div>
             <div className="container">
+
        {this.state.result.map((result, index) => {
-              return <li>price {result.price} description {result.description}</li> ;
+              return       <div className="row">  <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="card">
+                <img
+                  src={result.imageUrl}
+                  className="card-img-top"
+                  alt=""
+                />
+      
+                <div className="card-block text-left">
+                  <h4 className="card-title">{result.title}</h4>
+                  <p className="card-text">{result.description}</p>
+                  <p className="card-text">{result.price}</p>
+                
+      
+                </div>
+              </div>
+              </div>
+            </div>  ;
             })}
           <div style={{"marginTop": "30px", "backgroundColor":"#F6F6F6","padding": "10px"}}>
             <h3 className="row" style={{ fontWeight: 400 }}>
@@ -102,7 +120,8 @@ console.log("the result" ,this.props.result2[0].serviceID,this.state.userID,this
         );
       }
     }
-     
+  
+
  
 
 const  mapStateToProps=state=>{

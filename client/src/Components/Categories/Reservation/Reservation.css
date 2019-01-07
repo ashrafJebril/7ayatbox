@@ -21,3 +21,36 @@
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
+
+.reservation-img img{
+  width: 300px;
+  padding: 0px 6px 6px 0px;
+  background-color:#991146;
+  border-top-width: 8px;
+  border-top-style:ridge;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  border-left-width: 2px;
+  border-style: solid;
+  border-color: #991146;
+  height: 400px;
+  width:70%;
+  border: 1px solid;
+  margin-top: 90px;
+
+}
+.reservation-img{
+  display: flex;
+  justify-content: center;
+}
+.container-reservation{
+  margin-left: 190px;
+}
+.container-reservation h2{
+  color: #991146;
+}
+
+.container-reservation mark {
+  color:#991146;
+}
+

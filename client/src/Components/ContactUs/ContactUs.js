@@ -77,9 +77,9 @@ onClose = props => {
         <div class="contact-jumbotron contact-jumbotron-sm">
     <div class="contact-container">
         <div class="row">
-            <div class="col-sm-12 col-lg-12">
+            <div class="col-sm-8 ">
                 <h1 class="contact-h1">
-                    Contact us <small>Feel free to contact us</small></h1>
+                    Feel Free To Contact Us <small></small></h1>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@ onClose = props => {
     <div class="row">
         <div class="col-md-8">
             <div class="well well-sm">
-                <form onSubmit={this.handleSaveMessage}>
+                <form onSubmit={this.handleSaveMessage} class="contact-form">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -123,15 +123,16 @@ onClose = props => {
 </div>
         {/* End Of Contact Us Form */}
         {/* Google Map */}
+
         <div id="gMap">
         <Map
         google={this.props.google}
-        zoom={14}
+        zoom={15}
         initialCenter={{ lat: 31.986617, lng: 35.837770}}
       >
         <Marker
           onClick={this.onMarkerClick}
-          name={'Kenyatta International Convention Centre'}
+          name={'RBK'}
         />
         <InfoWindow
           marker={this.state.activeMarker}
@@ -144,6 +145,7 @@ onClose = props => {
         </InfoWindow>
       </Map>
       </div>
+
       {/* End Of Google Map */}
       </div>
     );

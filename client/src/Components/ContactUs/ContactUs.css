@@ -9,11 +9,15 @@
     color: rgb(255, 254, 254);
     border-radius: 0px;
     }
-    .contact-jumbotron-sm { padding-top: 24px;
-    padding-bottom: 24px;
-    margin-top: 7%;}
+    .contact-jumbotron-sm { 
+        padding-top: 24px;
+        padding-bottom: 24px;
+        margin-top: 7%;
+        /* margin-left: 20%; */
+        margin-right: 34%;
+}
     .jumbotron small {
-    color: rgb(255, 255, 255);
+    color: rgb(138, 41, 41);
     }
     .contact-h1 small {
     font-size: 24px;
@@ -22,8 +26,18 @@
     }
     #btnContactUs {
         background-color: rgb(154, 17, 71);
+        width: 200px;
     }
 
+
 /* *****End Of Contact Us Dev***** */
+
+#gMap {
+    position: relative;
+    width: 35%;
+    height: 350px;
+    background-color: #CCC;
+    margin: 1% 0 0 30%;
+}
 
     

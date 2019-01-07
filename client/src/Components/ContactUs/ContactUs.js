@@ -45,9 +45,23 @@ class ContactUs extends Component {
         console.log("ERROR", err);
       }
     });
-
   };
 
+  onMarkerClick = (props, marker, e) =>
+  this.setState({
+    selectedPlace: props,
+    activeMarker: marker,
+    showingInfoWindow: true
+  });
+
+onClose = props => {
+  if (this.state.showingInfoWindow) {
+    this.setState({
+      showingInfoWindow: false,
+      activeMarker: null
+    });
+  }
+};
   
   render() {
     return (
@@ -58,9 +72,6 @@ class ContactUs extends Component {
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-        <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMVlgPTWDekuMzAX0e5uNxlSl2GZSvEUs&callback=initMap">
-</script>
 
         {/* Contact Us Form */}
         <div class="contact-jumbotron contact-jumbotron-sm">
@@ -116,7 +127,7 @@ class ContactUs extends Component {
         <Map
         google={this.props.google}
         zoom={14}
-        initialCenter={{ lat: -1.2884, lng: 36.8233 }}
+        initialCenter={{ lat: 31.986617, lng: 35.837770}}
       >
         <Marker
           onClick={this.onMarkerClick}

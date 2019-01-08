@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import $ from "jquery";
-import { Link } from "react-router-dom";
+import { Link ,Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(props) {
@@ -23,18 +23,23 @@ class Login extends Component {
         $("#navLogin").hide();
         $("#cart-nav").show()
         $(".headerNav-container").append(
-          "<ul><li><a>LogOut</a></li></ul>"
+          "<ul><li><a href='/'>LogOut</a></li></ul>"
         );
         if(this.props.location.query==="user"){
           this.props.history.goBack();
         }
+       
+        else {
      
         this.props.history.push({
           pathname: '/provider',
-       
+          
           query:data.id
         });
+        $("#cart-nav").hide()
+        $("#nav-service").hide()}
       },
+    
       error: err => {
         console.log("UserLogin ERROR", err);
       }

@@ -78,19 +78,8 @@ class Nav extends Component {
   }
 
   render() {
-    //check for the user if he logged in
-    if (this.state.isLoggedIn) {
-      console.log("hi", this.state.isLoggedIn);
-      return (
-        <Redirect
-          to={{
-            pathname: "/Provider",
-            query: this.state.id
-          }}
-        />
-      );
-    }
 
+ 
     return (
       <div>
         <div className="container-fluid headerNav-container">
@@ -107,8 +96,7 @@ class Nav extends Component {
                 Home
               </Link>
             </li>
-
-            <li>
+            <li id="nav-service">
               <a href="#">Services</a>
               <div className="sub-menu-holder">
                 <ul>
@@ -195,10 +183,9 @@ class Nav extends Component {
                 My Cart <mark>{this.props.counter}</mark>
               </Link>
             </li>
-
-            <li className="logedName">
-              <a>{this.props.user.name}</a>
-            </li>
+        
+            <li className="logedName"><a>{this.props.user.name}</a></li>
+            
           </ul>
         </div>
 

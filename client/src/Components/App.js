@@ -13,6 +13,8 @@ import Cart from "../Components/Cart/Cart";
 import ContactUs from "../Components/ContactUs/ContactUs";
 import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
+import ProviderServices from "./Provider/ProviderServices/ProviderServices"
+
 import UserReservation from "./UserReservation/UserReservation";
 class App extends Component {
   constructor(props) {
@@ -57,6 +59,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/ContactUs" component={ContactUs} />
+            <Route exact path="/ProviderServices" component={ProviderServices} />
             <Route exact path="/myreservation" component={UserReservation} />
           </Switch>
 

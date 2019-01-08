@@ -112,9 +112,33 @@ class Home extends Component {
               <h1>
                 <mark>Create Your Beautiful Wedding </mark>
               </h1>
-              <h4>
-                <mark>Be Your Wedding Planner</mark>
-              </h4>
+              <section id="home">
+	
+	
+
+	
+<div id="textSlider" class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-4 iamCol">
+						
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 slideCol">
+						<div class="scroller">
+							<div class="inner">
+								<p> Reserve Hall</p>
+								<p>Reserve Zafeh</p>
+								<p>Reserve Car</p>
+								<p>Reserve DJ</p>
+							</div>
+						</div>
+					</div>
+	
+				</div>
+	
+	
+	
+	
+	
+</section>
 
               <div className="col-12 button-holder">
                 <a
@@ -159,7 +183,7 @@ class Home extends Component {
                       <button type="button" className="btn btn-secondary" data-target="planmodal" data-dismiss="modal">Close</button>
 
 
-                      <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#planmodal" data-dismiss="modal">See your Plane</button>
+                      <button type="button" className="btn btnStart" data-toggle="modal" data-target="#planmodal" data-dismiss="modal">See your Plane</button>
                     </div>
                   </div>
                 </div>
@@ -167,7 +191,7 @@ class Home extends Component {
 
 
 
-              {/* Plan Budget modal */}
+             
 
               <div className
                 ="modal fade" id="planmodal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -242,7 +266,7 @@ class Home extends Component {
                           pathname: "/budgetresult",
                           query: { halls: this.state.halls, djs: this.state.djs, beautys: this.state.beautys, flowers: this.state.flowers, cars: this.state.cars, zafehs: this.state.zafehs }
                         }}>
-                        <button type="button" className="btn btn-primary">what we recommend </button>
+                        <button type="button" className="btn btnStart">what we recommend </button>
                       </Link>
                     </div>
                   </div>

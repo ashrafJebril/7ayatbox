@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import $ from "jquery";
-import { Link } from "react-router-dom";
+import { Link ,Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(props) {
@@ -21,11 +21,25 @@ class Login extends Component {
         this.props.logedin(data);
         $("#navProvider").hide();
         $("#navLogin").hide();
+        $("#cart-nav").show()
         $(".headerNav-container").append(
-          "<li className='logoutLi'><a >LogOut</a></li>"
+          "<ul><li><a href='/'>LogOut</a></li></ul>"
         );
-        this.props.history.goBack();
+        if(this.props.location.query==="user"){
+          this.props.history.goBack();
+        }
+       
+        else {
+     
+        this.props.history.push({
+          pathname: '/provider',
+          
+          query:data.id
+        });
+        $("#cart-nav").hide()
+        $("#nav-service").hide()}
       },
+    
       error: err => {
         console.log("UserLogin ERROR", err);
       }
@@ -41,7 +55,7 @@ class Login extends Component {
         </div>
 
         <div className="container">
-          <label for="email">
+          <label htmlFor="email">
             <b>Email</b>
           </label>
           <input
@@ -53,7 +67,7 @@ class Login extends Component {
             required
           />
 
-          <label for="password">
+          <label htmlFor="password">
             <b>Password</b>
           </label>
           <input

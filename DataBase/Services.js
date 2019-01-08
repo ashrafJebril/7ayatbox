@@ -13,7 +13,7 @@ const getAllServices = (categoryName, cb) => {
     });
   });
 };
-//getting plan recommendation based on the passed in budgety
+//getting plan recommendation based on the passed in budget
 const getRecommendedServices = (
   hallPrice,
   zafehPrice,
@@ -47,18 +47,6 @@ const addService = (
   categoryID,
   cb
 ) => {
-  console.log(
-    "my data in sql",
-    capacity,
-    description,
-    imageUrl,
-    location,
-    price,
-    rate,
-    title,
-    providerID,
-    categoryID
-  );
   pool.getConnection(function(err, con) {
     if (err) console.log("connection err", err);
     console.log("Connected!");

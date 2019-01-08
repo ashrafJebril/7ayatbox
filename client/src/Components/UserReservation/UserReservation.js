@@ -1,25 +1,20 @@
 import React, { Component } from "react";
-import ServicesListCard from "./ServicesListCard";
-import "./ServicesList.css";
+import ServicesListCard from "../ServicesList/ServicesListCard";
+import "./UserReservation.css";
+import { connect } from "react-redux";
 import $ from "jquery";
-class ViewCategories extends Component {
+class UserReservation extends Component {
   constructor(props) {
     super(props);
     this.state = { result: [] };
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.location.query !== this.props.location.query) {
-      console.log("hisdhaisdhais", this.props.location.query);
-      this.getAllServices();
-    }
-  }
   componentDidMount() {
-    console.log("dsdsdsdsds", this.props.location.query);
     this.getAllServices();
   }
   getAllServices = () => {
+    console.log("IDDDD", this.props.user.id);
     $.ajax({
-      url: `/services/${this.props.location.query}`,
+      url: `/reservation/userReservation?userId=${this.props.user.id}`,
       type: "GET",
       success: data => {
         this.setState({ result: data });
@@ -29,12 +24,13 @@ class ViewCategories extends Component {
       }
     });
   };
+
   render() {
     // eslint-disable-next-line no-lone-blocks
     {
       return (
         <div className="container">
-          <h1>{this.props.location.query}</h1>
+          <h1>My Reservation</h1>
           <hr className="hr-header" />
           <div className="row">
             {this.state.result.map((result, index) => {
@@ -46,5 +42,10 @@ class ViewCategories extends Component {
     }
   }
 }
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
+};
 
-export default ViewCategories;
+export default connect(mapStateToProps)(UserReservation);

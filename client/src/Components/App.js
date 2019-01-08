@@ -3,7 +3,6 @@ import $ from "jquery";
 import Home from "../Components/Home/Home";
 import Nav from "../Components/Home/NavBar/Nav";
 
-
 import Reservation from "../Components/Categories/Reservation/Reservation.js";
 import Budget from "../Components/Categories/Budget/Budget";
 import ServicesList from "../Components/ServicesList/ServicesList";
@@ -16,6 +15,7 @@ import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
 import ProviderServices from "./Provider/ProviderServices/ProviderServices"
 
+import UserReservation from "./UserReservation/UserReservation";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -60,6 +60,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/ContactUs" component={ContactUs} />
             <Route exact path="/ProviderServices" component={ProviderServices} />
+            <Route exact path="/myreservation" component={UserReservation} />
           </Switch>
 
           {/* <Footer /> */}

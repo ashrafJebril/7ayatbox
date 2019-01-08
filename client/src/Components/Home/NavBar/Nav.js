@@ -88,14 +88,13 @@ class Nav extends Component {
               <div className="navlogo" />
             </li>
             <li>
-            <Link
-                      to={{
-                        pathname: "/",
-                      
-                      }}
-                    >
-                 Home
-                    </Link>
+              <Link
+                to={{
+                  pathname: "/"
+                }}
+              >
+                Home
+              </Link>
             </li>
             <li id="nav-service">
               <a href="#">Services</a>
@@ -178,9 +177,9 @@ class Nav extends Component {
             <li id="navLogin">
               <Link to={{ pathname: "/login", query: "user" }}>Login</Link>
             </li>
-      
+
             <li id="cart-nav">
-              <Link to={{ pathname: "/Cart" }} >
+              <Link to={{ pathname: "/Cart" }}>
                 My Cart <mark>{this.props.counter}</mark>
               </Link>
             </li>

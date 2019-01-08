@@ -122,6 +122,7 @@ class ReservationBot extends Component {
   }
   handleEnd = ({ steps, values }) => {
     console.log("Values", values);
+    this.props.addToCart(values);
   };
   getAvailableDates = month => {
     return Math.floor(Math.random() * 30) + 1;

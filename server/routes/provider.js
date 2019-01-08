@@ -55,6 +55,21 @@ router.route("/addService").post(function(req, res) {
   );
 });
 
+router.route("/getProviderServices").post(function(req, res) {
+  var body = req.body;
+  var providerId = body.providerId;
+console.log("my provider router")
+
+  service.getProviderServices(
+    providerId,
+
+    function(err, result) {
+      console.log("my result",result)
+      if (err) console.log("err selecting provider services");
+      res.send(result);
+    }
+  );
+});
 // router.post(
 //   "/login",
 //   passport.authenticate("local", {

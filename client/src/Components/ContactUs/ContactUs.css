@@ -24,6 +24,7 @@
     color: rgb(32, 32, 32);
     font-weight: bold;
     }
+    
     #btnContactUs {
         background-color: rgb(154, 17, 71);
         width: 200px;
@@ -34,10 +35,10 @@
 
 #gMap {
     position: relative;
-    width: 35%;
-    height: 350px;
+    width: 34%;
+    height: 403px;
     background-color: #CCC;
-    margin: 1% 0 0 30%;
+    /* margin: -22.1% 0% 0 66.01%; */
 }
 
     

@@ -65,6 +65,15 @@ describe("Server Test", function() {
   });
 });
 
+describe("Contact us message", function() {
+  it("it should save the message in database and return a boolean (true) ", function(done) {
+    request("localhost:3000")
+      .post("/contactus/submit")
+      .send({
+        name: "yazeed",
+        phone: "123456",
+        message: "hello world"
+      })
 describe("add in services", function() {
   it("it should add services and return boolean (true) ", function(done) {
     request("localhost:3000")
@@ -80,6 +89,8 @@ describe("add in services", function() {
         done();
       });
   });
+});
+
   
 });
 
@@ -102,4 +113,4 @@ describe('App Component', () => {
   });
 });
 
-
+})

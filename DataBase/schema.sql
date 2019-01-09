@@ -1,17 +1,35 @@
-DROP DATABASE IF EXISTS sql2270948;
+ALTER TABLE `services`
+DROP FOREIGN KEY `services_fk0`;
 
-CREATE DATABASE sql2270948;
+ALTER TABLE `services`
+DROP FOREIGN KEY `services_fk1`;
 
-USE sql2270948;
+ALTER TABLE `reservations`
+DROP FOREIGN KEY `reservations_fk0`;
 
-DROP TABLE IF EXISTS `ProviderCatergory`;
-DROP TABLE IF EXISTS `User`;
-DROP TABLE IF EXISTS `Provider`;
-DROP TABLE IF EXISTS `Category`;
--- ---
--- Table 'User'
--- 
--- ---		
+ALTER TABLE `reservations`
+DROP FOREIGN KEY `reservations_fk1`;
+
+ALTER TABLE `reservationDetails`
+DROP FOREIGN KEY `reservationDetails_fk0`;
+
+ALTER TABLE `reservationDetails`
+DROP FOREIGN KEY `reservationDetails_fk1`;
+
+DROP TABLE IF EXISTS `users`;
+
+DROP TABLE IF EXISTS `providers`;
+
+DROP TABLE IF EXISTS `categories`;
+
+DROP TABLE IF EXISTS `services`;
+
+DROP TABLE IF EXISTS `reservations`;
+
+DROP TABLE IF EXISTS `contact_us`;
+
+DROP TABLE IF EXISTS `reservationDetails`;
+
 CREATE TABLE `users`
 (
 	`id` int NOT NULL AUTO_INCREMENT,
@@ -50,12 +68,11 @@ CREATE TABLE `categories`
 (`id`)
 );
 
-CREATE TABLE `providerCategories`
+CREATE TABLE `services`
 (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`price` int NOT NULL,
-	`description` varchar
-(70) NOT NULL,
+	`description` TEXT NOT NULL,
 	`providerID` int
 (70) NOT NULL,
 	`categoryID` int
@@ -80,19 +97,39 @@ CREATE TABLE `reservations`
 (70) NOT NULL,
 	`providerID` int
 (70) NOT NULL,
-	`proCateID` int
+	PRIMARY KEY
+(`id`)
+);
+
+CREATE TABLE `contact_us`
+(
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar NOT NULL,
+	`phone` varchar NOT NULL,
+	`massage` longtext NOT NULL,
+	PRIMARY KEY
+(`id`)
+);
+
+CREATE TABLE `reservationDetails`
+(
+	`id` int
+(70) NOT NULL AUTO_INCREMENT,
+	`serviceID` int
+(70) NOT NULL,
+	`reservationID` int
 (70) NOT NULL,
 	PRIMARY KEY
 (`id`)
 );
 
-ALTER TABLE `providerCategories`
-ADD CONSTRAINT `providerCategories_fk0` FOREIGN KEY
+ALTER TABLE `services`
+ADD CONSTRAINT `services_fk0` FOREIGN KEY
 (`providerID`) REFERENCES `providers`
 (`id`);
 
-ALTER TABLE `providerCategories`
-ADD CONSTRAINT `providerCategories_fk1` FOREIGN KEY
+ALTER TABLE `services`
+ADD CONSTRAINT `services_fk1` FOREIGN KEY
 (`categoryID`) REFERENCES `categories`
 (`id`);
 
@@ -106,15 +143,12 @@ ADD CONSTRAINT `reservations_fk1` FOREIGN KEY
 (`providerID`) REFERENCES `providers`
 (`id`);
 
-ALTER TABLE `reservations`
-ADD CONSTRAINT `reservations_fk2` FOREIGN KEY
-(`proCateID`) REFERENCES `providerCategories`
+ALTER TABLE `reservationDetails`
+ADD CONSTRAINT `reservationDetails_fk0` FOREIGN KEY
+(`serviceID`) REFERENCES `services`
 (`id`);
 
-
-
-
-
-
-
-
+ALTER TABLE `reservationDetails`
+ADD CONSTRAINT `reservationDetails_fk1` FOREIGN KEY
+(`reservationID`) REFERENCES `reservations`
+(`id`);

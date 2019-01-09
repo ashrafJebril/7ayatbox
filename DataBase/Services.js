@@ -64,20 +64,20 @@ const addService = (
 const getProviderServices = (providerId, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("get provider services connection err", err);
-    con.query(`SELECT capacity,description,imageUrl,location,price,rate,title ,T2.name as providerName FROM services as T1 join providers as T2 on T1.providerID=T2.id where T2.id = "${providerId}"`, function(
-      err,
-      results
-    ) {
-      if (err) console.log("provider query error", err);
-      //results is the returned array of objects
-    
-      cb(err,results)
-      con.release();
-    });
+    con.query(
+      `SELECT capacity,description,imageUrl,location,price,rate,title ,T2.name as providerName FROM services as T1 join providers as T2 on T1.providerID=T2.id where T2.id = "${providerId}"`,
+      function(err, results) {
+        if (err) console.log("provider query error", err);
+        //results is the returned array of objects
+
+        cb(err, results);
+        con.release();
+      }
+    );
   });
 };
 
 module.exports.addService = addService;
 module.exports.getAllServices = getAllServices;
 module.exports.getRecommendedServices = getRecommendedServices;
-module.exports.getProviderServices=getProviderServices;
+module.exports.getProviderServices = getProviderServices;

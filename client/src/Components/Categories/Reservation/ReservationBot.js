@@ -1,27 +1,9 @@
 import ChatBot from "react-simple-chatbot";
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 class ReservationBot extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      gender: "",
-      age: ""
-    };
-
-    this.theme = {
-      background: "#f5f8fb",
-      fontFamily: "Helvetica Neue",
-      headerBgColor: "#EF6C00",
-      headerFontColor: "#fff",
-      headerFontSize: "15px",
-      botBubbleColor: "#EF6C00",
-      botFontColor: "#fff",
-      userBubbleColor: "#fff",
-      userFontColor: "#4a4a4a"
-    };
 
     this.steps = [
       {
@@ -121,7 +103,6 @@ class ReservationBot extends Component {
     ];
   }
   handleEnd = ({ steps, values }) => {
-    console.log("Values", values);
     this.props.addToCart(values);
   };
   getAvailableDates = month => {
@@ -130,7 +111,7 @@ class ReservationBot extends Component {
   componentDidMount() {}
   render() {
     return (
-      <ThemeProvider theme={this.theme}>
+      <ThemeProvider>
         <ChatBot steps={this.steps} handleEnd={this.handleEnd} />
       </ThemeProvider>
     );

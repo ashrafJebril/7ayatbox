@@ -9,6 +9,7 @@ class UserReservation extends Component {
     this.state = { result: [] };
   }
   componentDidMount() {
+  
     this.getAllServices();
   }
   getAllServices = () => {
@@ -18,6 +19,7 @@ class UserReservation extends Component {
       type: "GET",
       success: data => {
         this.setState({ result: data });
+        
       },
       error: err => {
         console.log("ERROR");
@@ -32,12 +34,12 @@ class UserReservation extends Component {
         <div className="container">
           <h1>My Reservation</h1>
           <hr className="hr-header" />
-          <div className="row">
+     
             {this.state.result.map((result, index) => {
               return <ServicesListCard key={index} result={result} />;
             })}
           </div>
-        </div>
+  
       );
     }
   }

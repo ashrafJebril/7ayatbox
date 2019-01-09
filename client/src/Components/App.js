@@ -23,6 +23,7 @@ class App extends Component {
     this.state = { text: "" };
   }
   componentDidMount() {
+   
     // $.ajax({
     //   url: "/provider/login",
     //   type: "POST",

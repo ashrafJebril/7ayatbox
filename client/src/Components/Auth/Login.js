@@ -22,11 +22,20 @@ class Login extends Component {
         $("#navProvider").hide();
         $("#navLogin").hide();
         $("#cart-nav").show()
-        $(".headerNav-container").append(
-          "<ul><li><a href='/'>LogOut</a></li></ul>"
-        );
+        $(".logout").show()
+      
+
+     
+       
         if(this.props.location.query==="user"){
+          $(".cart-cta").show()
+          $(".cart-details").css("display","block")
           this.props.history.goBack();
+      
+          $(".My-reservation").show()
+          $(".logout").show()
+       
+         
         }
        
         else {

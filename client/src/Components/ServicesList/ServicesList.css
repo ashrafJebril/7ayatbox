@@ -24,7 +24,7 @@
   min-height: 40px;
 }
 .card > div p:nth-child(2) {
-  height: 55px;
+  height: 53px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -63,7 +63,7 @@ button {
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: #000;
+  background-color: red;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -108,3 +108,18 @@ a:hover {
   background-color: #e63077;
 }
 
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #4962B3;
+  font-size: 12px;
+  border: 1px solid #3e549a;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+.cart-cta{
+  display: none;
+}
+
+.cart-details{
+  display :none;
+}

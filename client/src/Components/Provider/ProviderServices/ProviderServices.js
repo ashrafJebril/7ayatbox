@@ -8,12 +8,13 @@ class ProviderServices extends Component {
         
 
     }
+
     render() {
         return (
             <div className="container">
-
+<div className="row">
             {this.props.location.query.map((result, index) => {
-              return <div className="row">  <div className="col-xl-3 col-lg-4 col-sm-6">
+              return   <div className="col-xl-3 col-lg-4 col-sm-6">
                 <div className="card">
                   <img
                     src={result.imageUrl}
@@ -24,15 +25,18 @@ class ProviderServices extends Component {
                   <div className="card-block text-left">
                     <h4 className="card-title">{result.title}</h4>
                     <p className="card-text">{result.description}</p>
-                    <p className="card-text">{result.price}</p>
-  
+                    <p className="card-text cart-delete">{result.price}</p>
+                    <button>
+             Delete
+            </button>
   
                   </div>
                 </div>
               </div>
-              </div>
+          
               
             })}
+              </div>
               </div>
     )
     }

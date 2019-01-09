@@ -59,10 +59,11 @@ class Cart extends Component {
     return (
       <div>
         <div className="container">
+        <div className="row">
           {this.state.result.map((result, index) => {
             return (
-              <div className="row">
-                {" "}
+           
+            
                 <div className="col-xl-3 col-lg-4 col-sm-6">
                   <div className="card">
                     <img
@@ -78,9 +79,10 @@ class Cart extends Component {
                     </div>
                   </div>
                 </div>
-              </div>
+         
             );
           })}
+             </div>
           <div
             style={{
               marginTop: "30px",

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ServicesListCard from "./ServicesListCard";
 import "./ServicesList.css";
 import $ from "jquery";
+import { connect } from "react-redux";
 class ViewCategories extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,7 @@ class ViewCategories extends Component {
     }
   }
   componentDidMount() {
+
     console.log("dsdsdsdsds", this.props.location.query);
     this.getAllServices();
   }
@@ -30,6 +32,7 @@ class ViewCategories extends Component {
     });
   };
   render() {
+    console.log(this.state.result)
     // eslint-disable-next-line no-lone-blocks
     {
       return (
@@ -39,6 +42,7 @@ class ViewCategories extends Component {
           <div className="row">
             {this.state.result.map((result, index) => {
               return <ServicesListCard key={index} result={result} />;
+              
             })}
           </div>
         </div>
@@ -46,5 +50,11 @@ class ViewCategories extends Component {
     }
   }
 }
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
+};
 
-export default ViewCategories;
+export default connect(mapStateToProps)(ViewCategories);
+

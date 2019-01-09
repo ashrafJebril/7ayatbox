@@ -113,7 +113,7 @@
   margin: 0px auto;
 }
 #exampleModalCenter {
-  background-color: #502033ad;
+  background-color: #69575ead
 }
 .nav-changed {
   background-color: white !important;
@@ -129,7 +129,7 @@
 }
 
 #planmodal {
-  background-color: #502033ad;
+  background-color: #69575ead
 }
 
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);

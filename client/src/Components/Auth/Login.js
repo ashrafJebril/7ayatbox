@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import $ from "jquery";
-import { Link ,Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(props) {
@@ -23,32 +23,35 @@ class Login extends Component {
         $("#navLogin").hide();
         $("#cart-nav").show()
         $(".logout").show()
-      
 
-     
-       
-        if(this.props.location.query==="user"){
+
+
+
+        if (this.props.location.query === "user") {
+
           $(".cart-cta").show()
-          $(".cart-details").css("display","block")
+          $(".cart-details").css("display", "block")
           this.props.history.goBack();
-      
+
           $(".My-reservation").show()
           $(".logout").show()
-       
-         
+          $(".signin-paragraph").css("dispaly", "none")
+
+
         }
-       
+
         else {
-     
-        this.props.history.push({
-          pathname: '/provider',
-          
-          query:data.id
-        });
-        $("#cart-nav").hide()
-        $("#nav-service").hide()}
+
+          this.props.history.push({
+            pathname: '/provider',
+
+            query: data.id
+          });
+          $("#cart-nav").hide()
+          $("#nav-service").hide()
+        }
       },
-    
+
       error: err => {
         console.log("UserLogin ERROR", err);
       }
@@ -56,57 +59,49 @@ class Login extends Component {
   };
   render() {
     return (
-      <div className="container">
-        <h2 className="header">Login to your account</h2>
+      <div className="login">
+      <div className="container ">
+        <div>
+          <div id="fullscreen_bg" class="fullscreen_bg" />
 
-        <div className="imgcontainer">
-          <img src="https://bit.ly/2BYTfrp" alt="Avatar" className="avatar" />
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+
+                    <h3 class="text-center">
+                      SIGN IN</h3>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Email Address" id="txt_email" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input type="password" class="form-control" placeholder="Password" id="txt_password" />
+                      </div>    </div>
+
+                    <button class="btn btn-lg btn-primary btn-block" onClick={this.handleLogin}>
+                      Sign In
+         </button>
+                    <Link to={{ pathname: "/signup", query: this.props.location.query }}>  <button id="login_register_btn" type="button" class="btn btn-link" >Register</button> </Link>
+                    <div className="header">
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <div className="container">
-          <label htmlFor="email">
-            <b>Email</b>
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Email"
-            name="email"
-            className="userlogininput"
-            id="txt_email"
-            required
-          />
-
-          <label htmlFor="password">
-            <b>Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="password"
-            className="userlogininput"
-            id="txt_password"
-            required
-          />
-
-          <button className="userloginbutton" onClick={this.handleLogin}>
-            Login
-          </button>
-          <label>
-            <input type="checkbox" checked="" name="remember" /> Remember me
-          </label>
         </div>
-        <div className="header">
-          <Link to={{ pathname: "/signup", query: this.props.location.query }}>
-            Not a member? register now!
-          </Link>
-        </div>
-
-        <div className="container">
-          <span className="psw">
-            Forgot <a href="#">password?</a>
-          </span>
-        </div>
-      </div>
+             </div>
     );
   }
 }
@@ -125,3 +120,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login);
+
+

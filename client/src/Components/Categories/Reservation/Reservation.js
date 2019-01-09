@@ -36,11 +36,7 @@ class Reservation extends Component {
               <h2>{this.props.location.query.title}</h2>
             </div>
           </div>
-          <div className="row">
-            <div className="col-6 title-reservation">
-              {this.props.location.query.description}{" "}
-            </div>
-          </div>
+          
           <div className="row">
             <div className="col-6 title-reservation">
               <mark>price $</mark>
@@ -58,8 +54,8 @@ class Reservation extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-6 title-reservation">
-              Rate <mark>{this.props.location.query.rate}</mark>
+            <div className="col-7 title-reservation">
+              {this.props.location.query.description}{" "}
             </div>
           </div>
         </div>

@@ -95,3 +95,9 @@ input[type=text], select, textarea {
     display: table;
     clear: both;
   }
+  .addImg {
+    background-color: #991145;
+    width:90px;
+    height: 50px;
+
+  }

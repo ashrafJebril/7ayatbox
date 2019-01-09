@@ -192,7 +192,7 @@ class Nav extends Component {
             </li>
             
             <li className="logout"> 
-         <a href="/">LogOut</a> 
+         <a href="/">Logout</a> 
           </li>
             <li className="logedName">  <a>{this.props.user.name}</a></li>
            

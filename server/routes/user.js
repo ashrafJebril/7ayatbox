@@ -31,15 +31,13 @@ router.route("/signup").post(function(req, res) {
 // router.post("/login", passport.authenticate("local"), function(req, res) {
 //   // If this function gets called, authentication was successful.
 //   // `req.user` contains the authenticated user.
-//   console.log("hiiiiiii", req.body);
 //   res.redirect("/");
 // });
 // router.post("/login", function(req, res, next) {
-//   console.log("yoooooooooo", req.body);
 //   passport.authenticate("local", {
 //     failureRedirect: "/login",
 //     successRedirect: "/reservation"
-//   })(req, res, next);
+//   })(req, res, nesxt);
 // });
 router.route("/logout").get(function(req, res) {
   req.logOut();

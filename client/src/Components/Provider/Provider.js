@@ -19,7 +19,7 @@ class Provider extends Component {
       title: "",
       capicity: "",
       type: "",
-      image:{}
+      image: {}
     }
     this.acceptedFileTypes = "image/x-png, image/png, image/jpg,image.jpeg";
   }
@@ -37,7 +37,7 @@ class Provider extends Component {
       },
       success: data => {
 
-        console.log("success services", data);
+
         this.setState({ result: data });
 
 
@@ -71,9 +71,9 @@ class Provider extends Component {
           .child(this.state.image.name)
           .getDownloadURL()
           .then(url => {
-        this.setState({imageUrl:url})
+            this.setState({ imageUrl: url })
             this.addServicesHandler()
-           
+
           });
       }
     );
@@ -109,7 +109,7 @@ class Provider extends Component {
       },
       success: data => {
         console.log("success", data);
-        alert("you Service is Added")
+
         this.setState({ text: data.express });
       },
       error: err => {
@@ -140,11 +140,11 @@ class Provider extends Component {
   capicityHandleChange = (event) =>
     this.setState({ capicity: event.target.value });
 
-    fileSelectedHandler = event => {
-      console.log("Ev",event.target.files[0])
-      this.setState({ image: event.target.files[0] });
-      console.log("Image",this.state)
-    };
+  fileSelectedHandler = event => {
+    console.log("Ev", event.target.files[0])
+    this.setState({ image: event.target.files[0] });
+    console.log("Image", this.state)
+  };
   render() {
     return (
 

@@ -13,7 +13,6 @@ class UserReservation extends Component {
     this.getAllServices();
   }
   getAllServices = () => {
-    console.log("IDDDD", this.props.user.id);
     $.ajax({
       url: `/reservation/userReservation?userId=${this.props.user.id}`,
       type: "GET",

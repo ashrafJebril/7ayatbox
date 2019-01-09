@@ -12,23 +12,20 @@ class Reservation extends Component {
     this.setState({ displayBot: true });
   };
   componentDidMount() {
-    console.log(this.props.location);
     setTimeout(() => {
       this.displayBot();
     }, 1000);
   }
+  //add to cart
   addToCart = result => {
-    console.log("my service cart result", result);
     this.props.incrementCounter();
     this.props.saveResult(this.props.location.query);
   };
   render() {
-    console.log(this.props.location.query.imageUrl);
     return (
       <div>
-        {/* <img src={this.props.location.query.imageUrl} alt="" /> */}
         <div className="reservation-img">
-          <img src={this.props.location.query.imageUrl} />
+          <img src={this.props.location.query.imageUrl} alt="img" />
         </div>
         <div className="container-reservation">
           <div className="row title-reservation">

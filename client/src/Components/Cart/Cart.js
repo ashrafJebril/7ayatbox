@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
 import "./Cart.css";
 import $ from "jquery";
 import { connect } from "react-redux";
-
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +10,8 @@ class Cart extends Component {
       userID: this.props.user.id
     };
   }
-
+  //send post request for saving reservations
   handleSubmit = () => {
-    console.log(
-      "the result",
-      this.props.result2[0].serviceID,
-      this.state.userID,
-      this.props.result2[0].providerID
-    );
     $.ajax({
       url: "/reservation/addReservation",
       type: "POST",
@@ -29,7 +21,6 @@ class Cart extends Component {
         providerID: this.props.result2[0].providerID
       },
       success: data => {
-        alert("Hi");
         console.log("success", data);
       },
       error: err => {
@@ -37,20 +28,17 @@ class Cart extends Component {
       }
     });
   };
-
+  //calculating the total price for cart
   total = () => {
     var total = 0;
-    var x = this.props.result2;
-
-    for (var i = 0; i < x.length; i++) {
-      total = total + x[i].price;
+    var results = this.props.result2;
+    for (var i = 0; i < results.length; i++) {
+      total = total + results[i].price;
     }
     return total;
   };
 
   render() {
-    console.log("my state", this.state);
-
     let mystyle = {
       borderTop: "1px solid #ddd",
       marginTop: "10px"
@@ -71,7 +59,6 @@ class Cart extends Component {
                       className="card-img-top"
                       alt=""
                     />
-
                     <div className="card-block text-left">
                       <h4 className="card-title">{result.title}</h4>
                       <p className="card-text">{result.description}</p>

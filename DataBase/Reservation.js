@@ -16,7 +16,6 @@ const addReservation = (userID, providerID, cb) => {
 };
 const addReservationDetails = (cartDetails, reservationID, cb) => {
   cartDetails.forEach((ele, index) => {
-    console.log("WHAT ", index, cartDetails.length);
     if (index === cartDetails.length - 1) {
       cb();
     }

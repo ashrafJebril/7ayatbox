@@ -1,23 +1,34 @@
 import React, { Component } from "react";
 import "./Login.css";
 import $ from "jquery";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalIsOpen: false };
+    this.state = { modalIsOpen: false, email: "", password: "" };
   }
+
+  handleEmailChange = e => {
+    this.setState({
+      email: e.target.value
+    });
+  };
+  handlePasswordChange = e => {
+    this.setState({
+      password: e.target.value
+    });
+  };
+  //send post request for login
   handleLogin = () => {
     $.ajax({
       url: `/${this.props.location.query}/login`,
       type: "POST",
       data: {
-        email: $("#txt_email").val(),
-        password: $("#txt_password").val()
+        email: this.state.email,
+        password: this.state.password
       },
       success: data => {
-        console.log("success", data);
         this.props.logedin(data);
         $("#navProvider").hide();
         $("#navLogin").hide();
@@ -60,48 +71,48 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-      <div className="container ">
-        <div>
-          <div id="fullscreen_bg" class="fullscreen_bg" />
+        <div className="container ">
+          <div>
+            <div id="fullscreen_bg" class="fullscreen_bg" />
 
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 col-md-offset-4">
-                <div class="panel panel-default">
-                  <div class="panel-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
 
-                    <h3 class="text-center">
-                      SIGN IN</h3>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                        </span>
-                        <input type="text" class="form-control" placeholder="Email Address" id="txt_email" />
+                      <h3 class="text-center">
+                        SIGN IN</h3>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                          </span>
+                          <input type="text" class="form-control" placeholder="Email Address" id="txt_email" />
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password" class="form-control" placeholder="Password" id="txt_password" />
-                      </div>    </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                          <input type="password" class="form-control" placeholder="Password" id="txt_password" />
+                        </div>    </div>
 
-                    <button class="btn btn-lg btn-primary btn-block" onClick={this.handleLogin}>
-                      Sign In
+                      <button class="btn btn-lg btn-primary btn-block" onClick={this.handleLogin}>
+                        Sign In
          </button>
-                    <Link to={{ pathname: "/signup", query: this.props.location.query }}>  <button id="login_register_btn" type="button" class="btn btn-link" >Register</button> </Link>
-                    <div className="header">
+                      <Link to={{ pathname: "/signup", query: this.props.location.query }}>  <button id="login_register_btn" type="button" class="btn btn-link" >Register</button> </Link>
+                      <div className="header">
+
+                      </div>
 
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
-        </div>
-             </div>
+      </div>
     );
   }
 }

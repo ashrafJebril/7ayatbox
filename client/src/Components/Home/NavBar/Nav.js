@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Nav.css";
 import $ from "jquery";
 import { connect } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Nav extends Component {
   constructor() {
@@ -78,8 +78,6 @@ class Nav extends Component {
   }
 
   render() {
-
- 
     return (
       <div>
         <div className="container-fluid headerNav-container">

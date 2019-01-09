@@ -72,18 +72,14 @@ class ViewCategoriesCard extends React.Component {
                 query: this.props.result
               }}
             >
-  <button className="cart-details">
-              Show Details
-            </button>
+              <button className="cart-details">Show Details</button>
             </Link>
-
           </div>
         </div>
       </div>
     );
   }
-};
-
+}
 
 const mapStateToProps = state => {
   return {
@@ -97,4 +93,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewCategoriesCard);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ViewCategoriesCard);

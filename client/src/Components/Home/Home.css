@@ -113,7 +113,7 @@
   margin: 0px auto;
 }
 #exampleModalCenter {
-  background-color: #502033ad;
+  background-color: #69575ead
 }
 .nav-changed {
   background-color: white !important;
@@ -129,7 +129,7 @@
 }
 
 #planmodal {
-  background-color: #502033ad;
+  background-color: #69575ead
 }
 
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
@@ -244,4 +244,13 @@ body {
 	#textSlider.row { margin-right: 0px !important; margin-left: 0px !important; }
 	.iamCol { text-align: right; font-size:30pt; }
 	.slideCol { font-size: 55pt; text-align: left; }
+}
+#textSlider{
+
+  position: absolute;
+margin-left: 120px;
+} 
+.btn-primary{
+  background-color: #e63077 !important;
+  border-color: #e63077 !important
 }

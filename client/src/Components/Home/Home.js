@@ -124,10 +124,10 @@ class Home extends Component {
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 slideCol">
 						<div class="scroller">
 							<div class="inner">
-								<p> Reserve Hall</p>
-								<p>Reserve Zafeh</p>
-								<p>Reserve Car</p>
-								<p>Reserve DJ</p>
+								<p>Reserve</p>
+								<p>Plan</p>
+                <p>book</p>
+							
 							</div>
 						</div>
 					</div>

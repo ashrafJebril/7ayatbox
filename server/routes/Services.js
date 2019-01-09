@@ -24,4 +24,19 @@ router.route("/Recommendation").post(function(req, res) {
     }
   );
 });
+router.route("/deleteService").post(function(req, res) {
+  var body = req.body;
+  var id = body.id;
+console.log("my provider router")
+
+  service.deleteService(
+    id,
+
+    function(err, result) {
+      console.log("my result",result)
+      if (err) console.log("err selecting provider services");
+      res.send(result);
+    }
+  );
+});
 module.exports = router;

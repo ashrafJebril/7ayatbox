@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import $ from "jquery";
-import "./Provider.css";
+import React, { Component } from "react"
+import $ from "jquery"
+import "./Provider.css"
 import { Redirect, Link } from "react-router-dom";
+import { storage } from "../../firebase"
 
 class Provider extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       providerId: this.props.location.query,
       result: [],
@@ -17,29 +18,69 @@ class Provider extends Component {
       rate: "",
       title: "",
       capicity: "",
-      type: ""
-    };
+      type: "",
+      image: {}
+    }
+    this.acceptedFileTypes = "image/x-png, image/png, image/jpg,image.jpeg";
   }
 
+
   componentDidMount = () => {
-    console.log("i am in");
+
+    console.log("i am in")
     $.ajax({
       url: "/provider/getProviderServices",
       type: "POST",
       data: {
-        providerId: this.state.providerId
+        providerId: this.state.providerId,
+
       },
       success: data => {
-        console.log("success services", data);
+
+
         this.setState({ result: data });
+
+
       },
       error: err => {
         console.log("ERROR");
       }
     });
-  };
 
+  }
+
+
+  handleSubmitButtonClick = () => {
+
+    //starting put request to firebase storage
+    const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image);
+    //the on function is event listener that provide 3 functions progress,error,complete
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        // progress function
+      },
+      error => {
+        // error function
+        console.log("errr", error);
+      },
+      () => {
+        // complete function
+        storage
+          .ref("images")
+          .child(this.state.image.name)
+          .getDownloadURL()
+          .then(url => {
+            this.setState({ imageUrl: url })
+            this.addServicesHandler()
+
+          });
+      }
+    );
+  };
+  //////
   addServicesHandler = () => {
+
     var obj = {
       providerId: this.state.providerId,
       categoryId: this.state.categoryId,
@@ -50,19 +91,8 @@ class Provider extends Component {
       rate: this.state.rate,
       title: this.state.title,
       capicity: this.state.capicity
+
     };
-    console.log(
-      "success",
-      obj.providerId,
-      obj.categoryId,
-      obj.description,
-      obj.imageUrl,
-      obj.price,
-      obj.rate,
-      obj.capicity,
-      obj.title,
-      obj.location
-    );
     $.ajax({
       url: "/provider/addService",
       type: "POST",
@@ -79,114 +109,108 @@ class Provider extends Component {
       },
       success: data => {
         console.log("success", data);
-        alert("you Service is Added");
+
         this.setState({ text: data.express });
       },
       error: err => {
         console.log("ERROR");
       }
     });
-  };
-  ServiceHandleChange = event => {
-    this.setState({ categoryId: event.target.value });
-    console.log(
-      "event.target.value",
-      event.target.value,
-      "categoryId",
-      this.state.categoryId
-    );
-  };
+  }
 
-  titleHandleChange = event => this.setState({ title: event.target.value });
-  locationHandleChange = event =>
+  ServiceHandleChange = (event) => {
+    this.setState({ categoryId: event.target.value });
+  }
+
+
+  titleHandleChange = (event) =>
+    this.setState({ title: event.target.value });
+  locationHandleChange = (event) =>
     this.setState({ location: event.target.value });
-  imageHandleChange = event => this.setState({ imageUrl: event.target.value });
-  locationHandleChange = event =>
+  imageHandleChange = (event) =>
+    this.setState({ imageUrl: event.target.value });
+  locationHandleChange = (event) =>
     this.setState({ location: event.target.value });
-  descriptionHandleChange = event =>
+  descriptionHandleChange = (event) =>
     this.setState({ description: event.target.value });
-  rateHandleChange = event => this.setState({ rate: event.target.value });
-  priceHandleChange = event => this.setState({ price: event.target.value });
-  capicityHandleChange = event =>
+  rateHandleChange = (event) =>
+    this.setState({ rate: event.target.value });
+  priceHandleChange = (event) =>
+    this.setState({ price: event.target.value });
+  capicityHandleChange = (event) =>
     this.setState({ capicity: event.target.value });
+
+  fileSelectedHandler = event => {
+    console.log("Ev", event.target.files[0])
+    this.setState({ image: event.target.files[0] });
+    console.log("Image", this.state)
+  };
   render() {
-    console.log("providerId", this.state.providerId);
     return (
+
       <div>
+
         <div class="container-fluid page-cont">
           <div class="row dash-row">
+
             <div class="col-4 data-box">
               <div>
-                <h3>
-                  <Link
-                    to={{
-                      pathname: "/ProviderServices",
-                      query: this.state.result
-                    }}
-                  >
-                    <span>{this.state.result.length}</span>{" "}
-                  </Link>
-                  Services
-                </h3>
+                <h3><Link to={{
+                  pathname: "/ProviderServices",
+                  query: this.state.result
+                }}><span>{this.state.result.length}</span> </Link>Services</h3>
               </div>
             </div>
 
             <div class="col-4 data-box">
               <div>
-                <h3>
-                  <span>0</span> Services
-                </h3>
+                <h3><span>0</span> Services</h3>
               </div>
             </div>
 
             <div class="col-4 data-box">
               <div>
-                <h3>
-                  <span>0</span> Services
-                </h3>
+                <h3><span>0</span> Services</h3>
               </div>
             </div>
+
           </div>
         </div>
         <div className="container">
-          <div className="row inputs">
-            <div class="col-25">
+          <div className="row inputs" >
+            <div className="col-25">
               <label for="fname">title</label>
             </div>
-            <div class="col-75">
-              <input
-                type="text"
-                onChange={this.titleHandleChange}
-                id="fname"
-                name="firstname"
-                placeholder="Your title.."
-              />
+            <div className="col-75">
+              <input type="text" onChange={this.titleHandleChange} id="fname" name="firstname" placeholder="Your title.."></input>
             </div>
           </div>
 
           <div className="row">
-            <div class="col-25">
-              <label for="subject">Image URL</label>
+            <div className="col-25">
+              <label for="subject">Image</label>
             </div>
-            <div class="col-75">
+            <div className="col-3">
               <input
-                type="text"
-                onChange={this.imageHandleChange}
+                type="file"
+                name="file"
                 id="subject"
-                name="firstname"
-                placeholder="Your Image.."
+                accept={this.acceptedFileTypes}
+                multiple={false}
+                onChange={this.fileSelectedHandler}
               />
+
             </div>
+
+
           </div>
-          <div class="row">
-            <div class="col-25">
+          <div className="row">
+            <div className="col-25">
               <label for="country">Service</label>
             </div>
-            <div class="col-75">
-              <select
-                value={this.state.value}
-                onChange={this.ServiceHandleChange}
-              >
+            <div className="col-75">
+              <select value={this.state.value} onChange={this.ServiceHandleChange}>
+
                 <option value="1">Halls</option>
                 <option value="2">Zafeh</option>
                 <option value="3">DJ</option>
@@ -198,155 +222,54 @@ class Provider extends Component {
           </div>
 
           <div className="row">
-            <div class="col-25">
+            <div className="col-25">
               <label for="subject">Price</label>
             </div>
-            <div class="col-75">
-              <input
-                type="text"
-                onChange={this.priceHandleChange}
-                id="subject"
-                name="firstname"
-                placeholder="Your Price"
-              />
+            <div className="col-75">
+              <input type="text" onChange={this.priceHandleChange} id="subject" name="firstname" placeholder="Your Price"></input>
             </div>
           </div>
 
           <div className="row">
-            <div class="col-25">
+            <div className="col-25">
               <label for="subject">Location</label>
             </div>
-            <div class="col-75">
-              <input
-                type="text"
-                onChange={this.locationHandleChange}
-                id="subject"
-                name="firstname"
-                placeholder="Your Location"
-              />
+            <div className="col-75">
+              <input type="text" onChange={this.locationHandleChange} id="subject" name="firstname" placeholder="Your Location"></input>
             </div>
           </div>
           <div className="row">
-            <div class="col-25">
+            <div className="col-25">
               <label for="subject">Rate</label>
             </div>
-            <div class="col-75">
-              <input
-                type="text"
-                onChange={this.rateHandleChange}
-                id="subject"
-                name="firstname"
-                placeholder="Your Rate"
-              />
+            <div className="col-75">
+              <input type="text" onChange={this.rateHandleChange} id="subject" name="firstname" placeholder="Your Rate"></input>
             </div>
           </div>
           <div className="row">
-            <div class="col-25">
+            <div className="col-25">
               <label for="subject">Description</label>
             </div>
-            <div class="col-75">
-              <textarea
-                onChange={this.descriptionHandleChange}
-                id="subject"
-                name="firstname"
-                placeholder="Your description.."
-              />
+            <div className="col-75">
+              <textarea onChange={this.descriptionHandleChange} id="subject" name="firstname" placeholder="Your description.."></textarea>
             </div>
           </div>
-          <div class="row">
-            <input
-              type="submit"
-              value="Submit"
-              onClick={this.addServicesHandler}
-            />
+          <div className="row">
+            <input type="submit" value="Submit" onClick={this.handleSubmitButtonClick} />
           </div>
         </div>
       </div>
-    );
+
+
+    )
+
   }
 }
 
-export default Provider;
 
-//               onChange={e => this.setState({ host: e.target.value })} />
-//           </div>
-//         </div>
-//       </div>
+export default Provider
 
-//       <div>
-//         <div className="form-group row">
-//           <label className="col-sm-2 col-form-label">Event Name: </label>
-//           <div className="col-sm-10">
-//             <input className="form-control" placeholder="event name" value={this.state.event}
-//               onChange={e => this.setState({ event: e.target.value })} />
-//           </div>
-//         </div>
-//       </div>
 
-//       <div>
-//         <div className="form-group row">
-//           <label className="col-sm-2 col-form-label">Event Cost: </label>
-//           <div className="col-sm-10">
-//             <input className="form-control" placeholder="cost" value={this.state.cost}
-//               onChange={e => this.setState({ cost: e.target.value })} />
-//           </div>
-//         </div>
-//       </div>
 
-//       <div>
-//         <div className="form-group row">
-//           <label className="col-sm-2 col-form-label"> Photo: </label>
-//           <div className="col-sm-10">
-//             <input className="form-control" placeholder="insert a URL" value={this.state.photo}
-//               onChange={e => this.setState({ photo: e.target.value })} />
-//           </div>
-//         </div>
-//       </div>
 
-//       <div>
-//         <div className="form-group row">
-//           <label className="col-sm-2 col-form-label"> Number of seats: </label>
-//           <div className="col-sm-10">
-//             <input className="form-control" placeholder="available seats number" value={this.state.sets}
-//               type="number" onChange={e => this.setState({ sets: e.target.value })} />
-//           </div>
-//         </div>
-//       </div>
 
-//       <div>
-//         <div className="form-group row">
-//           <label className="col-sm-2 col-form-label"> Date and time:</label>
-//           <div className="col-sm-10">
-//             <input className="form-control" placeholder="mm/dd/yy" value={this.state.date}
-//               type="datetime-local" onChange={e => this.setState({ date: e.target.value })} />
-//           </div>
-//         </div>
-//       </div>
-
-//       <div>
-//         <div className="form-group row">
-//           <label className="col-sm-2 col-form-label"> Event location:</label>
-//           <div class="col-sm-8">
-//             <input id="location-input" className="form-control" placeholder="city, street" value={this.state.location}
-//               onClick={this.modal} />
-//           </div>
-//           <div class="col-sm-2"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Map</button></div>
-//         </div>
-//       </div>
-
-//       <div>
-//         <div className="form-group row">
-//           <label className="col-sm-2 col-form-label">Event description:</label>
-//           <div className="col-sm-10">
-//             <textarea className="form-control" placeholder="event description" value={this.state.description}
-//               onChange={e => this.setState({ description: e.target.value })} />
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="row">
-//         <button type="submit" value="create" className="btn btn-primary btn-lg btn-block" >create</button>
-//       </div>
-//     </div>
-//     <br />
-//   </form >

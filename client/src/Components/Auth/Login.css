@@ -83,3 +83,15 @@ span.psw {
   color: #fff;
   text-decoration: none;
 }
+.login{
+  padding: 100px 0px 0px;
+
+ height: 1010px;
+  background-image: url(../Home/imgs/login.jpg);
+  background-size: cover;
+  background-position: center 0px;
+  background-repeat: no-repeat;
+
+
+  z-index: 0;
+}

@@ -86,6 +86,7 @@ class Nav extends Component {
               <div className="navlogo" />
             </li>
             <li>
+              
               <Link
                 to={{
                   pathname: "/"
@@ -94,12 +95,13 @@ class Nav extends Component {
                 Home
               </Link>
             </li>
+      
             <li id="nav-service">
               <a href="#">Services</a>
               <div className="sub-menu-holder">
                 <ul>
                   <li>
-                    {" "}
+                 
                     <Link
                       to={{
                         pathname: "/ServicesList",
@@ -172,84 +174,31 @@ class Nav extends Component {
                 Become a Provider
               </Link>
             </li>
+            
+            <li className="My-reservation">   <Link to={{ pathname: "/myreservation" }}>
+            Reservations
+              </Link></li>
+       
             <li id="navLogin">
               <Link to={{ pathname: "/login", query: "user" }}>Login</Link>
             </li>
-
+         
             <li id="cart-nav">
               <Link to={{ pathname: "/Cart" }}>
                 My Cart <mark>{this.props.counter}</mark>
               </Link>
             </li>
-
-            <li className="logedName">
-              <a>{this.props.user.name}</a>
-            </li>
+            
+            <li className="logout"> 
+         <a href="/">Logout</a> 
+          </li>
+            <li className="logedName">  <a>{this.props.user.name}</a></li>
+           
+         
           </ul>
         </div>
 
-        {/* <div
-          className="modal fade"
-          id="signIn"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h3 className="modal-title" id="exampleModalLongTitle">
-                  Provider Sign In{" "}
-                </h3>
-              </div>
-              <div className="modal-body">
-                <div className="wrapper">
-                  <form className="form-signin" onSubmit={this.handleSubmit}>
-                    <h2 className="form-signin-heading">Event Manager login</h2>
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="email"
-                      placeholder="Email Address"
-                      required=""
-                      autoFocus=""
-                      value={this.state.email}
-                      onChange={e => this.setState({ email: e.target.value })}
-                    />
-                    <input
-                      type="password"
-                      className="form-control"
-                      name="password"
-                      placeholder="Password"
-                      required=""
-                      value={this.state.password}
-                      onChange={e =>
-                        this.setState({ password: e.target.value })
-                      }
-                    />
-                    <button
-                      className="btn btn-lg btn-primary btn-block"
-                      type="submit"
-                    >
-                      Login
-                    </button>
-                  </form>
-                </div>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-target="planmodal"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> */}
+       
       </div>
     );
   }

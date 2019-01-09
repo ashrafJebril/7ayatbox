@@ -14,8 +14,6 @@ router.route("/addReservation").post(function(req, res) {
 
   Reservation.addReservation(userID, providerId, function(err, result) {
     if (err) console.log("err adding reservation");
-    console.log("ReservationId", result.insertId);
-
     Reservation.addReservationDetails(cartDetails, result.insertId, function() {
       res.send(true);
     });

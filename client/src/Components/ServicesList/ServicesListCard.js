@@ -10,7 +10,6 @@ class ViewCategoriesCard extends React.Component {
   };
 
   handleSubmit = () => {
-    console.log("my service cart result",this.props.result);
     this.props.incrementCounter();
     this.props.saveResult(this.props.result);
   };
@@ -32,25 +31,21 @@ class ViewCategoriesCard extends React.Component {
             <button onClick={this.handleSubmit} className="cart-cta">
               Add to cart
             </button>
-          
+
             <Link
               to={{
                 pathname: "/reservation",
                 query: this.props.result
               }}
             >
-  <button className="cart-details">
-              Show Details
-            </button>
+              <button className="cart-details">Show Details</button>
             </Link>
-
           </div>
         </div>
       </div>
     );
   }
-};
-
+}
 
 const mapStateToProps = state => {
   return {
@@ -64,4 +59,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewCategoriesCard);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ViewCategoriesCard);

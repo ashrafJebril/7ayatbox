@@ -1,45 +1,54 @@
 import React, { Component } from "react";
 import "./Login.css";
 import $ from "jquery";
-import { Link ,Redirect} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalIsOpen: false };
+    this.state = { modalIsOpen: false, email: "", password: "" };
   }
+
+  handleEmailChange = e => {
+    this.setState({
+      email: e.target.value
+    });
+  };
+  handlePasswordChange = e => {
+    this.setState({
+      password: e.target.value
+    });
+  };
+  //send post request for login
   handleLogin = () => {
     $.ajax({
       url: `/${this.props.location.query}/login`,
       type: "POST",
       data: {
-        email: $("#txt_email").val(),
-        password: $("#txt_password").val()
+        email: this.state.email,
+        password: this.state.password
       },
       success: data => {
-        console.log("success", data);
         this.props.logedin(data);
         $("#navProvider").hide();
         $("#navLogin").hide();
-        $("#cart-nav").show()
+        $("#cart-nav").show();
         $(".headerNav-container").append(
           "<ul><li><a href='/'>LogOut</a></li></ul>"
         );
-        if(this.props.location.query==="user"){
+        if (this.props.location.query === "user") {
           this.props.history.goBack();
+        } else {
+          this.props.history.push({
+            pathname: "/provider",
+
+            query: data.id
+          });
+          $("#cart-nav").hide();
+          $("#nav-service").hide();
         }
-       
-        else {
-     
-        this.props.history.push({
-          pathname: '/provider',
-          
-          query:data.id
-        });
-        $("#cart-nav").hide()
-        $("#nav-service").hide()}
       },
-    
+
       error: err => {
         console.log("UserLogin ERROR", err);
       }
@@ -49,16 +58,15 @@ class Login extends Component {
     return (
       <div className="container">
         <h2 className="header">Login to your account</h2>
-
         <div className="imgcontainer">
           <img src="https://bit.ly/2BYTfrp" alt="Avatar" className="avatar" />
         </div>
-
         <div className="container">
           <label htmlFor="email">
             <b>Email</b>
           </label>
           <input
+            onChange={this.handleEmailChange}
             type="text"
             placeholder="Enter Email"
             name="email"
@@ -66,11 +74,11 @@ class Login extends Component {
             id="txt_email"
             required
           />
-
           <label htmlFor="password">
             <b>Password</b>
           </label>
           <input
+            onChange={this.handlePasswordChange}
             type="password"
             placeholder="Enter Password"
             name="password"
@@ -78,7 +86,6 @@ class Login extends Component {
             id="txt_password"
             required
           />
-
           <button className="userloginbutton" onClick={this.handleLogin}>
             Login
           </button>
@@ -91,7 +98,6 @@ class Login extends Component {
             Not a member? register now!
           </Link>
         </div>
-
         <div className="container">
           <span className="psw">
             Forgot <a href="#">password?</a>

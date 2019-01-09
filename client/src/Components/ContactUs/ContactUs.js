@@ -1,34 +1,33 @@
 import React, { Component } from "react";
 import "./ContactUs.css";
 import $ from "jquery";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 class ContactUs extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      name: '',
-      phone: '',
-      message: '',
-      showingInfoWindow: false,  //Hides or the shows the infoWindow
-      activeMarker: {},          //Shows the active marker upon click
-      selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
-    }
+      name: "",
+      phone: "",
+      message: "",
+      showingInfoWindow: false, //Hides or the shows the infoWindow
+      activeMarker: {}, //Shows the active marker upon click
+      selectedPlace: {} //Shows the infoWindow to the selected place upon a marker
+    };
   }
 
-  nameChange = (event) => {
+  handleNameChange = event => {
     this.setState({ name: event.target.value });
-  }
+  };
 
-  phoneChange = (event) => {
+  handlePhoneChange = event => {
     this.setState({ phone: event.target.value });
-  }
+  };
 
-  messageChange = (event) => {
+  handleMessageChange = event => {
     this.setState({ message: event.target.value });
-  }
-  handleSaveMessage = (event) => {
+  };
+  handleSaveMessage = event => {
     $.ajax({
       url: `/contactus/submit`,
       type: "POST",
@@ -67,20 +66,27 @@ class ContactUs extends Component {
     return (
       //start div
       <div className="container">
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link
+          href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+          rel="stylesheet"
+          id="bootstrap-css"
+        />
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" />
+        <script src="//code.jquery.com/jquery-1.11.1.min.js" />
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        />
 
         <div class="row">
-
           {/* Contact Us Form */}
           <div class="col-md-6">
             <div class="contact-jumbotron contact-jumbotron-sm">
               <div class="">
                 <div>
                   <h1 class="contact-h1">
-                    Feel Free To Contact Us <small></small></h1>
+                    Feel Free To Contact Us <small />
+                  </h1>
                 </div>
               </div>
             </div>
@@ -89,27 +95,51 @@ class ContactUs extends Component {
               <div class="well well-sm">
                 <form onSubmit={this.handleSaveMessage} class="contact-form">
                   <div class="form-group">
-                    <label for="name">
-                      Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter name" required="required" onChange={this.nameChange} />
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      placeholder="Enter name"
+                      required="required"
+                      onChange={this.handleNameChange}
+                    />
                   </div>
 
                   <div class="form-group">
-                    <label for="subject">
-                      Phone</label>
-                    <input type="text" class="form-control" name="phone" placeholder="Enter phone" required="required" onChange={this.phoneChange} />
+                    <label for="subject">Phone</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="phone"
+                      placeholder="Enter phone"
+                      required="required"
+                      onChange={this.handlePhoneChange}
+                    />
                   </div>
 
                   <div class="form-group">
-                    <label for="name">
-                      Message</label>
-                    <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                      placeholder="Message" onChange={this.messageChange}></textarea>
+                    <label for="name">Message</label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      class="form-control"
+                      rows="9"
+                      cols="25"
+                      required="required"
+                      placeholder="Message"
+                      onChange={this.handleMessageChange}
+                    />
                   </div>
 
                   <div>
-                    <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                      Send Message</button>
+                    <button
+                      type="submit"
+                      class="btn btn-primary pull-right"
+                      id="btnContactUs"
+                    >
+                      Send Message
+                    </button>
                   </div>
                 </form>
               </div>
@@ -119,17 +149,13 @@ class ContactUs extends Component {
 
           {/* Google Map */}
           <div class="col-md-6">
-
             <div id="gMap">
               <Map
                 google={this.props.google}
                 zoom={15}
-                initialCenter={{ lat: 31.986617, lng: 35.837770 }}
+                initialCenter={{ lat: 31.986617, lng: 35.83777 }}
               >
-                <Marker
-                  onClick={this.onMarkerClick}
-                  name={'RBK'}
-                />
+                <Marker onClick={this.onMarkerClick} name={"RBK"} />
                 <InfoWindow
                   marker={this.state.activeMarker}
                   visible={this.state.showingInfoWindow}
@@ -145,15 +171,13 @@ class ContactUs extends Component {
 
           {/* End Of Google Map */}
 
-
           {/* end of row div */}
         </div>
       </div> //end dev
-
     );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: ("AIzaSyCMVlgPTWDekuMzAX0e5uNxlSl2GZSvEUs")
+  apiKey: "AIzaSyCMVlgPTWDekuMzAX0e5uNxlSl2GZSvEUs"
 })(ContactUs);

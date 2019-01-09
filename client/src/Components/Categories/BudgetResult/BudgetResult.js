@@ -18,7 +18,6 @@ class BudgetResult extends Component {
     };
   }
   componentDidMount() {
-    console.log("location", this.props.location.query);
     $.ajax({
       url: "/services/Recommendation",
       type: "POST",
@@ -31,7 +30,6 @@ class BudgetResult extends Component {
         carsPrice: this.props.location.query.cars
       },
       success: data => {
-        console.log("dddd", data);
         this.filterCategoryHandler(data);
         // this.setState({ result: data });
       },
@@ -40,6 +38,7 @@ class BudgetResult extends Component {
       }
     });
   }
+  //format the results in arrays to be displayed under corresponding sections in UI
   filterCategoryHandler = data => {
     var arrHall = [];
     var arrDJ = [];
@@ -47,7 +46,7 @@ class BudgetResult extends Component {
     var arrBuity = [];
     var arrFlower = [];
     var arrCar = [];
-    data.map(result => {
+    data.forEach(result => {
       if (result.category === "Hall") {
         arrHall.push(result);
       } else if (result.category === "DJ") {
@@ -70,19 +69,12 @@ class BudgetResult extends Component {
       flowers: arrFlower,
       cars: arrCar
     });
-    console.log(arrHall, arrDJ, arrZafeh, arrCar, arrFlower, arrBuity);
   };
   render() {
-    if (this.state.result.length > 0) {
-      var category = this.state.result[0].category;
-      console.log("asas", category);
-    }
-
     return (
       <div className="container">
         <h1>Recommended Hall's</h1>
         <hr className="hr-header" />
-
         <div className="row">
           {this.state.halls.map((result, index) => {
             return <ServicesListCard key={index} result={result} />;

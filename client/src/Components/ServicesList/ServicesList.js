@@ -9,12 +9,10 @@ class ViewCategories extends Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.location.query !== this.props.location.query) {
-      console.log("hisdhaisdhais", this.props.location.query);
       this.getAllServices();
     }
   }
   componentDidMount() {
-    console.log("dsdsdsdsds", this.props.location.query);
     this.getAllServices();
   }
   getAllServices = () => {

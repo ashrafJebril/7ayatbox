@@ -5,7 +5,6 @@ const SALT_WORK_FACTOR = 10;
 const checkProvider = (email, cb) => {
   pool.getConnection(function(err, con) {
     if (err) console.log("CheckProvider connection err", err);
-    console.log("dddd", email);
     con.query(`SELECT * FROM providers Where email= ("${email}")`, function(
       err,
       results
@@ -52,7 +51,6 @@ const checkPassword = (email, password, cb) => {
         //results is the returned array of objects
         if (results.length > 0) {
           bcrypt.compare(password, results[0].password, function(err, isMatch) {
-            console.log("hhhh", results, isMatch, err);
             if (err) return cb(null, err);
             if (isMatch) {
               cb({ id: results[0].id, name: results[0].name }, err);

@@ -4,19 +4,33 @@ import $ from "jquery";
 export default class UserSignUp extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalIsOpen: false };
+    this.state = { modalIsOpen: false, name: "", email: "", password: "" };
   }
+  handleNameChange = e => {
+    this.setState({
+      name: e.target.value
+    });
+  };
+  handleEmailChange = e => {
+    this.setState({
+      email: e.target.value
+    });
+  };
+  handlePasswordChange = e => {
+    this.setState({
+      password: e.target.value
+    });
+  };
   handleSignUp = () => {
     $.ajax({
       url: `/${this.props.location.query}/signUp`,
       type: "POST",
       data: {
-        name: $("#txt_name").val(),
-        email: $("#txt_email").val(),
-        password: $("#txt_password").val()
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
       },
       success: data => {
-        console.log("success", data, this.props.history);
         this.props.history.push("/");
       },
       error: err => {
@@ -28,16 +42,15 @@ export default class UserSignUp extends Component {
     return (
       <div>
         <h2 className="header">Create your account</h2>
-
         <div className="imgcontainer">
           <img src="https://bit.ly/2BYTfrp" alt="Avatar" class="avatar" />
         </div>
-
         <div class="container">
           <label for="UserName">
             <b>UserName</b>
           </label>
           <input
+            onChange={this.handleNameChange}
             type="text"
             placeholder="Enter Name"
             name="UserName"
@@ -49,6 +62,7 @@ export default class UserSignUp extends Component {
             <b>Email</b>
           </label>
           <input
+            onChange={this.handleEmailChange}
             type="text"
             placeholder="Enter Email"
             name="email"
@@ -56,11 +70,11 @@ export default class UserSignUp extends Component {
             id="txt_email"
             required
           />
-
           <label for="password">
             <b>Password</b>
           </label>
           <input
+            onChange={this.handlePasswordChange}
             type="password"
             placeholder="Enter Password"
             name="password"
@@ -68,7 +82,6 @@ export default class UserSignUp extends Component {
             id="txt_password"
             required
           />
-
           <button className="userloginbutton" onClick={this.handleSignUp}>
             Create Account
           </button>

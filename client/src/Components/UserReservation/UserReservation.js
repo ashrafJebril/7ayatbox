@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ServicesListCard from "../ServicesList/ServicesListCard";
-import "./UserReservation.css";
+import ListCard from "./ListCard";
+
 import { connect } from "react-redux";
 import $ from "jquery";
 class UserReservation extends Component {
@@ -36,7 +36,7 @@ class UserReservation extends Component {
           <hr className="hr-header" />
      
             {this.state.result.map((result, index) => {
-              return <ServicesListCard key={index} result={result} />;
+              return <ListCard key={index} result={result} />;
             })}
           </div>
   

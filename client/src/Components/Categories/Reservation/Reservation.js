@@ -24,54 +24,51 @@ class Reservation extends Component {
       $(".chat-popup").hide();
     }, 1000);
   };
+
   render() {
     return (
       <div>
-        <div className="reservation-img">
-          <img src={this.props.location.query.imageUrl} alt="img" />
+        <div className="reservation-background">
+          <div className="container-reservation">
+            <div className="row title-reservation">
+              <div className="col-7">
+                <h2>{this.props.location.query.title}</h2>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-6 title-reservation">
+                price $<mark>{this.props.location.query.price}</mark>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-6 title-reservation">
+                Location <mark>{this.props.location.query.location}</mark>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-6 title-reservation">
+                Rate <mark>{this.props.location.query.rate}</mark>
+              </div>
+            </div>
+          </div>
+
+          <button className="open-button" onClick={this.displayBot}>
+            C
+          </button>
+          {this.state.displayBot ? (
+            <div className="chat-popup">
+              <ReservationBot addToCart={this.addToCart} />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
-        <div className="container-reservation">
-          <div className="row title-reservation">
-            <div className="col-">
-              <h2>{this.props.location.query.title}</h2>
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-6 title-reservation">
-              <mark>price $</mark>
-              <mark>{this.props.location.query.price}</mark>
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-6 title-reservation">
-              Location <mark>{this.props.location.query.location}</mark>
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-6 title-reservation">
-              Rate <mark>{this.props.location.query.rate}</mark>
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-8 title-reservation">
-              {this.props.location.query.description}{" "}
-            </div>
-          </div>
+        <div className="row description">
+          <div className="col-4">{this.props.location.query.description}</div>
         </div>
-        <button className="open-button" onClick={this.displayBot}>
-          C
-        </button>
-        {this.state.displayBot ? (
-          <div className="chat-popup">
-            <ReservationBot addToCart={this.addToCart} />
-          </div>
-        ) : (
-          ""
-        )}
       </div>
     );
   }

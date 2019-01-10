@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReservationBot from "./ReservationBot";
 import "./Reservation.css";
-
-
+import $ from "jquery";
 class Reservation extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +20,9 @@ class Reservation extends Component {
   addToCart = result => {
     this.props.incrementCounter();
     this.props.saveResult(this.props.location.query);
+    setTimeout(() => {
+      $(".chat-popup").hide();
+    }, 1000);
   };
   render() {
     return (
@@ -34,26 +36,26 @@ class Reservation extends Component {
               <h2>{this.props.location.query.title}</h2>
             </div>
           </div>
-          <br/>
+          <br />
           <div className="row">
             <div className="col-6 title-reservation">
               <mark>price $</mark>
               <mark>{this.props.location.query.price}</mark>
             </div>
           </div>
-          <br/>
+          <br />
           <div className="row">
             <div className="col-6 title-reservation">
               Location <mark>{this.props.location.query.location}</mark>
             </div>
           </div>
-          <br/>
+          <br />
           <div className="row">
             <div className="col-6 title-reservation">
               Rate <mark>{this.props.location.query.rate}</mark>
             </div>
           </div>
-          <br/>
+          <br />
           <div className="row">
             <div className="col-8 title-reservation">
               {this.props.location.query.description}{" "}
@@ -65,7 +67,6 @@ class Reservation extends Component {
         </button>
         {this.state.displayBot ? (
           <div className="chat-popup">
-           
             <ReservationBot addToCart={this.addToCart} />
           </div>
         ) : (

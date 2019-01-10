@@ -22,6 +22,8 @@ class Cart extends Component {
       },
       success: data => {
         console.log("success", data);
+        this.props.resetCounter();
+        this.props.history.push("/");
       },
       error: err => {
         console.log("ERROR");
@@ -43,15 +45,20 @@ class Cart extends Component {
       borderTop: "1px solid #ddd",
       marginTop: "10px"
     };
-
-    return (
+    console.log(this.props.result2.length);
+    return this.props.result2.length === 0 ? (
+      <div className="container">
+        <h3 className="cartH3">
+          {" "}
+          Nothing in your cart go to services to add more.
+        </h3>
+      </div>
+    ) : (
       <div>
         <div className="container">
-        <div className="row">
-          {this.state.result.map((result, index) => {
-            return (
-           
-            
+          <div className="row">
+            {this.props.result2.map((result, index) => {
+              return (
                 <div className="col-xl-3 col-lg-4 col-sm-6">
                   <div className="card">
                     <img
@@ -66,10 +73,9 @@ class Cart extends Component {
                     </div>
                   </div>
                 </div>
-         
-            );
-          })}
-             </div>
+              );
+            })}
+          </div>
           <div
             style={{
               marginTop: "30px",
@@ -96,7 +102,9 @@ class Cart extends Component {
             <div className="col-6" />
             <div className="col-6">
               <div className="Save-cart" />
-              <button onClick={this.handleSubmit}>Save</button>
+              <button className="Save-cart-btn" onClick={this.handleSubmit}>
+                Save
+              </button>
             </div>
           </div>
         </div>
@@ -110,4 +118,12 @@ const mapStateToProps = state => {
     ...state
   };
 };
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = dispatch => {
+  return {
+    resetCounter: () => dispatch({ type: "RESET" })
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Cart);

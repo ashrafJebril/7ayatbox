@@ -38,7 +38,14 @@
   justify-content: center;
 }
 .container-reservation{
-  margin-left: 250px;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+height:200px;
+  background-color: white;
+  width:30%;
+  font-size:20px;
+  
 }
 .container-reservation h2{
   color: #991146;
@@ -46,17 +53,20 @@
 
 .container-reservation mark {
   color:#991146;
+  padding-right: 15px;
 }
 
-.container-reservation{
+.reservation-background{
   
-    background-color: lightgrey;
-    width: 50%;
-    border: 25px solid #e63077;
-    padding: 25px;
-    margin: 5px;
-    margin-left: 7.5%;
-    font-size: 20px
+  display: flex;
+  justify-content: center;
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/15/02/08/cupcakes-1825136_960_720.jpg");
+    background-size: cover;
+  background-position: center 0px;
+  background-repeat: no-repeat;
+  height: 500px;
+  margin-top: 91px;
+
   }
   
 
@@ -69,5 +79,18 @@
   background-color: #e63077 !important;
   margin-right: 40% !important;
 }
+
+.description{
+  margin:30px;
+  font-size: 20px;
+  color:#991146 ;
+  font-weight: 300
+}
+.reservation-img{
+  width:200px;
+  height: 200px;
+  margin-left:40px;
+}
+
 
 

@@ -4,6 +4,10 @@ self.__precacheManifest = [
     "url": "/static/media/wedding.040a717c.jpg"
   },
   {
+    "revision": "4d28cad6d212e7f7bacec9faeb5f1fa6",
+    "url": "/static/media/login.4d28cad6.jpg"
+  },
+  {
     "revision": "8301c6e652ca7b0874d88221d2462a09",
     "url": "/static/media/ew-logo.8301c6e6.png"
   },
@@ -16,19 +20,19 @@ self.__precacheManifest = [
     "url": "/static/js/runtime~main.229c360f.js"
   },
   {
-    "revision": "13e179674ab8fd0b4d34",
-    "url": "/static/js/main.13e17967.chunk.js"
+    "revision": "c7cc4f52e3d48a85c39d",
+    "url": "/static/js/main.c7cc4f52.chunk.js"
   },
   {
-    "revision": "61873c74415de9ace353",
-    "url": "/static/js/1.61873c74.chunk.js"
+    "revision": "717285ab2ccc9459ec50",
+    "url": "/static/js/1.717285ab.chunk.js"
   },
   {
-    "revision": "13e179674ab8fd0b4d34",
-    "url": "/static/css/main.153c4284.chunk.css"
+    "revision": "c7cc4f52e3d48a85c39d",
+    "url": "/static/css/main.c208cbcb.chunk.css"
   },
   {
-    "revision": "df79778aeb0fd613ec6d424834f57a8a",
+    "revision": "b2950dfd01bf3134367c734c44fa9827",
     "url": "/index.html"
   }
 ];

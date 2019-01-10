@@ -1,5 +1,14 @@
-.cart{
-    color :red;
+.cart {
   float: left;
-    font-size: 25px;
+  font-size: 25px;
+}
+.cartH3 {
+  text-align: center;
+  color: #991146;
+}
+.Save-cart-btn {
+  background-color: #991146 !important;
+  width: 200px;
+  float: right;
+  border-radius: 8px;
 }

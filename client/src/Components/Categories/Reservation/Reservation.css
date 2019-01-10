@@ -1,11 +1,12 @@
 .open-button {
-  background-color: #f21;
+  background-color: #991146;
   color: white;
+  font-weight: bold;
   padding: 16px 20px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  opacity: 0.8;
+
   position: fixed;
   bottom: 23px;
   right: 28px;
@@ -22,75 +23,68 @@
   z-index: 9;
 }
 
-.reservation-img img{
+.reservation-img img {
   width: 300px;
   padding: 0px 6px 6px 0px;
-  background-color:#991146;
+  background-color: #991146;
 
   height: 500px;
-  width:85%;
+  width: 85%;
   border: 1px solid;
   margin-top: 90px;
-
 }
-.reservation-img{
+.reservation-img {
   display: flex;
   justify-content: center;
 }
-.container-reservation{
+.container-reservation {
   margin-top: 10%;
   display: flex;
   justify-content: center;
-height:200px;
+  height: 200px;
   background-color: white;
-  width:30%;
-  font-size:20px;
-  
+  width: 30%;
+  font-size: 20px;
 }
-.container-reservation h2{
+.container-reservation h2 {
   color: #991146;
 }
 
-.container-reservation mark {
-  color:#991146;
-  padding-right: 15px;
-}
-
-.reservation-background{
-  
+.reservation-background {
   display: flex;
   justify-content: center;
-    background-image: url("https://cdn.pixabay.com/photo/2016/11/15/02/08/cupcakes-1825136_960_720.jpg");
-    background-size: cover;
+  background-image: url("https://awscloudfront.kempinski.com/1391/al-reem-ball-room.jpg;width=1905;height=794;mode=crop;anchor=middlecenter;autorotate=true;quality=90;scale=both;progressive=true;encoder=freeimage");
+  background-size: cover;
   background-position: center 0px;
   background-repeat: no-repeat;
-  height: 500px;
+  height: 600px;
   margin-top: 91px;
-
-  }
-  
-
-.glfuN{
-  background-color: #e63077 !important;
-
 }
 
-.fhAWVE{
+.glfuN {
+  background-color: #e63077 !important;
+}
+
+.fhAWVE {
   background-color: #e63077 !important;
   margin-right: 40% !important;
 }
 
-.description{
-  margin:30px;
-  font-size: 20px;
-  color:#991146 ;
-  font-weight: 300
+.description {
+  margin: 30px;
+  font-size: 30px;
+  color: #991146;
+  font-weight: 300;
 }
-.reservation-img{
-  width:200px;
+.reservation-img {
+  width: 200px;
   height: 200px;
-  margin-left:40px;
+  margin-left: 40px;
 }
-
-
-
+.jgMjlR {
+  background-color: #e63077 !important;
+}
+.fMcZCH {
+  background-color: #e63077 !important;
+  color: white !important;
+}

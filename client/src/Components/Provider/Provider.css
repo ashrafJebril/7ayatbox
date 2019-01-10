@@ -1,103 +1,104 @@
-.page-cont{
-	height:auto;
-	min-height: 50px;
-	position: relative;
-	z-index:0;
-	padding:40px 20px 40px 270px;
+.page-cont {
+  height: auto;
+  min-height: 50px;
+  position: relative;
+  z-index: 0;
+  padding: 40px 20px 40px 270px;
 }
-.dash-row{
-	margin:0px;
-	height:auto;
+.dash-row {
+  margin: 0px;
+  height: auto;
 }
-.dash-row .data-box{
-	padding:0px 5px;
-	height:auto;
-	min-height:180px;
+.dash-row .data-box {
+  padding: 0px 5px;
+  height: auto;
+  min-height: 180px;
 }
-.dash-row .data-box > div{
-	display:inline-flex;
-	width:100%;
-	height:auto;
-	min-height:100%;
-	background-color:#991145;
-	justify-content: center;
-    align-items: center;
+.dash-row .data-box > div {
+  display: inline-flex;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: #991145;
+  justify-content: center;
+  align-items: center;
 }
-.dash-row .data-box > div h3{
-	font-size:15px;
-	color:white;
+.dash-row .data-box > div h3 {
+  font-size: 15px;
+  color: white;
 }
-.dash-row .data-box > div h3 span{
-	font-size:32px;
-	color:white;
-}
-
-.centralized-div{
-	position:relative;
-	width:auto;
-	height:auto;
-	padding:20px 0px;
-	overflow:hidden;
-	display:inline-block;
-	left:50%;
-	transform:translateX(-50%);
-	
+.dash-row .data-box > div h3 span {
+  font-size: 32px;
+  color: white;
 }
 
-.page-cont{
-    margin-top:70px;
+.centralized-div {
+  position: relative;
+  width: auto;
+  height: auto;
+  padding: 20px 0px;
+  overflow: hidden;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
 }
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    border-color: #991145
-  }
-  
-  label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-  }
-  
-  input[type=submit] {
-    background-color: #991145;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
- 
-  }
-  
-  input[type=submit]:hover {
-    background-color: black;
-  }
-  
 
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-  
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .addImg {
-    background-color: #991145;
-    width:90px;
-    height: 50px;
+.page-cont {
+  margin-top: 70px;
+}
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  border-color: #991145;
+}
 
-  }
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  background-color: #991145;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type="submit"]:hover {
+  background-color: black;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.addImg {
+  background-color: #991145;
+  width: 90px;
+  height: 50px;
+}
+.uploadImage {
+  margin-top: 10px;
+}

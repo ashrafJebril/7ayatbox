@@ -61,7 +61,7 @@ class Nav extends Component {
             );
           })
           .css("background-position", "center " + parseInt(-y / 3) + "px");
-        if (y > 100) {
+        if (y > 20) {
           $(".headerNav-container").css({
             padding: "5px 0px"
           });
@@ -86,7 +86,6 @@ class Nav extends Component {
               <div className="navlogo" />
             </li>
             <li>
-              
               <Link
                 to={{
                   pathname: "/"
@@ -95,13 +94,12 @@ class Nav extends Component {
                 Home
               </Link>
             </li>
-      
+
             <li id="nav-service">
               <a href="#">Services</a>
               <div className="sub-menu-holder">
                 <ul>
                   <li>
-                 
                     <Link
                       to={{
                         pathname: "/ServicesList",
@@ -174,31 +172,31 @@ class Nav extends Component {
                 Become a Provider
               </Link>
             </li>
-            
-            <li className="My-reservation">   <Link to={{ pathname: "/myreservation" }}>
-            Reservations
-              </Link></li>
-       
+
+            <li className="My-reservation">
+              {" "}
+              <Link to={{ pathname: "/myreservation" }}>Reservations</Link>
+            </li>
+
             <li id="navLogin">
               <Link to={{ pathname: "/login", query: "user" }}>Login</Link>
             </li>
-         
+
             <li id="cart-nav">
               <Link to={{ pathname: "/Cart" }}>
                 My Cart <mark>{this.props.counter}</mark>
               </Link>
             </li>
-            
-            <li className="logout"> 
-         <a href="/">Logout</a> 
-          </li>
-            <li className="logedName">  <a>{this.props.user.name}</a></li>
-           
-         
+
+            <li className="logout">
+              <a href="/">Logout</a>
+            </li>
+            <li className="logedName">
+              {" "}
+              <a>{this.props.user.name}</a>
+            </li>
           </ul>
         </div>
-
-       
       </div>
     );
   }

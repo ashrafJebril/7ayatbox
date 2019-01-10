@@ -1,12 +1,12 @@
-import React, { Component } from "react"
-import $ from "jquery"
-import "./Provider.css"
+import React, { Component } from "react";
+import $ from "jquery";
+import "./Provider.css";
 import { Redirect, Link } from "react-router-dom";
-import { storage } from "../../firebase"
-import SweetAlert from 'react-bootstrap-sweetalert'
+import { storage } from "../../firebase";
+import SweetAlert from "react-bootstrap-sweetalert";
 class Provider extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       providerId: this.props.location.query,
       result: [],
@@ -15,46 +15,39 @@ class Provider extends Component {
       imageUrl: "",
       location: "",
       price: "",
-      rate: "",
+      rate: "4.5",
       title: "",
       capicity: "",
       type: "",
       image: {},
-      show:false
-    }
+      show: false
+    };
     this.acceptedFileTypes = "image/x-png, image/png, image/jpg,image.jpeg";
   }
 
-
   componentDidMount = () => {
-
-    console.log("i am in")
+    console.log("i am in");
     $.ajax({
       url: "/provider/getProviderServices",
       type: "POST",
       data: {
-        providerId: this.state.providerId,
-
+        providerId: this.state.providerId
       },
       success: data => {
-
-
         this.setState({ result: data });
-
-
       },
       error: err => {
         console.log("ERROR");
       }
     });
-
-  }
-
+  };
 
   handleSubmitButtonClick = () => {
-    this.setState({ show: true })
+    this.setState({ show: true });
     //starting put request to firebase storage
-    const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image);
+    const uploadTask = storage
+      .ref(`images/${this.state.image.name}`)
+      .put(this.state.image);
     //the on function is event listener that provide 3 functions progress,error,complete
     uploadTask.on(
       "state_changed",
@@ -72,16 +65,14 @@ class Provider extends Component {
           .child(this.state.image.name)
           .getDownloadURL()
           .then(url => {
-            this.setState({ imageUrl: url })
-            this.addServicesHandler()
-
+            this.setState({ imageUrl: url });
+            this.addServicesHandler();
           });
       }
     );
   };
   //////
   addServicesHandler = () => {
-
     var obj = {
       providerId: this.state.providerId,
       categoryId: this.state.categoryId,
@@ -92,7 +83,6 @@ class Provider extends Component {
       rate: this.state.rate,
       title: this.state.title,
       capicity: this.state.capicity
-
     };
     $.ajax({
       url: "/provider/addService",
@@ -117,73 +107,81 @@ class Provider extends Component {
         console.log("ERROR");
       }
     });
-  }
+  };
 
-  ServiceHandleChange = (event) => {
+  ServiceHandleChange = event => {
     this.setState({ categoryId: event.target.value });
-  }
+  };
 
-
-  titleHandleChange = (event) =>
-    this.setState({ title: event.target.value });
-  locationHandleChange = (event) =>
+  titleHandleChange = event => this.setState({ title: event.target.value });
+  locationHandleChange = event =>
     this.setState({ location: event.target.value });
-  imageHandleChange = (event) =>
-    this.setState({ imageUrl: event.target.value });
-  locationHandleChange = (event) =>
+  imageHandleChange = event => this.setState({ imageUrl: event.target.value });
+  locationHandleChange = event =>
     this.setState({ location: event.target.value });
-  descriptionHandleChange = (event) =>
+  descriptionHandleChange = event =>
     this.setState({ description: event.target.value });
-  rateHandleChange = (event) =>
-    this.setState({ rate: event.target.value });
-  priceHandleChange = (event) =>
-    this.setState({ price: event.target.value });
-  capicityHandleChange = (event) =>
+  rateHandleChange = event => this.setState({ rate: event.target.value });
+  priceHandleChange = event => this.setState({ price: event.target.value });
+  capicityHandleChange = event =>
     this.setState({ capicity: event.target.value });
 
   fileSelectedHandler = event => {
-    console.log("Ev", event.target.files[0])
+    console.log("Ev", event.target.files[0]);
     this.setState({ image: event.target.files[0] });
-    console.log("Image", this.state)
+    console.log("Image", this.state);
   };
   render() {
     return (
-
       <div>
-
         <div class="container-fluid page-cont">
           <div class="row dash-row">
-
             <div class="col-4 data-box">
               <div>
-                <h3><Link to={{
-                  pathname: "/ProviderServices",
-                  query: this.state.result
-                }}><span>{this.state.result.length}</span> </Link>Services</h3>
+                <h3>
+                  <Link
+                    to={{
+                      pathname: "/ProviderServices",
+                      query: this.state.result
+                    }}
+                  >
+                    <span>{this.state.result.length}</span>{" "}
+                  </Link>
+                  Services
+                </h3>
               </div>
             </div>
 
             <div class="col-4 data-box">
               <div>
-                <h3><span>0</span> Services</h3>
+                <h3>
+                  <span>7</span> Reservations
+                </h3>
               </div>
             </div>
 
             <div class="col-4 data-box">
               <div>
-                <h3><span>0</span> Services</h3>
+                <h3>
+                  <span>3500 </span>JD Revenues
+                </h3>
               </div>
             </div>
-
           </div>
         </div>
         <div className="container">
-          <div className="row inputs" >
+          <div className="row inputs">
             <div className="col-25">
               <label for="fname">title</label>
             </div>
             <div className="col-75">
-              <input type="text" onChange={this.titleHandleChange} id="fname" name="firstname" placeholder="Your title.."></input>
+              <input
+                type="text"
+                onChange={this.titleHandleChange}
+                id="fname"
+                name="firstname"
+                placeholder="Your title.."
+              />
             </div>
           </div>
 
@@ -191,27 +189,28 @@ class Provider extends Component {
             <div className="col-25">
               <label for="subject">Image</label>
             </div>
-            <div className="col-3">
-              <input
-                type="file"
-                name="file"
-                id="subject"
-                accept={this.acceptedFileTypes}
-                multiple={false}
-                onChange={this.fileSelectedHandler}
-              />
-
+            <div className="col-3 ">
+              <div className="uploadImage">
+                <input
+                  type="file"
+                  name="file"
+                  id="subject"
+                  accept={this.acceptedFileTypes}
+                  multiple={false}
+                  onChange={this.fileSelectedHandler}
+                />
+              </div>
             </div>
-
-
           </div>
           <div className="row">
             <div className="col-25">
               <label for="country">Service</label>
             </div>
             <div className="col-75">
-              <select value={this.state.value} onChange={this.ServiceHandleChange}>
-
+              <select
+                value={this.state.value}
+                onChange={this.ServiceHandleChange}
+              >
                 <option value="1">Halls</option>
                 <option value="2">Zafeh</option>
                 <option value="3">DJ</option>
@@ -227,7 +226,13 @@ class Provider extends Component {
               <label for="subject">Price</label>
             </div>
             <div className="col-75">
-              <input type="text" onChange={this.priceHandleChange} id="subject" name="firstname" placeholder="Your Price"></input>
+              <input
+                type="text"
+                onChange={this.priceHandleChange}
+                id="subject"
+                name="firstname"
+                placeholder="Your Price"
+              />
             </div>
           </div>
 
@@ -236,64 +241,71 @@ class Provider extends Component {
               <label for="subject">Location</label>
             </div>
             <div className="col-75">
-              <input type="text" onChange={this.locationHandleChange} id="subject" name="firstname" placeholder="Your Location"></input>
+              <input
+                type="text"
+                onChange={this.locationHandleChange}
+                id="subject"
+                name="firstname"
+                placeholder="Your Location"
+              />
             </div>
           </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col-25">
               <label for="subject">Rate</label>
             </div>
             <div className="col-75">
-              <input type="text" onChange={this.rateHandleChange} id="subject" name="firstname" placeholder="Your Rate"></input>
+              <input
+                type="text"
+                onChange={this.rateHandleChange}
+                id="subject"
+                name="firstname"
+                placeholder="Your Rate"
+              />
             </div>
-          </div>
+          </div> */}
           <div className="row">
             <div className="col-25">
               <label for="subject">Description</label>
             </div>
             <div className="col-75">
-              <textarea onChange={this.descriptionHandleChange} id="subject" name="firstname" placeholder="Your description.."></textarea>
+              <textarea
+                onChange={this.descriptionHandleChange}
+                id="subject"
+                name="firstname"
+                placeholder="Your description.."
+              />
             </div>
           </div>
           <div className="row">
-          <div>
-
-<button onClick={this.handleSubmitButtonClick} className="cart-cta">
-
-  Add to cart
-</button>
-<SweetAlert
-
-  show={this.state.show}
-  success
-  title="your service has been added"
-
-  onConfirm={() => {
-    console.log('confirm');
-    this.setState({ show: false });
-  }}
-  onCancel={() => {
-    console.log('cancel');
-    this.setState({ show: false });
-  }}
-  onEscapeKey={() => this.setState({ show: false })}
-  onOutsideClick={() => this.setState({ show: false })}
-/>
-</div>
+            <div>
+              <button
+                onClick={this.handleSubmitButtonClick}
+                className="cart-cta"
+              >
+                Add Srevice
+              </button>
+              <SweetAlert
+                show={this.state.show}
+                success
+                title="your service has been added"
+                onConfirm={() => {
+                  console.log("confirm");
+                  this.setState({ show: false });
+                }}
+                onCancel={() => {
+                  console.log("cancel");
+                  this.setState({ show: false });
+                }}
+                onEscapeKey={() => this.setState({ show: false })}
+                onOutsideClick={() => this.setState({ show: false })}
+              />
+            </div>
           </div>
         </div>
       </div>
-
-
-    )
-
+    );
   }
 }
 
-
-export default Provider
-
-
-
-
-
+export default Provider;

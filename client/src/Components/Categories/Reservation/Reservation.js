@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ReservationBot from "./ReservationBot";
 import "./Reservation.css";
 
+
 class Reservation extends Component {
   constructor(props) {
     super(props);
@@ -29,29 +30,32 @@ class Reservation extends Component {
         </div>
         <div className="container-reservation">
           <div className="row title-reservation">
-            <div className="col-6">
+            <div className="col-">
               <h2>{this.props.location.query.title}</h2>
             </div>
           </div>
-          
+          <br/>
           <div className="row">
             <div className="col-6 title-reservation">
               <mark>price $</mark>
               <mark>{this.props.location.query.price}</mark>
             </div>
           </div>
+          <br/>
           <div className="row">
             <div className="col-6 title-reservation">
               Location <mark>{this.props.location.query.location}</mark>
             </div>
           </div>
+          <br/>
           <div className="row">
             <div className="col-6 title-reservation">
               Rate <mark>{this.props.location.query.rate}</mark>
             </div>
           </div>
+          <br/>
           <div className="row">
-            <div className="col-7 title-reservation">
+            <div className="col-8 title-reservation">
               {this.props.location.query.description}{" "}
             </div>
           </div>
@@ -61,6 +65,7 @@ class Reservation extends Component {
         </button>
         {this.state.displayBot ? (
           <div className="chat-popup">
+           
             <ReservationBot addToCart={this.addToCart} />
           </div>
         ) : (

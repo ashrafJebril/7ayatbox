@@ -4,7 +4,7 @@ import "./About/About";
 import About from "./About/About";
 import { Link } from "react-router-dom";
 import $ from "jquery"
-import Slider from "./slider/slider"
+
 
 class Home extends Component {
   constructor(props) {

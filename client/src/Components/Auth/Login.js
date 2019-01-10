@@ -21,6 +21,7 @@ class Login extends Component {
   };
   //send post request for login
   handleLogin = () => {
+    console.log(this.state.email,this.state.password)
     $.ajax({
       url: `/${this.props.location.query}/login`,
       type: "POST",
@@ -87,13 +88,13 @@ class Login extends Component {
                         <div class="input-group">
                           <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                           </span>
-                          <input type="text" class="form-control" placeholder="Email Address" id="txt_email" />
+                          <input type="text" class="form-control" placeholder="Email Address" id="txt_email" onChange={this.handleEmailChange} />
                         </div>
                       </div>
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                          <input type="password" class="form-control" placeholder="Password" id="txt_password" />
+                          <input type="password" class="form-control" placeholder="Password" id="txt_password" onChange={this.handlePasswordChange} />
                         </div>    </div>
 
                       <button class="btn btn-lg btn-primary btn-block" onClick={this.handleLogin}>

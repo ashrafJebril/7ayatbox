@@ -3,7 +3,7 @@ import $ from "jquery"
 import "./Provider.css"
 import { Redirect, Link } from "react-router-dom";
 import { storage } from "../../firebase"
-
+import SweetAlert from 'react-bootstrap-sweetalert'
 class Provider extends Component {
   constructor(props) {
     super(props)
@@ -19,7 +19,8 @@ class Provider extends Component {
       title: "",
       capicity: "",
       type: "",
-      image: {}
+      image: {},
+      show:false
     }
     this.acceptedFileTypes = "image/x-png, image/png, image/jpg,image.jpeg";
   }
@@ -51,7 +52,7 @@ class Provider extends Component {
 
 
   handleSubmitButtonClick = () => {
-
+    this.setState({ show: true })
     //starting put request to firebase storage
     const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image);
     //the on function is event listener that provide 3 functions progress,error,complete
@@ -255,7 +256,30 @@ class Provider extends Component {
             </div>
           </div>
           <div className="row">
-            <input type="submit" value="Submit" onClick={this.handleSubmitButtonClick} />
+          <div>
+
+<button onClick={this.handleSubmitButtonClick} className="cart-cta">
+
+  Add to cart
+</button>
+<SweetAlert
+
+  show={this.state.show}
+  success
+  title="your service has been added"
+
+  onConfirm={() => {
+    console.log('confirm');
+    this.setState({ show: false });
+  }}
+  onCancel={() => {
+    console.log('cancel');
+    this.setState({ show: false });
+  }}
+  onEscapeKey={() => this.setState({ show: false })}
+  onOutsideClick={() => this.setState({ show: false })}
+/>
+</div>
           </div>
         </div>
       </div>

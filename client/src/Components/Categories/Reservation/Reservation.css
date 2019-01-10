@@ -27,8 +27,8 @@
   padding: 0px 6px 6px 0px;
   background-color:#991146;
 
-  height: 400px;
-  width:70%;
+  height: 500px;
+  width:85%;
   border: 1px solid;
   margin-top: 90px;
 
@@ -49,16 +49,25 @@
 }
 
 .container-reservation{
-  border-radius: 5px solid black; 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   
-}
+    background-color: lightgrey;
+    width: 50%;
+    border: 25px solid #e63077;
+    padding: 25px;
+    margin: 5px;
+    margin-left: 7.5%;
+    font-size: 20px
+  }
+  
+
 .glfuN{
   background-color: #e63077 !important;
+
 }
 
 .fhAWVE{
   background-color: #e63077 !important;
+  margin-right: 40% !important;
 }
 
 

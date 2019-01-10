@@ -4,22 +4,22 @@ import { connect } from "react-redux";
 import "./ServicesList.css";
 import SweetAlert from 'react-bootstrap-sweetalert'
 import $ from "jquery"
-import Swal from 'sweetalert2'
+
 
 class ViewCategoriesCard extends React.Component {
   state = {
     qty: 0,
     result: "",
-    show:false
+    show: false
   };
 
   handleSubmit = () => {
-    this.setState({show:true})
-    console.log("my service cart result",this.props.result);
+    this.setState({ show: true })
+    console.log("my service cart result", this.props.result);
     this.props.incrementCounter();
     this.props.saveResult(this.props.result);
-   
-  
+
+
 
   };
 
@@ -40,32 +40,32 @@ class ViewCategoriesCard extends React.Component {
             <p className="card-text">{this.props.result.description}</p>
             <p className="card-text">{this.props.result.price}</p>
             <div>
-  
-            <button onClick={this.handleSubmit} className="cart-cta">
-            
-              Add to cart
-            </button>
-      <SweetAlert
-      
-        show={this.state.show}
-        success 
-        title="the service added to your cart"
-        
-        onConfirm={() => {
-          console.log('confirm');
-          this.setState({ show: false });
-        }}
-        onCancel={() => {
-          console.log('cancel');
-          this.setState({ show: false });
-        }}
-        onEscapeKey={() => this.setState({ show: false })}
-        onOutsideClick={() => this.setState({ show: false })}
-      />
-    </div>
 
-         
-           
+              <button onClick={this.handleSubmit} className="cart-cta">
+
+                Add to cart
+            </button>
+              <SweetAlert
+
+                show={this.state.show}
+                success
+                title="the service added to your cart"
+
+                onConfirm={() => {
+                  console.log('confirm');
+                  this.setState({ show: false });
+                }}
+                onCancel={() => {
+                  console.log('cancel');
+                  this.setState({ show: false });
+                }}
+                onEscapeKey={() => this.setState({ show: false })}
+                onOutsideClick={() => this.setState({ show: false })}
+              />
+            </div>
+
+
+
             <Link
               to={{
                 pathname: "/reservation",

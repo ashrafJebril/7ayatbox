@@ -111,9 +111,9 @@ class ReservationBot extends Component {
   componentDidMount() {}
   render() {
     return (
-      <ThemeProvider>
+      
         <ChatBot steps={this.steps} handleEnd={this.handleEnd} />
-      </ThemeProvider>
+     
     );
   }
 }

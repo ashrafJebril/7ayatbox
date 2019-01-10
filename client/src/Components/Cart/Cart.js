@@ -2,16 +2,19 @@ import React, { Component } from "react";
 import "./Cart.css";
 import $ from "jquery";
 import { connect } from "react-redux";
+import SweetAlert from "react-bootstrap-sweetalert";
 class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
       result: this.props.result2,
-      userID: this.props.user.id
+      userID: this.props.user.id,
+      show: false
     };
   }
   //send post request for saving reservations
   handleSubmit = () => {
+    this.setState({ show: true });
     $.ajax({
       url: "/reservation/addReservation",
       type: "POST",
@@ -22,8 +25,11 @@ class Cart extends Component {
       },
       success: data => {
         console.log("success", data);
-        this.props.resetCounter();
-        this.props.history.push("/");
+
+        // setTimeout(() => {
+        //   this.props.resetCounter();
+        //   this.props.history.push("/");
+        // }, 2500);
       },
       error: err => {
         console.log("ERROR");
@@ -103,8 +109,28 @@ class Cart extends Component {
             <div className="col-6">
               <div className="Save-cart" />
               <button className="Save-cart-btn" onClick={this.handleSubmit}>
-                Save
+                Reserve
               </button>
+
+              <div>
+                <SweetAlert
+                  show={this.state.show}
+                  success
+                  title="You have successfully reserved"
+                  onConfirm={() => {
+                    console.log("confirm");
+                    this.setState({ show: false });
+                    this.props.resetCounter();
+                    this.props.history.push("/");
+                  }}
+                  onCancel={() => {
+                    console.log("cancel");
+                    this.setState({ show: false });
+                  }}
+                  onEscapeKey={() => this.setState({ show: false })}
+                  onOutsideClick={() => this.setState({ show: false })}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 const intialState = {
   counter: 0,
   result2: [],
-  user: {}
+  user: {},
+  cardReservation: {}
 };
 
 const reducer = (state = intialState, action) => {
@@ -27,6 +28,11 @@ const reducer = (state = intialState, action) => {
     return {
       ...state,
       user: action.value
+    };
+  } else if (action.type === "cardReservation") {
+    return {
+      ...state,
+      cardReservation: action.value
     };
   }
   return state;

@@ -1,28 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import ReservationBot from "./ReservationBot";
 import "./Reservation.css";
-import $ from "jquery";
+
 class Reservation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { displayBot: false };
-  }
-  displayBot = () => {
-    this.setState({ displayBot: true });
-  };
-  componentDidMount() {
-    setTimeout(() => {
-      this.displayBot();
-    }, 1000);
-  }
   //add to cart
   addToCart = result => {
     this.props.incrementCounter();
     this.props.saveResult(this.props.location.query);
-    setTimeout(() => {
-      $(".chat-popup").hide();
-    }, 1000);
   };
 
   render() {
@@ -54,20 +38,9 @@ class Reservation extends Component {
               </div>
             </div>
           </div>
-
-          <button className="open-button" onClick={this.displayBot}>
-            C
-          </button>
-          {this.state.displayBot ? (
-            <div className="chat-popup">
-              <ReservationBot addToCart={this.addToCart} />
-            </div>
-          ) : (
-            ""
-          )}
         </div>
         <div className="row description">
-          <div className="col-4">{this.props.location.query.description}</div>
+          <div className="col-12">{this.props.location.query.description}</div>
         </div>
       </div>
     );

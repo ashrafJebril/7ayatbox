@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./AboutUs.css";
-
+import { connect } from "react-redux";
 class AboutUs extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
+  componentDidMount() {
+    console.log("proppppps", this.props);
+  }
   render() {
     return (
       <div>
@@ -52,4 +54,10 @@ class AboutUs extends Component {
   }
 }
 
-export default AboutUs;
+const mapStateToProps = state => {
+  return {
+    ctr: state
+  };
+};
+
+export default connect(mapStateToProps)(AboutUs);

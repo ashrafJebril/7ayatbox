@@ -51,10 +51,7 @@ height:200px;
   color: #991146;
 }
 
-.container-reservation mark {
-  color:#991146;
-  padding-right: 15px;
-}
+
 
 .reservation-background{
   
@@ -66,6 +63,7 @@ height:200px;
   background-repeat: no-repeat;
   height: 500px;
   margin-top: 91px;
+  
 
   }
   

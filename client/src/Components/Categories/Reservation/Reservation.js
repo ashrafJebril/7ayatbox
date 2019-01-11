@@ -39,7 +39,7 @@ class Reservation extends Component {
    
           <div className="row">
             <div className="col-6 title-reservation">
-              <mark>price $</mark>
+              price $
               <mark>{this.props.location.query.price}</mark>
             </div>
           </div>

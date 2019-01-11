@@ -33,7 +33,6 @@ class App extends Component {
             <Route exact path="/budgetresult" component={BudgetResult} />
             <Route exact path="/ServicesList" component={ServicesList} />
             <Route exact path="/Cart" component={Cart} />
-            <Route exact path="/Reservation" component={Reservation} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/ContactUs" component={ContactUs} />

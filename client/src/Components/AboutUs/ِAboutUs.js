@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./AboutUs.css";
-
+import { connect } from "react-redux";
 class AboutUs extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
+  componentDidMount() {
+    console.log("proppppps", this.props);
+  }
   render() {
     return (
       <div>
@@ -25,8 +27,9 @@ class AboutUs extends Component {
                     </div>
                     <div class="about-txt">
                       <p>
-                 we are aw wedding palnning website we help you to find the stuff the you need it for 
-                 your wedding party , thats mean you can be your own wedding planner 
+                        we are aw wedding palnning website we help you to find
+                        the stuff the you need it for your wedding party , thats
+                        mean you can be your own wedding planner
                         <br />
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -51,4 +54,10 @@ class AboutUs extends Component {
   }
 }
 
-export default AboutUs;
+const mapStateToProps = state => {
+  return {
+    ctr: state
+  };
+};
+
+export default connect(mapStateToProps)(AboutUs);

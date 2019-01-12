@@ -21,7 +21,7 @@ class Login extends Component {
   };
   //send post request for login
   handleLogin = () => {
-    console.log(this.state.email,this.state.password)
+    console.log(this.state.email, this.state.password);
     $.ajax({
       url: `/${this.props.location.query}/login`,
       type: "POST",
@@ -33,34 +33,25 @@ class Login extends Component {
         this.props.logedin(data);
         $("#navProvider").hide();
         $("#navLogin").hide();
-        $("#cart-nav").show()
-        $(".logout").show()
-
-
-
+        $("#cart-nav").show();
+        $(".logout").show();
 
         if (this.props.location.query === "user") {
-
-          $(".cart-cta").show()
-          $(".cart-details").css("display", "block")
+          $(".cart-cta").show();
+          $(".cart-details").css("display", "block");
           this.props.history.goBack();
 
-          $(".My-reservation").show()
-          $(".logout").show()
-          $(".signin-paragraph").css("dispaly", "none")
-
-
-        }
-
-        else {
-
+          $(".My-reservation").show();
+          $(".logout").show();
+          $(".signin-paragraph").css("dispaly", "none");
+        } else {
           this.props.history.push({
-            pathname: '/provider',
+            pathname: "/provider",
 
             query: data.id
           });
-          $("#cart-nav").hide()
-          $("#nav-service").hide()
+          $("#cart-nav").hide();
+          $("#nav-service").hide();
         }
       },
 
@@ -74,43 +65,70 @@ class Login extends Component {
       <div className="login">
         <div className="container ">
           <div>
-            <div id="fullscreen_bg" class="fullscreen_bg" />
+            <div id="fullscreen_bg" className="fullscreen_bg" />
 
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                  <div class="panel panel-default">
-                    <div class="panel-body">
-
-                      <h3 class="text-center">
-                        SIGN IN</h3>
-                      <div class="form-group">
-                        <div class="input-group">
-                          <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-4 col-md-offset-4">
+                  <div className="panel panel-default">
+                    <div className="panel-body">
+                      <h3 className="text-center">SIGN IN</h3>
+                      <div className="form-group">
+                        <div className="input-group">
+                          <span className="input-group-addon">
+                            <span className="glyphicon glyphicon-envelope" />
                           </span>
-                          <input type="text" class="form-control" placeholder="Email Address" id="txt_email" onChange={this.handleEmailChange} />
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Email Address"
+                            id="txt_email"
+                            onChange={this.handleEmailChange}
+                          />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <div class="input-group">
-                          <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                          <input type="password" class="form-control" placeholder="Password" id="txt_password" onChange={this.handlePasswordChange} />
-                        </div>    </div>
-
-                      <button class="btn btn-lg btn-primary btn-block" onClick={this.handleLogin}>
-                        Sign In
-         </button>
-                      <Link to={{ pathname: "/signup", query: this.props.location.query }}>  <button id="login_register_btn" type="button" class="btn btn-link" >Register</button> </Link>
-                      <div className="header">
-
+                      <div className="form-group">
+                        <div className="input-group">
+                          <span className="input-group-addon">
+                            <span className="glyphicon glyphicon-lock" />
+                          </span>
+                          <input
+                            type="password"
+                            className="form-control"
+                            placeholder="Password"
+                            id="txt_password"
+                            onChange={this.handlePasswordChange}
+                          />
+                        </div>{" "}
                       </div>
 
+                      <button
+                        className="btn btn-lg btn-primary btn-block"
+                        onClick={this.handleLogin}
+                      >
+                        Sign In
+                      </button>
+                      <Link
+                        to={{
+                          pathname: "/signup",
+                          query: this.props.location.query
+                        }}
+                      >
+                        {" "}
+                        <button
+                          id="login_register_btn"
+                          type="button"
+                          className="btn btn-link"
+                        >
+                          Register
+                        </button>{" "}
+                      </Link>
+                      <div className="header" />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -132,5 +150,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login);
-
-

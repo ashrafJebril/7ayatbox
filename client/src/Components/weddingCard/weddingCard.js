@@ -4,10 +4,11 @@ import React, { Component } from 'react'
 import "./weddingCard.css"
 import * as jsPDF from 'jspdf'
 import html2canvas from "html2canvas"
+import { connect } from "react-redux";
 
-class weddingCard extends Component {
-    constructor() {
-        super()
+class WeddingCard extends Component {
+    constructor(props) {
+        super(props)
     }
 
     printDocument() {
@@ -23,19 +24,20 @@ class weddingCard extends Component {
             ;
     }
     render() {
+        console.log(this.props)
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-7">
                         <div className="WeddingCard" div id="WeddingCard">
                             <h3>Our wedding day</h3>
-                            <h2>Ashraf <span> & </span>fat7yeh </h2>
+                            <h2>{this.props.cardReservation.fullName}<span> & </span>{this.props.cardReservation.partnerName}</h2>
 
                             <div>at 3:00 </div>
                             <div> the pleasure of your company , we would like to invite you to our wedding"</div>
                             <div>hayat amman </div>
                             <div>4th circle</div>
-                            <div className="weddingCard-date">sunday, 21 . 7 . 2019</div>
+                            <div className="weddingCard-date">sunday,{this.props.cardReservation.date}</div>
                             <div className="line"></div>
                         </div></div>
 
@@ -46,13 +48,13 @@ class weddingCard extends Component {
                         <div className="row">
                             <div className="small-card">
                                 <h3>Our wedding day</h3>
-                                <h2>Ashraf <span> & </span>fat7yeh </h2>
+                                <h2>{this.props.cardReservation.fullName}<span> & </span>{this.props.cardReservation.partnerName}</h2>
 
                                 <p> the pleasure of your company , we would like to invite you to our wedding"</p>
 
                                 <p>hayat amman</p>
                                 <p>4th circle</p>
-                                <div className="weddingCard-date-small">sunday, 21 . 7 . 2019</div>
+                                <div className="weddingCard-date-small">sunday,{this.props.cardReservation.date}</div>
 
                             </div>
 
@@ -64,7 +66,7 @@ class weddingCard extends Component {
                                 <p> the pleasure of your company , we would like to invite you to our wedding"</p>
                                 <p>hayat amman</p>
                                 <p>4th circle</p>
-                                <div className="weddingCard-date-small">sunday, 21 . 7 . 2019</div>
+                                <div className="weddingCard-date-small">sunday,{this.props.cardReservation.date}</div>
 
                             </div>
                             <button onClick={this.printDocument} id="btnPdf">Download PDF</button>
@@ -78,4 +80,10 @@ class weddingCard extends Component {
         )
     }
 }
-export default weddingCard
+const mapStateToProps = state => {
+    return {
+      ...state
+    };
+  };
+  
+  export default connect(mapStateToProps)(WeddingCard);

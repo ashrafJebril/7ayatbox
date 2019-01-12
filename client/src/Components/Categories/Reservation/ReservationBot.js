@@ -1,29 +1,24 @@
 import ChatBot from "react-simple-chatbot";
 import React, { Component } from "react";
-import { ThemeProvider } from "styled-components";
+
 class ReservationBot extends Component {
   constructor(props) {
     super(props);
-
+    this.randDate = Math.floor(Math.random() * 30) + 1;
     this.steps = [
       {
         id: "1",
-        message: "Greetings what's your name?",
+        message: `Greetings ${this.props.userName}!`,
         trigger: "2"
       },
       {
         id: "2",
-        user: true,
+        message: `Your Total including tax: ${this.props.totalPrice} JOD`,
         trigger: "3"
       },
       {
         id: "3",
-        message: "Hi {previousValue}, nice to meet you!",
-        trigger: "4"
-      },
-      {
-        id: "4",
-        message: "Can I help you in your booking?",
+        message: "Do you want to reserve now?",
         trigger: "5"
       },
       {
@@ -79,8 +74,8 @@ class ReservationBot extends Component {
 
         options: [
           {
-            value: 1,
-            label: `${this.getAvailableDates()}`,
+            value: `${this.randDate}`,
+            label: `${this.randDate}`,
             trigger: "13"
           }
         ]
@@ -97,24 +92,59 @@ class ReservationBot extends Component {
       },
       {
         id: "13",
-        message: "ok I added the service to your plan",
+        message:
+          "Ok everything is set do you want to create your wedding card? ",
+        trigger: "14"
+      },
+      {
+        id: "14",
+        options: [
+          { value: "yes", label: "yes", trigger: "15" },
+          { value: "no", label: "no", trigger: "19" }
+        ]
+      },
+      {
+        id: "15",
+        message: "Please type your full name to be displayed on card",
+        trigger: "16"
+      },
+      {
+        id: "16",
+        user: true,
+        trigger: "17"
+      },
+      {
+        id: "17",
+        message: "Please type your partner full name to be displayed on card",
+        trigger: "18"
+      },
+      {
+        id: "18",
+        user: true,
+        trigger: "19"
+      },
+      {
+        id: "19",
+        message: "Thank you for using Hayat Box Your reservation is confirmed.",
         end: true
       }
     ];
   }
   handleEnd = ({ steps, values }) => {
-    this.props.addToCart(values);
+    var botVal = {
+      fullName: values[5],
+      partnerName: values[6],
+      date: `${values[3]}, ${values[1]} 2019`
+    };
+
+    this.props.handleSubmit(botVal);
   };
   getAvailableDates = month => {
     return Math.floor(Math.random() * 30) + 1;
   };
-  componentDidMount() {}
+
   render() {
-    return (
-      
-        <ChatBot steps={this.steps} handleEnd={this.handleEnd} />
-     
-    );
+    return <ChatBot steps={this.steps} handleEnd={this.handleEnd} />;
   }
 }
 export default ReservationBot;

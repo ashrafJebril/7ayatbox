@@ -1,7 +1,8 @@
 const intialState = {
   counter: 0,
   result2: [],
-  user: {}
+  user: {},
+  cardReservation: {}
 };
 
 const reducer = (state = intialState, action) => {
@@ -9,6 +10,12 @@ const reducer = (state = intialState, action) => {
     return {
       ...state,
       counter: state.counter + 1
+    };
+  } else if (action.type === "RESET") {
+    return {
+      ...state,
+      counter: 0,
+      result2: []
     };
   } else if (action.type === "SAVE") {
     var array = state.result2;
@@ -21,6 +28,11 @@ const reducer = (state = intialState, action) => {
     return {
       ...state,
       user: action.value
+    };
+  } else if (action.type === "cardReservation") {
+    return {
+      ...state,
+      cardReservation: action.value
     };
   }
   return state;

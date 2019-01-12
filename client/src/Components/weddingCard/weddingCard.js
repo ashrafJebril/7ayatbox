@@ -60,7 +60,7 @@ class WeddingCard extends Component {
 
                             <div className="small-card2">
                                 <h3>Our wedding day</h3>
-                                <h2>Ashraf <span> & </span>fat7yeh </h2>
+                                <h2>{this.props.cardReservation.fullName}<span> & </span>{this.props.cardReservation.partnerName}</h2>
 
                                 <p>at 3:00 </p>
                                 <p> the pleasure of your company , we would like to invite you to our wedding"</p>
